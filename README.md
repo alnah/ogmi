@@ -1,3 +1,5 @@
-# The Common European Framework of Reference (CEFR) Command-line interface (CLI)
+# Ogmi
+
+**Ogmi** is a Go command-line interface (CLI) that parses `.yaml` catalogs describing language specifications.
 
 Work in progress.
