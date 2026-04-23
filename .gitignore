@@ -46,7 +46,7 @@ bin/
 cover.out
 coverage.out
 
-# Coding agents
+# Agents
 .claude/
 .codex/
 .cursor/
