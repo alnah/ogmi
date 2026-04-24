@@ -1,11 +1,12 @@
 package specs
 
 import (
-	"embed"
 	"fmt"
 	"io/fs"
 	"os"
 	"path/filepath"
+
+	ogmi "github.com/alnah/ogmi"
 )
 
 type SourceRequest struct {
@@ -18,11 +19,8 @@ type Source struct {
 	Description string
 }
 
-//go:embed specs/** specs/*/.gitkeep specs/*/*/.gitkeep specs/*/*/*/.gitkeep specs/*/*/*/*/.gitkeep specs/*/*/*/*/*/.gitkeep specs/*/*/*/*/*/*/.gitkeep
-var bundledSpecs embed.FS
-
 func Bundle() fs.FS {
-	return bundledSpecs
+	return ogmi.EmbeddedSpecs()
 }
 
 func Resolve(request SourceRequest) (Source, error) {
