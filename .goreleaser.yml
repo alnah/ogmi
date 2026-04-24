@@ -27,8 +27,6 @@ builds:
 
 archives:
   - id: ogmi
-    builds:
-      - ogmi
     formats:
       - tar.gz
     format_overrides:
