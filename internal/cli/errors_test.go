@@ -71,6 +71,30 @@ func TestCLIReportsUsageErrorsForInvalidDescriptorCommandArguments(t *testing.T)
 	}
 }
 
+func TestCLIReportsUsageErrorsForUnexpectedDescriptorLeafArgs(t *testing.T) {
+	tests := []struct {
+		name string
+		args []string
+	}{
+		{name: "list", args: []string{"descriptors", "list", "extra", "--limit", "1"}},
+		{name: "scales", args: []string{"descriptors", "scales", "extra", "--corpus", "cefr", "--limit", "1"}},
+		{name: "get", args: []string{"descriptors", "get", "extra", "--corpus", "cefr", "--id", knownDescriptorID}},
+		{name: "compare levels", args: []string{"descriptors", "compare-levels", "extra", "--corpus", "cefr", "--scale", "addressing_audiences", "--level", "a1"}},
+		{name: "coverage", args: []string{"descriptors", "coverage", "extra", "--corpus", "cefr", "--domain", "production"}},
+		{name: "schema", args: []string{"descriptors", "schema", "extra"}},
+		{name: "corpora", args: []string{"descriptors", "corpora", "extra"}},
+		{name: "fields", args: []string{"descriptors", "fields", "extra"}},
+		{name: "examples", args: []string{"descriptors", "examples", "extra"}},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := runOgmi(t, tt.args...)
+			_ = requireCLIError(t, result, cli.ExitUsage, "usage", "extra")
+		})
+	}
+}
+
 func TestCLIReportsTypedStructuredFieldErrors(t *testing.T) {
 	result := runOgmi(t, "descriptors", "schema", "--field", "subdomian")
 	envelope := requireCLIError(t, result, cli.ExitDomain, "unknown_field", "subdomian")
