@@ -46,6 +46,9 @@ bin/
 cover.out
 coverage.out
 
+# Local specs
+/docs/SPEC_*.md
+
 # Agents
 .claude/
 .codex/
