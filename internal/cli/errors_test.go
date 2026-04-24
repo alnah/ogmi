@@ -34,6 +34,43 @@ func TestErrorsUseStderrAndStableExitCodes(t *testing.T) {
 	}
 }
 
+func TestCLIReportsUsageErrorsForInvalidDescriptorCommandArguments(t *testing.T) {
+	tests := []struct {
+		name             string
+		args             []string
+		messageFragments []string
+	}{
+		{
+			name:             "nested unknown command",
+			args:             []string{"descriptors", "nope"},
+			messageFragments: []string{"unknown command", "nope"},
+		},
+		{
+			name:             "invalid scales sort order",
+			args:             []string{"descriptors", "scales", "--corpus", "cefr", "--sort-order", "sideways", "--limit", "1"},
+			messageFragments: []string{"--sort-order", "asc", "desc"},
+		},
+		{
+			name:             "invalid list sort field",
+			args:             []string{"descriptors", "list", "--corpus", "cefr", "--sort-by", "nope", "--limit", "1"},
+			messageFragments: []string{"--sort-by", "nope"},
+		},
+		{
+			name:             "invalid scales sort field",
+			args:             []string{"descriptors", "scales", "--corpus", "cefr", "--sort-by", "nope", "--limit", "1"},
+			messageFragments: []string{"--sort-by", "nope"},
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			result := runOgmi(t, tt.args...)
+			envelope := requireCLIError(t, result, cli.ExitUsage, "usage", tt.messageFragments[0])
+			requireContainsAll(t, envelope.Error.Message, tt.messageFragments...)
+		})
+	}
+}
+
 func TestCLIReportsTypedStructuredFieldErrors(t *testing.T) {
 	result := runOgmi(t, "descriptors", "schema", "--field", "subdomian")
 	envelope := requireCLIError(t, result, cli.ExitDomain, "unknown_field", "subdomian")
