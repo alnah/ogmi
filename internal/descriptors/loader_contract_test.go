@@ -152,7 +152,9 @@ func TestLoadReportsStructuredErrorsForMalformedYAMLAndInvalidRows(t *testing.T)
 		wantCode string
 	}{
 		{name: "malformed yaml", files: fstest.MapFS{"specs/cefr/production/speaking/descriptors.yml": {Data: []byte("id: broken\ncatalog: [")}}, wantCode: "invalid_yaml"},
+		{name: "description invalid shape", files: fstest.MapFS{"specs/cefr/production/speaking/descriptors.yml": {Data: []byte("catalog:\n  - code: x\n    id: x\n    description:\n      text: nested\n")}}, wantCode: "invalid_yaml"},
 		{name: "invalid row", files: fstest.MapFS{"specs/cefr/production/speaking/descriptors.yml": {Data: []byte("catalog:\n  - id: missing-code\nentries:\n  - scale: x\n")}}, wantCode: "invalid_row"},
+		{name: "empty description row", files: fstest.MapFS{"specs/cefr/production/speaking/descriptors.yml": {Data: []byte("catalog:\n  - code: x\n    id: x\n    description: ''\n")}}, wantCode: "invalid_row"},
 		{name: "missing specs", files: fstest.MapFS{}},
 	}
 
@@ -197,4 +199,12 @@ func TestEmbeddedSpecsContractCounts(t *testing.T) {
 	if got, want := len(dataset.Descriptors), 2697; got != want {
 		t.Errorf("embedded descriptor count = %d, want %d", got, want)
 	}
+}
+
+func TestLoadReturnsInternalErrorWhenContextCanceled(t *testing.T) {
+	ctx, cancel := context.WithCancel(context.Background())
+	cancel()
+
+	_, err := descriptors.Load(ctx, descriptorFixtureFS(), descriptors.LoadOptions{})
+	_ = requireCodedError(t, err, "internal")
 }

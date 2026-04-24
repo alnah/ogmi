@@ -14,15 +14,19 @@ func TestResolveSourcePrecedence(t *testing.T) {
 	tests := []struct {
 		name       string
 		request    specs.SourceRequest
+		envPath    string
 		wantSource string
 	}{
 		{name: "flag wins", request: specs.SourceRequest{FlagPath: "/flag/specs", EnvPath: "/env/specs"}, wantSource: "/flag/specs"},
-		{name: "env replaces embedded", request: specs.SourceRequest{EnvPath: "/env/specs"}, wantSource: "/env/specs"},
+		{name: "request env replaces embedded", request: specs.SourceRequest{EnvPath: "/env/specs"}, wantSource: "/env/specs"},
+		{name: "process env replaces embedded", request: specs.SourceRequest{}, envPath: "/process/env/specs", wantSource: "/process/env/specs"},
 		{name: "embedded default", request: specs.SourceRequest{}, wantSource: "embedded"},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
+			t.Setenv("OGMI_SPECS", tt.envPath)
+
 			got, err := specs.Resolve(tt.request)
 			if err != nil {
 				t.Fatalf("specs.Resolve() error = %v", err)
@@ -31,6 +35,13 @@ func TestResolveSourcePrecedence(t *testing.T) {
 				t.Errorf("specs.Resolve() source = %q, want %q", got.Description, tt.wantSource)
 			}
 		})
+	}
+}
+
+func TestExportRequiresOutputDir(t *testing.T) {
+	err := specs.Export(fstest.MapFS{}, "", false)
+	if err == nil {
+		t.Fatal("specs.Export(empty output dir) error = nil, want error")
 	}
 }
 
