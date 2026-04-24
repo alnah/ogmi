@@ -49,6 +49,11 @@ func descriptorsCommand(ctx context.Context, cfg *config, stdout io.Writer) *cob
 			"ogmi descriptors list --corpus cefr --domain production --subdomain speaking --level a1",
 			"ogmi descriptors get --corpus cefr --id cefr.production.speaking.descriptors.addressing_audiences.use_very_short_prepared_text_to_deliver_rehearsed_statement.a1",
 		}, "\n"),
+		Args: rejectUnknownDescriptorCommand,
+		RunE: func(cmd *cobra.Command, args []string) error {
+			_ = args
+			return cmd.Help()
+		},
 	}
 	cmd.AddCommand(corporaCommand(ctx, cfg, stdout))
 	cmd.AddCommand(fieldsCommand(cfg, stdout))
@@ -155,8 +160,11 @@ func listCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.Comm
 		RunE: func(cmd *cobra.Command, args []string) error {
 			_ = cmd
 			_ = args
-			if filters.SortOrder != "" && strings.ToLower(filters.SortOrder) != "asc" && strings.ToLower(filters.SortOrder) != "desc" {
-				return usageError{message: "--sort-order must be asc or desc"}
+			if err := validateSortOrder(filters.SortOrder); err != nil {
+				return err
+			}
+			if err := validateListSortBy(filters.SortBy); err != nil {
+				return err
 			}
 			dataset, err := loadDataset(ctx, cfg, filters.Corpora)
 			if err != nil {
@@ -183,6 +191,12 @@ func scalesCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.Co
 		RunE: func(cmd *cobra.Command, args []string) error {
 			_ = cmd
 			_ = args
+			if err := validateSortOrder(filters.SortOrder); err != nil {
+				return err
+			}
+			if err := validateScaleSortBy(filters.SortBy); err != nil {
+				return err
+			}
 			dataset, err := loadDataset(ctx, cfg, filters.Corpora)
 			if err != nil {
 				return err
@@ -305,6 +319,53 @@ func examplesCommand(cfg *config, stdout io.Writer) *cobra.Command {
 			return writeOutput(stdout, cfg.format, func(w io.Writer) error { return json.NewEncoder(w).Encode(result) }, result.Examples)
 		},
 	}
+}
+
+func rejectUnknownDescriptorCommand(cmd *cobra.Command, args []string) error {
+	if len(args) == 0 {
+		return nil
+	}
+	return usageError{message: fmt.Sprintf("unknown command %q for %q", args[0], cmd.CommandPath())}
+}
+
+func validateSortOrder(value string) error {
+	switch strings.ToLower(strings.TrimSpace(value)) {
+	case "", "asc", "desc":
+		return nil
+	default:
+		return usageError{message: "--sort-order must be asc or desc"}
+	}
+}
+
+func validateListSortBy(value descriptors.Field) error {
+	return validateSortBy(value, map[descriptors.Field]bool{
+		descriptors.FieldCorpus:    true,
+		descriptors.FieldDomain:    true,
+		descriptors.FieldSubdomain: true,
+		descriptors.FieldScale:     true,
+		descriptors.FieldLevel:     true,
+		descriptors.FieldCode:      true,
+		descriptors.FieldID:        true,
+	})
+}
+
+func validateScaleSortBy(value descriptors.Field) error {
+	return validateSortBy(value, map[descriptors.Field]bool{
+		descriptors.FieldCorpus:    true,
+		descriptors.FieldDomain:    true,
+		descriptors.FieldSubdomain: true,
+		descriptors.FieldScale:     true,
+		descriptors.FieldCode:      true,
+		descriptors.FieldID:        true,
+	})
+}
+
+func validateSortBy(value descriptors.Field, allowed map[descriptors.Field]bool) error {
+	field := descriptors.Field(strings.ToLower(strings.TrimSpace(string(value))))
+	if field == "" || allowed[field] {
+		return nil
+	}
+	return usageError{message: fmt.Sprintf("--sort-by %s is not supported", field)}
 }
 
 func corporaText(result corporaResult) []string {
