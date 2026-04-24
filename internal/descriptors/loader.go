@@ -80,9 +80,12 @@ func descriptorFiles(fsys fs.FS, corpus Corpus) []string {
 	seen := make(map[string]bool)
 	files := []string{}
 	for _, root := range corpus.Roots {
+		if _, err := fs.Stat(fsys, root); err != nil {
+			continue
+		}
 		_ = fs.WalkDir(fsys, root, func(name string, entry fs.DirEntry, err error) error {
 			if err != nil {
-				return nil
+				return fs.SkipDir
 			}
 			if !entry.IsDir() && path.Base(name) == "descriptors.yml" && !seen[name] {
 				seen[name] = true

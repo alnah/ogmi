@@ -13,7 +13,7 @@ type config struct {
 	specs  string
 }
 
-func newRootCommand(ctx context.Context, cfg *config, stdout, stderr io.Writer) *cobra.Command {
+func newRootCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.Command {
 	root := &cobra.Command{
 		Use:   "ogmi",
 		Short: "Ogmi language descriptor CLI",

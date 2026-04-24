@@ -14,16 +14,20 @@ linters:
     - copyloopvar
     - errcheck
     - errorlint
+    - gocritic
     - gocyclo
     - govet
     - ineffassign
     - misspell
+    - nilerr
     - nilnil
+    - noctx
     - nolintlint
     - revive
     - staticcheck
     - thelper
     - unconvert
+    - unparam
     - unused
     - usestdlibvars
     - whitespace

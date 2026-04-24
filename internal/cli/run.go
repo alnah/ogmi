@@ -18,7 +18,7 @@ const (
 // Run executes ogmi and returns the process exit code.
 func Run(ctx context.Context, args []string, stdout, stderr io.Writer) int {
 	cfg := &config{format: "json"}
-	root := newRootCommand(ctx, cfg, stdout, stderr)
+	root := newRootCommand(ctx, cfg, stdout)
 	root.SetArgs(args)
 	root.SetOut(stdout)
 	root.SetErr(stderr)
