@@ -16,12 +16,27 @@ func Schema(ctx context.Context, dataset Dataset, input SchemaInput) (SchemaResu
 	}
 	field := Field(normalizeToken(string(input.Field)))
 	if !isKnownField(field) {
-		return SchemaResult{}, CodedError{Code: "unknown_field", Message: fmt.Sprintf("Unknown descriptor field: %s", input.Field), Suggestions: suggestions(string(input.Field), fieldNames()), Details: ErrorDetails{InvalidFilter: InvalidFilter{Field: "field", Value: string(input.Field)}, AvailableFields: knownFields()}}
+		return SchemaResult{}, CodedError{
+			Code:        "unknown_field",
+			Message:     fmt.Sprintf("Unknown descriptor field: %s", input.Field),
+			Suggestions: suggestions(string(input.Field), fieldNames()),
+			Details: ErrorDetails{
+				InvalidFilter:   InvalidFilter{Field: "field", Value: string(input.Field)},
+				AvailableFields: knownFields(),
+			},
+		}
 	}
 	filters := NormalizeFilters(input.Filters)
 	available := availableFieldsForFilters(filters)
 	if !fieldIn(field, available) {
-		return SchemaResult{}, CodedError{Code: "unavailable_field", Message: fmt.Sprintf("Descriptor field %s is unavailable", field), Details: ErrorDetails{InvalidFilter: InvalidFilter{Field: "field", Value: string(field)}, AvailableFields: available}}
+		return SchemaResult{}, CodedError{
+			Code:    "unavailable_field",
+			Message: fmt.Sprintf("Descriptor field %s is unavailable", field),
+			Details: ErrorDetails{
+				InvalidFilter:   InvalidFilter{Field: "field", Value: string(field)},
+				AvailableFields: available,
+			},
+		}
 	}
 	items := filterDescriptors(dataset.Descriptors, filters)
 	values := distinctFieldValues(items, field)

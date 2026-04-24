@@ -11,7 +11,10 @@ import (
 )
 
 func TestQueryReportsTypedInvalidFilterDetails(t *testing.T) {
-	_, err := descriptors.Query(context.Background(), queryDataset(), descriptors.Filters{Corpora: []string{"cefr"}, Levels: []string{"Z9"}})
+	_, err := descriptors.Query(context.Background(), queryDataset(), descriptors.Filters{
+		Corpora: []string{"cefr"},
+		Levels:  []string{"Z9"},
+	})
 	coded := requireCodedError(t, err, "invalid_filter")
 	wantInvalidFilter := descriptors.InvalidFilter{Field: "level", Value: "Z9"}
 	if diff := cmp.Diff(wantInvalidFilter, coded.Details.InvalidFilter); diff != "" {
@@ -31,7 +34,9 @@ func TestUnknownCorpusSuggestionsUseCloseMatchesOnly(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			_, err := descriptors.Query(context.Background(), queryDataset(), descriptors.Filters{Corpora: []string{tt.corpus}})
+			_, err := descriptors.Query(context.Background(), queryDataset(), descriptors.Filters{
+				Corpora: []string{tt.corpus},
+			})
 			coded := requireCodedError(t, err, "unknown_corpus")
 			if diff := cmp.Diff(tt.wantSuggestions, coded.Suggestions); diff != "" {
 				t.Errorf("unknown corpus suggestions mismatch (-want +got):\n%s", diff)
@@ -65,7 +70,10 @@ func TestDescriptorOperationsReturnContextErrors(t *testing.T) {
 			return err
 		}},
 		{name: "compare", run: func() error {
-			_, err := descriptors.CompareLevels(ctx, queryDataset(), descriptors.CompareLevelsInput{Corpus: "cefr", Scale: "turntaking"})
+			_, err := descriptors.CompareLevels(ctx, queryDataset(), descriptors.CompareLevelsInput{
+				Corpus: "cefr",
+				Scale:  "turntaking",
+			})
 			return err
 		}},
 		{name: "coverage", run: func() error {
@@ -100,11 +108,15 @@ func TestDescriptorSadPathsReturnStableCodedErrors(t *testing.T) {
 			return err
 		}, wantCode: "missing_required_filter"},
 		{name: "compare without corpus", run: func() error {
-			_, err := descriptors.CompareLevels(context.Background(), queryDataset(), descriptors.CompareLevelsInput{Scale: "turntaking"})
+			_, err := descriptors.CompareLevels(context.Background(), queryDataset(), descriptors.CompareLevelsInput{
+				Scale: "turntaking",
+			})
 			return err
 		}, wantCode: "missing_required_filter"},
 		{name: "compare without scale", run: func() error {
-			_, err := descriptors.CompareLevels(context.Background(), queryDataset(), descriptors.CompareLevelsInput{Corpus: "cefr"})
+			_, err := descriptors.CompareLevels(context.Background(), queryDataset(), descriptors.CompareLevelsInput{
+				Corpus: "cefr",
+			})
 			return err
 		}, wantCode: "missing_required_filter"},
 		{name: "coverage without corpus", run: func() error {
@@ -116,7 +128,9 @@ func TestDescriptorSadPathsReturnStableCodedErrors(t *testing.T) {
 			return err
 		}, wantCode: "unknown_corpus"},
 		{name: "missing requested specs", run: func() error {
-			_, err := descriptors.Load(context.Background(), fstest.MapFS{}, descriptors.LoadOptions{Corpora: []string{"themes"}})
+			_, err := descriptors.Load(context.Background(), fstest.MapFS{}, descriptors.LoadOptions{
+				Corpora: []string{"themes"},
+			})
 			return err
 		}, wantCode: "missing_specs"},
 	}

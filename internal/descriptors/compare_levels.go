@@ -13,12 +13,22 @@ func CompareLevels(ctx context.Context, dataset Dataset, input CompareLevelsInpu
 	corpus := normalizeToken(input.Corpus)
 	scale := normalizeToken(input.Scale)
 	if corpus == "" || scale == "" {
-		return CompareLevelsResult{}, CodedError{Code: "missing_required_filter", Message: "compare-levels requires corpus and scale"}
+		return CompareLevelsResult{}, CodedError{
+			Code:    "missing_required_filter",
+			Message: "compare-levels requires corpus and scale",
+		}
 	}
 	if !knownCorpus(corpus) {
 		return CompareLevelsResult{}, unknownCorpusError(corpus)
 	}
-	filters := NormalizeFilters(Filters{Corpora: []string{corpus}, Domain: input.Domain, Subdomain: input.Subdomain, Scales: []string{scale}, Levels: input.Levels, Query: input.Query})
+	filters := NormalizeFilters(Filters{
+		Corpora:   []string{corpus},
+		Domain:    input.Domain,
+		Subdomain: input.Subdomain,
+		Scales:    []string{scale},
+		Levels:    input.Levels,
+		Query:     input.Query,
+	})
 	items := filterDescriptors(dataset.Descriptors, filters)
 	sort.SliceStable(items, func(i, j int) bool { return compareDescriptor(items[i], items[j]) < 0 })
 	levels := filters.Levels
@@ -44,7 +54,16 @@ func CompareLevels(ctx context.Context, dataset Dataset, input CompareLevelsInpu
 	if input.Limit > 0 && input.Limit < len(paged) {
 		paged = paged[:input.Limit]
 	}
-	return CompareLevelsResult{Kind: "descriptor_level_comparison", SchemaVersion: SchemaVersion, Levels: levels, Summaries: summaries, MissingLevels: missing, Total: len(items), Returned: len(paged), Items: paged}, nil
+	return CompareLevelsResult{
+		Kind:          "descriptor_level_comparison",
+		SchemaVersion: SchemaVersion,
+		Levels:        levels,
+		Summaries:     summaries,
+		MissingLevels: missing,
+		Total:         len(items),
+		Returned:      len(paged),
+		Items:         paged,
+	}, nil
 }
 
 func levelsFromItems(items []DescriptorRecord) []string {

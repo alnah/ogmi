@@ -31,7 +31,16 @@ func compareScaleForQuery(left, right DescriptorScaleRecord, field Field, order 
 }
 
 func compareDescriptor(left, right DescriptorRecord) int {
-	for _, diff := range []int{strings.Compare(left.Corpus, right.Corpus), strings.Compare(left.Domain, right.Domain), strings.Compare(left.Subdomain, right.Subdomain), strings.Compare(left.Scale, right.Scale), compareLevels(left.Level, right.Level), strings.Compare(left.Code, right.Code), strings.Compare(left.ID, right.ID)} {
+	comparisons := []int{
+		strings.Compare(left.Corpus, right.Corpus),
+		strings.Compare(left.Domain, right.Domain),
+		strings.Compare(left.Subdomain, right.Subdomain),
+		strings.Compare(left.Scale, right.Scale),
+		compareLevels(left.Level, right.Level),
+		strings.Compare(left.Code, right.Code),
+		strings.Compare(left.ID, right.ID),
+	}
+	for _, diff := range comparisons {
 		if diff != 0 {
 			return diff
 		}
@@ -40,7 +49,14 @@ func compareDescriptor(left, right DescriptorRecord) int {
 }
 
 func compareScale(left, right DescriptorScaleRecord) int {
-	for _, diff := range []int{strings.Compare(left.Corpus, right.Corpus), strings.Compare(left.Domain, right.Domain), strings.Compare(left.Subdomain, right.Subdomain), strings.Compare(left.Code, right.Code), strings.Compare(left.ID, right.ID)} {
+	comparisons := []int{
+		strings.Compare(left.Corpus, right.Corpus),
+		strings.Compare(left.Domain, right.Domain),
+		strings.Compare(left.Subdomain, right.Subdomain),
+		strings.Compare(left.Code, right.Code),
+		strings.Compare(left.ID, right.ID),
+	}
+	for _, diff := range comparisons {
 		if diff != 0 {
 			return diff
 		}

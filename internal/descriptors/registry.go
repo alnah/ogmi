@@ -3,10 +3,30 @@ package descriptors
 import "sort"
 
 var registry = []Corpus{
-	{Name: "cefr", Roots: []string{"specs/cefr"}, PathFields: []Field{FieldDomain, FieldSubdomain}, DefaultCoverageAxes: []Field{FieldCorpus, FieldDomain, FieldSubdomain, FieldLevel}},
-	{Name: "french", Roots: []string{"specs/french"}, PathFields: []Field{FieldDomain}, DefaultCoverageAxes: []Field{FieldCorpus, FieldDomain, FieldLevel}},
-	{Name: "texts", Roots: []string{"specs/texts"}, PathFields: []Field{FieldDomain}, DefaultCoverageAxes: []Field{FieldCorpus, FieldDomain, FieldLevel}},
-	{Name: "themes", Files: []string{"specs/themes/descriptors.yml"}, PathFields: []Field{}, DefaultCoverageAxes: []Field{FieldCorpus, FieldLevel}},
+	{
+		Name:                "cefr",
+		Roots:               []string{"specs/cefr"},
+		PathFields:          []Field{FieldDomain, FieldSubdomain},
+		DefaultCoverageAxes: []Field{FieldCorpus, FieldDomain, FieldSubdomain, FieldLevel},
+	},
+	{
+		Name:                "french",
+		Roots:               []string{"specs/french"},
+		PathFields:          []Field{FieldDomain},
+		DefaultCoverageAxes: []Field{FieldCorpus, FieldDomain, FieldLevel},
+	},
+	{
+		Name:                "texts",
+		Roots:               []string{"specs/texts"},
+		PathFields:          []Field{FieldDomain},
+		DefaultCoverageAxes: []Field{FieldCorpus, FieldDomain, FieldLevel},
+	},
+	{
+		Name:                "themes",
+		Files:               []string{"specs/themes/descriptors.yml"},
+		PathFields:          []Field{},
+		DefaultCoverageAxes: []Field{FieldCorpus, FieldLevel},
+	},
 }
 
 // Registry returns a copy of registered descriptor corpora.

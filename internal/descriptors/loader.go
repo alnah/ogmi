@@ -36,8 +36,12 @@ func Load(ctx context.Context, fsys fs.FS, options LoadOptions) (Dataset, error)
 	if len(dataset.Scales) == 0 && len(dataset.Descriptors) == 0 {
 		return Dataset{}, CodedError{Code: "missing_specs", Message: "Descriptor specs not found"}
 	}
-	sort.SliceStable(dataset.Scales, func(i, j int) bool { return compareScale(dataset.Scales[i], dataset.Scales[j]) < 0 })
-	sort.SliceStable(dataset.Descriptors, func(i, j int) bool { return compareDescriptor(dataset.Descriptors[i], dataset.Descriptors[j]) < 0 })
+	sort.SliceStable(dataset.Scales, func(i, j int) bool {
+		return compareScale(dataset.Scales[i], dataset.Scales[j]) < 0
+	})
+	sort.SliceStable(dataset.Descriptors, func(i, j int) bool {
+		return compareDescriptor(dataset.Descriptors[i], dataset.Descriptors[j]) < 0
+	})
 	return dataset, nil
 }
 
@@ -108,11 +112,17 @@ func descriptorFiles(fsys fs.FS, corpus Corpus) []string {
 func loadFile(fsys fs.FS, corpus Corpus, file string) (Dataset, error) {
 	data, err := fs.ReadFile(fsys, file)
 	if err != nil {
-		return Dataset{}, CodedError{Code: "missing_specs", Message: fmt.Sprintf("Descriptor spec %s not found", file)}
+		return Dataset{}, CodedError{
+			Code:    "missing_specs",
+			Message: fmt.Sprintf("Descriptor spec %s not found", file),
+		}
 	}
 	var raw yamlFile
 	if err := yaml.Unmarshal(data, &raw); err != nil {
-		return Dataset{}, CodedError{Code: "invalid_yaml", Message: fmt.Sprintf("Invalid descriptor YAML in %s: %v", file, err)}
+		return Dataset{}, CodedError{
+			Code:    "invalid_yaml",
+			Message: fmt.Sprintf("Invalid descriptor YAML in %s: %v", file, err),
+		}
 	}
 	values := pathValues(corpus, file)
 	var dataset Dataset
@@ -121,9 +131,20 @@ func loadFile(fsys fs.FS, corpus Corpus, file string) (Dataset, error) {
 		id := strings.TrimSpace(row.ID)
 		desc := normalizeDescription([]string(row.Description))
 		if code == "" || id == "" || len(desc) == 0 {
-			return Dataset{}, CodedError{Code: "invalid_row", Message: fmt.Sprintf("Invalid descriptor catalog row %d in %s", index+1, file)}
+			return Dataset{}, CodedError{
+				Code:    "invalid_row",
+				Message: fmt.Sprintf("Invalid descriptor catalog row %d in %s", index+1, file),
+			}
 		}
-		dataset.Scales = append(dataset.Scales, DescriptorScaleRecord{Corpus: corpus.Name, Domain: values.Domain, Subdomain: values.Subdomain, Code: code, ID: id, Description: desc, File: file})
+		dataset.Scales = append(dataset.Scales, DescriptorScaleRecord{
+			Corpus:      corpus.Name,
+			Domain:      values.Domain,
+			Subdomain:   values.Subdomain,
+			Code:        code,
+			ID:          id,
+			Description: desc,
+			File:        file,
+		})
 	}
 	for index, row := range raw.Entries {
 		scale := normalizeToken(row.Scale)
@@ -132,9 +153,22 @@ func loadFile(fsys fs.FS, corpus Corpus, file string) (Dataset, error) {
 		id := strings.TrimSpace(row.ID)
 		desc := normalizeDescription([]string(row.Description))
 		if scale == "" || level == "" || code == "" || id == "" || len(desc) == 0 {
-			return Dataset{}, CodedError{Code: "invalid_row", Message: fmt.Sprintf("Invalid descriptor entries row %d in %s", index+1, file)}
+			return Dataset{}, CodedError{
+				Code:    "invalid_row",
+				Message: fmt.Sprintf("Invalid descriptor entries row %d in %s", index+1, file),
+			}
 		}
-		dataset.Descriptors = append(dataset.Descriptors, DescriptorRecord{Corpus: corpus.Name, Domain: values.Domain, Subdomain: values.Subdomain, Scale: scale, Level: level, Code: code, ID: id, Description: strings.Join(desc, "\n"), File: file})
+		dataset.Descriptors = append(dataset.Descriptors, DescriptorRecord{
+			Corpus:      corpus.Name,
+			Domain:      values.Domain,
+			Subdomain:   values.Subdomain,
+			Scale:       scale,
+			Level:       level,
+			Code:        code,
+			ID:          id,
+			Description: strings.Join(desc, "\n"),
+			File:        file,
+		})
 	}
 	return dataset, nil
 }

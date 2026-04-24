@@ -83,10 +83,30 @@ func loadFixtureDataset(t *testing.T) descriptors.Dataset {
 func TestRegistryExposesDescriptorCorpora(t *testing.T) {
 	got := descriptors.Registry()
 	want := []descriptors.Corpus{
-		{Name: "cefr", Roots: []string{"specs/cefr"}, PathFields: []descriptors.Field{descriptors.FieldDomain, descriptors.FieldSubdomain}, DefaultCoverageAxes: []descriptors.Field{descriptors.FieldCorpus, descriptors.FieldDomain, descriptors.FieldSubdomain, descriptors.FieldLevel}},
-		{Name: "french", Roots: []string{"specs/french"}, PathFields: []descriptors.Field{descriptors.FieldDomain}, DefaultCoverageAxes: []descriptors.Field{descriptors.FieldCorpus, descriptors.FieldDomain, descriptors.FieldLevel}},
-		{Name: "texts", Roots: []string{"specs/texts"}, PathFields: []descriptors.Field{descriptors.FieldDomain}, DefaultCoverageAxes: []descriptors.Field{descriptors.FieldCorpus, descriptors.FieldDomain, descriptors.FieldLevel}},
-		{Name: "themes", Files: []string{"specs/themes/descriptors.yml"}, PathFields: []descriptors.Field{}, DefaultCoverageAxes: []descriptors.Field{descriptors.FieldCorpus, descriptors.FieldLevel}},
+		{
+			Name:                "cefr",
+			Roots:               []string{"specs/cefr"},
+			PathFields:          []descriptors.Field{descriptors.FieldDomain, descriptors.FieldSubdomain},
+			DefaultCoverageAxes: cefrCoverageAxes(),
+		},
+		{
+			Name:                "french",
+			Roots:               []string{"specs/french"},
+			PathFields:          []descriptors.Field{descriptors.FieldDomain},
+			DefaultCoverageAxes: domainCoverageAxes(),
+		},
+		{
+			Name:                "texts",
+			Roots:               []string{"specs/texts"},
+			PathFields:          []descriptors.Field{descriptors.FieldDomain},
+			DefaultCoverageAxes: domainCoverageAxes(),
+		},
+		{
+			Name:                "themes",
+			Files:               []string{themesDescriptorsFile},
+			PathFields:          []descriptors.Field{},
+			DefaultCoverageAxes: []descriptors.Field{descriptors.FieldCorpus, descriptors.FieldLevel},
+		},
 	}
 	if diff := cmp.Diff(want, got); diff != "" {
 		t.Errorf("descriptors.Registry() mismatch (-want +got):\n%s", diff)
@@ -129,15 +149,75 @@ func TestLoadMapsPathsNormalizesRowsSortsCanonicallyAndUsesYMLOnly(t *testing.T)
 	dataset := loadFixtureDataset(t)
 	want := descriptors.Dataset{
 		Scales: []descriptors.DescriptorScaleRecord{
-			{Corpus: "cefr", Domain: "production", Subdomain: "speaking", Code: "addressing_audiences", ID: "cefr.production.speaking.descriptors.addressing_audiences", Description: []string{"Address audiences."}, File: "specs/cefr/production/speaking/descriptors.yml"},
-			{Corpus: "cefr", Domain: "production", Subdomain: "speaking", Code: "turntaking", ID: "cefr.production.speaking.descriptors.turntaking", Description: []string{"Manage turntaking."}, File: "specs/cefr/production/speaking/descriptors.yml"},
-			{Corpus: "themes", Code: "personal_identity", ID: "themes.descriptors.personal_identity", Description: []string{"Personal identity themes."}, File: "specs/themes/descriptors.yml"},
+			{
+				Corpus:      "cefr",
+				Domain:      "production",
+				Subdomain:   "speaking",
+				Code:        "addressing_audiences",
+				ID:          addressingAudiencesScaleID,
+				Description: []string{"Address audiences."},
+				File:        cefrSpeakingDescriptorsFile,
+			},
+			{
+				Corpus:      "cefr",
+				Domain:      "production",
+				Subdomain:   "speaking",
+				Code:        "turntaking",
+				ID:          turntakingScaleID,
+				Description: []string{"Manage turntaking."},
+				File:        cefrSpeakingDescriptorsFile,
+			},
+			{
+				Corpus:      "themes",
+				Code:        "personal_identity",
+				ID:          personalIdentityScaleID,
+				Description: []string{"Personal identity themes."},
+				File:        themesDescriptorsFile,
+			},
 		},
 		Descriptors: []descriptors.DescriptorRecord{
-			{Corpus: "cefr", Domain: "production", Subdomain: "speaking", Scale: "addressing_audiences", Level: "a1", Code: "deliver_toast", ID: "cefr.production.speaking.descriptors.addressing_audiences.deliver_toast.a1", Description: "Can deliver a short toast.", File: "specs/cefr/production/speaking/descriptors.yml"},
-			{Corpus: "cefr", Domain: "production", Subdomain: "speaking", Scale: "addressing_audiences", Level: "a2", Code: "present_simple_announcement", ID: "cefr.production.speaking.descriptors.addressing_audiences.present_simple_announcement.a2", Description: "Can present a simple announcement.", File: "specs/cefr/production/speaking/descriptors.yml"},
-			{Corpus: "cefr", Domain: "production", Subdomain: "speaking", Scale: "turntaking", Level: "b1", Code: "maintain_exchange", ID: "cefr.production.speaking.descriptors.turntaking.maintain_exchange.b1", Description: "Can maintain an exchange.\nCan add relevant details.", File: "specs/cefr/production/speaking/descriptors.yml"},
-			{Corpus: "themes", Scale: "personal_identity", Level: "pre_a1", Code: "personal_details", ID: "themes.descriptors.personal_identity.personal_details.pre_a1", Description: "Can share basic personal details.", File: "specs/themes/descriptors.yml"},
+			{
+				Corpus:      "cefr",
+				Domain:      "production",
+				Subdomain:   "speaking",
+				Scale:       "addressing_audiences",
+				Level:       "a1",
+				Code:        "deliver_toast",
+				ID:          deliverToastDescriptorID,
+				Description: "Can deliver a short toast.",
+				File:        cefrSpeakingDescriptorsFile,
+			},
+			{
+				Corpus:      "cefr",
+				Domain:      "production",
+				Subdomain:   "speaking",
+				Scale:       "addressing_audiences",
+				Level:       "a2",
+				Code:        "present_simple_announcement",
+				ID:          presentSimpleAnnouncementDescriptorID,
+				Description: "Can present a simple announcement.",
+				File:        cefrSpeakingDescriptorsFile,
+			},
+			{
+				Corpus:      "cefr",
+				Domain:      "production",
+				Subdomain:   "speaking",
+				Scale:       "turntaking",
+				Level:       "b1",
+				Code:        "maintain_exchange",
+				ID:          maintainExchangeDescriptorID,
+				Description: "Can maintain an exchange.\nCan add relevant details.",
+				File:        cefrSpeakingDescriptorsFile,
+			},
+			{
+				Corpus:      "themes",
+				Scale:       "personal_identity",
+				Level:       "pre_a1",
+				Code:        "personal_details",
+				ID:          personalDetailsDescriptorID,
+				Description: "Can share basic personal details.",
+				File:        themesDescriptorsFile,
+			},
 		},
 	}
 	if diff := cmp.Diff(want, dataset); diff != "" {
@@ -151,10 +231,30 @@ func TestLoadReportsStructuredErrorsForMalformedYAMLAndInvalidRows(t *testing.T)
 		files    fstest.MapFS
 		wantCode string
 	}{
-		{name: "malformed yaml", files: fstest.MapFS{"specs/cefr/production/speaking/descriptors.yml": {Data: []byte("id: broken\ncatalog: [")}}, wantCode: "invalid_yaml"},
-		{name: "description invalid shape", files: fstest.MapFS{"specs/cefr/production/speaking/descriptors.yml": {Data: []byte("catalog:\n  - code: x\n    id: x\n    description:\n      text: nested\n")}}, wantCode: "invalid_yaml"},
-		{name: "invalid row", files: fstest.MapFS{"specs/cefr/production/speaking/descriptors.yml": {Data: []byte("catalog:\n  - id: missing-code\nentries:\n  - scale: x\n")}}, wantCode: "invalid_row"},
-		{name: "empty description row", files: fstest.MapFS{"specs/cefr/production/speaking/descriptors.yml": {Data: []byte("catalog:\n  - code: x\n    id: x\n    description: ''\n")}}, wantCode: "invalid_row"},
+		{
+			name:     "malformed yaml",
+			files:    mapWithCefrDescriptorsYAML([]byte("id: broken\ncatalog: [")),
+			wantCode: "invalid_yaml",
+		},
+		{
+			name: "description invalid shape",
+			files: mapWithCefrDescriptorsYAML([]byte(
+				"catalog:\n  - code: x\n    id: x\n    description:\n      text: nested\n",
+			)),
+			wantCode: "invalid_yaml",
+		},
+		{
+			name:     "invalid row",
+			files:    mapWithCefrDescriptorsYAML([]byte("catalog:\n  - id: missing-code\nentries:\n  - scale: x\n")),
+			wantCode: "invalid_row",
+		},
+		{
+			name: "empty description row",
+			files: mapWithCefrDescriptorsYAML([]byte(
+				"catalog:\n  - code: x\n    id: x\n    description: ''\n",
+			)),
+			wantCode: "invalid_row",
+		},
 		{name: "missing specs", files: fstest.MapFS{}},
 	}
 
@@ -207,4 +307,21 @@ func TestLoadReturnsInternalErrorWhenContextCanceled(t *testing.T) {
 
 	_, err := descriptors.Load(ctx, descriptorFixtureFS(), descriptors.LoadOptions{})
 	_ = requireCodedError(t, err, "internal")
+}
+
+func cefrCoverageAxes() []descriptors.Field {
+	return []descriptors.Field{
+		descriptors.FieldCorpus,
+		descriptors.FieldDomain,
+		descriptors.FieldSubdomain,
+		descriptors.FieldLevel,
+	}
+}
+
+func domainCoverageAxes() []descriptors.Field {
+	return []descriptors.Field{descriptors.FieldCorpus, descriptors.FieldDomain, descriptors.FieldLevel}
+}
+
+func mapWithCefrDescriptorsYAML(data []byte) fstest.MapFS {
+	return fstest.MapFS{cefrSpeakingDescriptorsFile: {Data: data}}
 }

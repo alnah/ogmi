@@ -25,7 +25,14 @@ type CodedError struct {
 func (e CodedError) Error() string { return e.Message }
 
 func unknownCorpusError(value string) CodedError {
-	return CodedError{Code: "unknown_corpus", Message: fmt.Sprintf("Unknown descriptor corpus: %s", value), Suggestions: suggestions(value, corpusNames()), Details: ErrorDetails{InvalidFilter: InvalidFilter{Field: "corpus", Value: value}}}
+	return CodedError{
+		Code:        "unknown_corpus",
+		Message:     fmt.Sprintf("Unknown descriptor corpus: %s", value),
+		Suggestions: suggestions(value, corpusNames()),
+		Details: ErrorDetails{
+			InvalidFilter: InvalidFilter{Field: "corpus", Value: value},
+		},
+	}
 }
 
 func suggestions(value string, choices []string) []string {

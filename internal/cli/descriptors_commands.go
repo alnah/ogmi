@@ -12,6 +12,9 @@ import (
 	"github.com/alnah/ogmi/internal/descriptors"
 )
 
+const preparedStatementDescriptorID = "cefr.production.speaking.descriptors.addressing_audiences." +
+	"use_very_short_prepared_text_to_deliver_rehearsed_statement.a1"
+
 type corporaResult struct {
 	Kind          string               `json:"kind"`
 	SchemaVersion string               `json:"schemaVersion"`
@@ -41,13 +44,16 @@ func descriptorsCommand(ctx context.Context, cfg *config, stdout io.Writer) *cob
 	cmd := &cobra.Command{
 		Use:   "descriptors",
 		Short: "Query language descriptors",
-		Long:  "Query language descriptors. Workflow: inspect corpora, inspect fields or schema, list descriptors, then get descriptor by id.",
+		Long: strings.Join([]string{
+			"Query language descriptors.",
+			"Workflow: inspect corpora, inspect fields or schema, list descriptors, then get descriptor by id.",
+		}, " "),
 		Example: strings.Join([]string{
 			"ogmi descriptors corpora",
 			"ogmi descriptors fields --corpus cefr",
 			"ogmi descriptors schema --field level --corpus cefr",
 			"ogmi descriptors list --corpus cefr --domain production --subdomain speaking --level a1",
-			"ogmi descriptors get --corpus cefr --id cefr.production.speaking.descriptors.addressing_audiences.use_very_short_prepared_text_to_deliver_rehearsed_statement.a1",
+			"ogmi descriptors get --corpus cefr --id " + preparedStatementDescriptorID,
 		}, "\n"),
 		Args: rejectUnknownDescriptorCommand,
 		RunE: func(cmd *cobra.Command, args []string) error {
@@ -80,8 +86,19 @@ func corporaCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.C
 			if _, err := loadDataset(ctx, cfg, nil); err != nil {
 				return err
 			}
-			result := corporaResult{Kind: "descriptor_corpora", SchemaVersion: SchemaVersion, Corpora: descriptors.Registry()}
-			return writeOutput(stdout, cfg.format, func(w io.Writer) error { return json.NewEncoder(w).Encode(result) }, corporaText(result))
+			result := corporaResult{
+				Kind:          "descriptor_corpora",
+				SchemaVersion: SchemaVersion,
+				Corpora:       descriptors.Registry(),
+			}
+			return writeOutput(
+				stdout,
+				cfg.format,
+				func(w io.Writer) error {
+					return json.NewEncoder(w).Encode(result)
+				},
+				corporaText(result),
+			)
 		},
 	}
 }
@@ -108,7 +125,14 @@ func fieldsCommand(cfg *config, stdout io.Writer) *cobra.Command {
 				{Name: descriptors.FieldID, Type: "id", Filterable: true, Groupable: false},
 			}
 			result := fieldsResult{Kind: "descriptor_fields", SchemaVersion: SchemaVersion, Fields: fields}
-			return writeOutput(stdout, cfg.format, func(w io.Writer) error { return json.NewEncoder(w).Encode(result) }, []string{"Descriptor fields: corpus, domain, subdomain, scale, level, code, id"})
+			return writeOutput(
+				stdout,
+				cfg.format,
+				func(w io.Writer) error {
+					return json.NewEncoder(w).Encode(result)
+				},
+				[]string{"Descriptor fields: corpus, domain, subdomain, scale, level, code, id"},
+			)
 		},
 	}
 	cmd.Flags().StringVar(&corpus, "corpus", "", "corpus filter")
@@ -145,7 +169,14 @@ func schemaCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.Co
 			if err != nil {
 				return err
 			}
-			return writeOutput(stdout, cfg.format, func(w io.Writer) error { return json.NewEncoder(w).Encode(result) }, []string{"Descriptor schema"})
+			return writeOutput(
+				stdout,
+				cfg.format,
+				func(w io.Writer) error {
+					return json.NewEncoder(w).Encode(result)
+				},
+				[]string{"Descriptor schema"},
+			)
 		},
 	}
 	cmd.Flags().StringVar(&field, "field", "", "schema field")
@@ -178,7 +209,14 @@ func listCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.Comm
 			if err != nil {
 				return err
 			}
-			return writeOutput(stdout, cfg.format, func(w io.Writer) error { return json.NewEncoder(w).Encode(result) }, []string{fmt.Sprintf("Descriptors: %d", result.Total)})
+			return writeOutput(
+				stdout,
+				cfg.format,
+				func(w io.Writer) error {
+					return json.NewEncoder(w).Encode(result)
+				},
+				[]string{fmt.Sprintf("Descriptors: %d", result.Total)},
+			)
 		},
 	}
 	bindListFlags(cmd, &filters)
@@ -210,7 +248,14 @@ func scalesCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.Co
 			if err != nil {
 				return err
 			}
-			return writeOutput(stdout, cfg.format, func(w io.Writer) error { return json.NewEncoder(w).Encode(result) }, []string{fmt.Sprintf("Descriptor scales: %d", result.Total)})
+			return writeOutput(
+				stdout,
+				cfg.format,
+				func(w io.Writer) error {
+					return json.NewEncoder(w).Encode(result)
+				},
+				[]string{fmt.Sprintf("Descriptor scales: %d", result.Total)},
+			)
 		},
 	}
 	bindScaleFlags(cmd, &filters)
@@ -223,7 +268,7 @@ func getCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.Comma
 		Use:     "get",
 		Short:   "Get one descriptor",
 		Long:    "Get one descriptor by id or by a unique code within a corpus.",
-		Example: "ogmi descriptors get --corpus cefr --id cefr.production.speaking.descriptors.addressing_audiences.use_very_short_prepared_text_to_deliver_rehearsed_statement.a1",
+		Example: "ogmi descriptors get --corpus cefr --id " + preparedStatementDescriptorID,
 		Args:    rejectUnexpectedArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			_ = cmd
@@ -239,7 +284,14 @@ func getCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.Comma
 			if err != nil {
 				return err
 			}
-			return writeOutput(stdout, cfg.format, func(w io.Writer) error { return json.NewEncoder(w).Encode(result) }, []string{"Descriptor: " + result.Descriptor.ID})
+			return writeOutput(
+				stdout,
+				cfg.format,
+				func(w io.Writer) error {
+					return json.NewEncoder(w).Encode(result)
+				},
+				[]string{"Descriptor: " + result.Descriptor.ID},
+			)
 		},
 	}
 	cmd.Flags().StringVar(&input.Corpus, "corpus", "", "corpus filter")
@@ -271,7 +323,14 @@ func compareCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.C
 			if err != nil {
 				return err
 			}
-			return writeOutput(stdout, cfg.format, func(w io.Writer) error { return json.NewEncoder(w).Encode(result) }, []string{fmt.Sprintf("Compared levels: %d", len(result.Levels))})
+			return writeOutput(
+				stdout,
+				cfg.format,
+				func(w io.Writer) error {
+					return json.NewEncoder(w).Encode(result)
+				},
+				[]string{fmt.Sprintf("Compared levels: %d", len(result.Levels))},
+			)
 		},
 	}
 	cmd.Flags().StringVar(&input.Corpus, "corpus", "", "corpus filter")
@@ -303,7 +362,14 @@ func coverageCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.
 			if err != nil {
 				return err
 			}
-			return writeOutput(stdout, cfg.format, func(w io.Writer) error { return json.NewEncoder(w).Encode(result) }, []string{fmt.Sprintf("Coverage total: %d", result.GrandTotal)})
+			return writeOutput(
+				stdout,
+				cfg.format,
+				func(w io.Writer) error {
+					return json.NewEncoder(w).Encode(result)
+				},
+				[]string{fmt.Sprintf("Coverage total: %d", result.GrandTotal)},
+			)
 		},
 	}
 	cmd.Flags().StringVar(&input.Corpus, "corpus", "", "corpus filter")
@@ -324,8 +390,19 @@ func examplesCommand(cfg *config, stdout io.Writer) *cobra.Command {
 		RunE: func(cmd *cobra.Command, args []string) error {
 			_ = cmd
 			_ = args
-			result := examplesResult{Kind: "descriptor_examples", SchemaVersion: SchemaVersion, Examples: descriptorExamples()}
-			return writeOutput(stdout, cfg.format, func(w io.Writer) error { return json.NewEncoder(w).Encode(result) }, result.Examples)
+			result := examplesResult{
+				Kind:          "descriptor_examples",
+				SchemaVersion: SchemaVersion,
+				Examples:      descriptorExamples(),
+			}
+			return writeOutput(
+				stdout,
+				cfg.format,
+				func(w io.Writer) error {
+					return json.NewEncoder(w).Encode(result)
+				},
+				result.Examples,
+			)
 		},
 	}
 }
@@ -396,7 +473,7 @@ func descriptorExamples() []string {
 	return []string{
 		"ogmi descriptors corpora",
 		"ogmi descriptors list --corpus cefr --domain production --subdomain speaking --level a1",
-		"ogmi descriptors get --corpus cefr --id cefr.production.speaking.descriptors.addressing_audiences.use_very_short_prepared_text_to_deliver_rehearsed_statement.a1",
+		"ogmi descriptors get --corpus cefr --id " + preparedStatementDescriptorID,
 		"ogmi descriptors scales --corpus cefr",
 		"ogmi descriptors schema --field level --corpus cefr",
 		"ogmi descriptors coverage --corpus cefr",

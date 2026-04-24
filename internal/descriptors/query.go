@@ -26,7 +26,17 @@ func Query(ctx context.Context, dataset Dataset, filters Filters) (QueryResult, 
 	}
 	paged := paginateDescriptors(items, filters.Offset, filters.Limit)
 	groups := buildGroups(paged, filters.GroupBy)
-	return QueryResult{Kind: "descriptor_list", SchemaVersion: SchemaVersion, Filters: filters, Total: len(items), Returned: len(paged), Offset: normalizedOffset(filters.Offset), Items: paged, Groups: groups, Facets: facets}, nil
+	return QueryResult{
+		Kind:          "descriptor_list",
+		SchemaVersion: SchemaVersion,
+		Filters:       filters,
+		Total:         len(items),
+		Returned:      len(paged),
+		Offset:        normalizedOffset(filters.Offset),
+		Items:         paged,
+		Groups:        groups,
+		Facets:        facets,
+	}, nil
 }
 
 // QueryScales returns scale records matching filters, sorted and paginated.
@@ -35,7 +45,10 @@ func QueryScales(ctx context.Context, dataset Dataset, filters Filters) (ScaleQu
 		return ScaleQueryResult{}, CodedError{Code: "internal", Message: err.Error()}
 	}
 	if len(normalizeTokens(filters.Corpora)) == 0 {
-		return ScaleQueryResult{}, CodedError{Code: "missing_required_filter", Message: "descriptor scales requires corpus"}
+		return ScaleQueryResult{}, CodedError{
+			Code:    "missing_required_filter",
+			Message: "descriptor scales requires corpus",
+		}
 	}
 	if err := validateFilters(filters); err != nil {
 		return ScaleQueryResult{}, err
@@ -46,7 +59,14 @@ func QueryScales(ctx context.Context, dataset Dataset, filters Filters) (ScaleQu
 		return compareScaleForQuery(items[i], items[j], filters.SortBy, filters.SortOrder) < 0
 	})
 	paged := paginateScales(items, filters.Offset, filters.Limit)
-	return ScaleQueryResult{Kind: "descriptor_scales", SchemaVersion: SchemaVersion, Total: len(items), Returned: len(paged), Offset: normalizedOffset(filters.Offset), Items: paged}, nil
+	return ScaleQueryResult{
+		Kind:          "descriptor_scales",
+		SchemaVersion: SchemaVersion,
+		Total:         len(items),
+		Returned:      len(paged),
+		Offset:        normalizedOffset(filters.Offset),
+		Items:         paged,
+	}, nil
 }
 
 // Get returns one descriptor selected by id or code.
@@ -64,9 +84,18 @@ func Get(ctx context.Context, dataset Dataset, input GetInput) (GetResult, error
 	id := strings.TrimSpace(input.ID)
 	code := normalizeToken(input.Code)
 	if id == "" && code == "" {
-		return GetResult{}, CodedError{Code: "missing_required_filter", Message: "get descriptor requires --id or --code"}
+		return GetResult{}, CodedError{
+			Code:    "missing_required_filter",
+			Message: "get descriptor requires --id or --code",
+		}
 	}
-	filters := Filters{Corpora: []string{corpus}, Domain: input.Domain, Subdomain: input.Subdomain, Scales: []string{input.Scale}, Levels: []string{input.Level}}
+	filters := Filters{
+		Corpora:   []string{corpus},
+		Domain:    input.Domain,
+		Subdomain: input.Subdomain,
+		Scales:    []string{input.Scale},
+		Levels:    []string{input.Level},
+	}
 	filters = NormalizeFilters(filters)
 	matches := make([]DescriptorRecord, 0)
 	for _, descriptor := range dataset.Descriptors {
@@ -87,10 +116,18 @@ func Get(ctx context.Context, dataset Dataset, input GetInput) (GetResult, error
 		return GetResult{}, CodedError{Code: "not_found", Message: "Descriptor not found"}
 	}
 	if len(matches) > 1 {
-		return GetResult{}, CodedError{Code: "ambiguous_lookup", Message: "Descriptor lookup is ambiguous. Provide --scale and --level or use --id."}
+		return GetResult{}, CodedError{
+			Code:    "ambiguous_lookup",
+			Message: "Descriptor lookup is ambiguous. Provide --scale and --level or use --id.",
+		}
 	}
 	match := matches[0]
-	return GetResult{Kind: "descriptor_get", SchemaVersion: SchemaVersion, Descriptor: match, Description: splitDescription(match.Description)}, nil
+	return GetResult{
+		Kind:          "descriptor_get",
+		SchemaVersion: SchemaVersion,
+		Descriptor:    match,
+		Description:   splitDescription(match.Description),
+	}, nil
 }
 
 func validateFilters(filters Filters) error {
@@ -102,7 +139,13 @@ func validateFilters(filters Filters) error {
 	for _, level := range filters.Levels {
 		normalized := normalizeLevel(level)
 		if normalized != "" && !isCanonicalLevel(normalized) {
-			return CodedError{Code: "invalid_filter", Message: fmt.Sprintf("Invalid descriptor level: %s", level), Details: ErrorDetails{InvalidFilter: InvalidFilter{Field: "level", Value: level}}}
+			return CodedError{
+				Code:    "invalid_filter",
+				Message: fmt.Sprintf("Invalid descriptor level: %s", level),
+				Details: ErrorDetails{
+					InvalidFilter: InvalidFilter{Field: "level", Value: level},
+				},
+			}
 		}
 	}
 	return nil
@@ -181,7 +224,17 @@ func filterScales(records []DescriptorScaleRecord, filters Filters) []Descriptor
 
 func matchesText(record DescriptorRecord, query string) bool {
 	needle := strings.ToLower(query)
-	values := []string{record.Corpus, record.Domain, record.Subdomain, record.Scale, record.Level, record.Code, record.ID, record.File, record.Description}
+	values := []string{
+		record.Corpus,
+		record.Domain,
+		record.Subdomain,
+		record.Scale,
+		record.Level,
+		record.Code,
+		record.ID,
+		record.File,
+		record.Description,
+	}
 	for _, value := range values {
 		if strings.Contains(strings.ToLower(value), needle) {
 			return true
@@ -192,7 +245,15 @@ func matchesText(record DescriptorRecord, query string) bool {
 
 func matchesScaleText(record DescriptorScaleRecord, query string) bool {
 	needle := strings.ToLower(query)
-	values := []string{record.Corpus, record.Domain, record.Subdomain, record.Code, record.ID, record.File, strings.Join(record.Description, "\n")}
+	values := []string{
+		record.Corpus,
+		record.Domain,
+		record.Subdomain,
+		record.Code,
+		record.ID,
+		record.File,
+		strings.Join(record.Description, "\n"),
+	}
 	for _, value := range values {
 		if strings.Contains(strings.ToLower(value), needle) {
 			return true

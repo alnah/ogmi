@@ -8,19 +8,107 @@ import (
 	"github.com/alnah/ogmi/internal/descriptors"
 )
 
+const (
+	cefrSpeakingDescriptorsFile = "specs/cefr/production/speaking/descriptors.yml"
+	themesDescriptorsFile       = "specs/themes/descriptors.yml"
+
+	cefrProductionSpeakingDescriptorPrefix = "cefr.production.speaking.descriptors."
+	addressingAudiencesScaleID             = cefrProductionSpeakingDescriptorPrefix + "addressing_audiences"
+	turntakingScaleID                      = cefrProductionSpeakingDescriptorPrefix + "turntaking"
+	deliverToastDescriptorID               = addressingAudiencesScaleID + ".deliver_toast.a1"
+	presentSimpleAnnouncementDescriptorID  = addressingAudiencesScaleID + ".present_simple_announcement.a2"
+	openSimpleExchangeDescriptorID         = turntakingScaleID + ".open_simple_exchange.a1"
+	maintainExchangeDescriptorID           = turntakingScaleID + ".maintain_exchange.b1"
+
+	themesDescriptorPrefix            = "themes.descriptors."
+	personalIdentityScaleID           = themesDescriptorPrefix + "personal_identity"
+	personalDetailsDescriptorID       = personalIdentityScaleID + ".personal_details.pre_a1"
+	shareBasicIdentityFactsDescriptor = personalIdentityScaleID + ".share_basic_identity_facts.a1"
+)
+
 func queryDataset() descriptors.Dataset {
 	return descriptors.Dataset{
 		Scales: []descriptors.DescriptorScaleRecord{
-			{Corpus: "cefr", Domain: "production", Subdomain: "speaking", Code: "addressing_audiences", ID: "cefr.production.speaking.descriptors.addressing_audiences", Description: []string{"Address audiences."}, File: "specs/cefr/production/speaking/descriptors.yml"},
-			{Corpus: "cefr", Domain: "production", Subdomain: "speaking", Code: "turntaking", ID: "cefr.production.speaking.descriptors.turntaking", Description: []string{"Manage turntaking."}, File: "specs/cefr/production/speaking/descriptors.yml"},
-			{Corpus: "themes", Code: "personal_identity", ID: "themes.descriptors.personal_identity", Description: []string{"Personal identity themes."}, File: "specs/themes/descriptors.yml"},
+			{
+				Corpus:      "cefr",
+				Domain:      "production",
+				Subdomain:   "speaking",
+				Code:        "addressing_audiences",
+				ID:          addressingAudiencesScaleID,
+				Description: []string{"Address audiences."},
+				File:        cefrSpeakingDescriptorsFile,
+			},
+			{
+				Corpus:      "cefr",
+				Domain:      "production",
+				Subdomain:   "speaking",
+				Code:        "turntaking",
+				ID:          turntakingScaleID,
+				Description: []string{"Manage turntaking."},
+				File:        cefrSpeakingDescriptorsFile,
+			},
+			{
+				Corpus:      "themes",
+				Code:        "personal_identity",
+				ID:          personalIdentityScaleID,
+				Description: []string{"Personal identity themes."},
+				File:        themesDescriptorsFile,
+			},
 		},
 		Descriptors: []descriptors.DescriptorRecord{
-			{Corpus: "cefr", Domain: "production", Subdomain: "speaking", Scale: "addressing_audiences", Level: "a1", Code: "deliver_toast", ID: "cefr.production.speaking.descriptors.addressing_audiences.deliver_toast.a1", Description: "Can deliver a short toast.", File: "specs/cefr/production/speaking/descriptors.yml"},
-			{Corpus: "cefr", Domain: "production", Subdomain: "speaking", Scale: "addressing_audiences", Level: "a2", Code: "present_simple_announcement", ID: "cefr.production.speaking.descriptors.addressing_audiences.present_simple_announcement.a2", Description: "Can present a simple announcement.", File: "specs/cefr/production/speaking/descriptors.yml"},
-			{Corpus: "cefr", Domain: "production", Subdomain: "speaking", Scale: "turntaking", Level: "a1", Code: "open_simple_exchange", ID: "cefr.production.speaking.descriptors.turntaking.open_simple_exchange.a1", Description: "Can open a simple exchange.", File: "specs/cefr/production/speaking/descriptors.yml"},
-			{Corpus: "cefr", Domain: "production", Subdomain: "speaking", Scale: "turntaking", Level: "b1", Code: "maintain_exchange", ID: "cefr.production.speaking.descriptors.turntaking.maintain_exchange.b1", Description: "Can maintain an exchange.", File: "specs/cefr/production/speaking/descriptors.yml"},
-			{Corpus: "themes", Scale: "personal_identity", Level: "a1", Code: "share_basic_identity_facts", ID: "themes.descriptors.personal_identity.share_basic_identity_facts.a1", Description: "Can share basic identity facts.", File: "specs/themes/descriptors.yml"},
+			{
+				Corpus:      "cefr",
+				Domain:      "production",
+				Subdomain:   "speaking",
+				Scale:       "addressing_audiences",
+				Level:       "a1",
+				Code:        "deliver_toast",
+				ID:          deliverToastDescriptorID,
+				Description: "Can deliver a short toast.",
+				File:        cefrSpeakingDescriptorsFile,
+			},
+			{
+				Corpus:      "cefr",
+				Domain:      "production",
+				Subdomain:   "speaking",
+				Scale:       "addressing_audiences",
+				Level:       "a2",
+				Code:        "present_simple_announcement",
+				ID:          presentSimpleAnnouncementDescriptorID,
+				Description: "Can present a simple announcement.",
+				File:        cefrSpeakingDescriptorsFile,
+			},
+			{
+				Corpus:      "cefr",
+				Domain:      "production",
+				Subdomain:   "speaking",
+				Scale:       "turntaking",
+				Level:       "a1",
+				Code:        "open_simple_exchange",
+				ID:          openSimpleExchangeDescriptorID,
+				Description: "Can open a simple exchange.",
+				File:        cefrSpeakingDescriptorsFile,
+			},
+			{
+				Corpus:      "cefr",
+				Domain:      "production",
+				Subdomain:   "speaking",
+				Scale:       "turntaking",
+				Level:       "b1",
+				Code:        "maintain_exchange",
+				ID:          maintainExchangeDescriptorID,
+				Description: "Can maintain an exchange.",
+				File:        cefrSpeakingDescriptorsFile,
+			},
+			{
+				Corpus:      "themes",
+				Scale:       "personal_identity",
+				Level:       "a1",
+				Code:        "share_basic_identity_facts",
+				ID:          shareBasicIdentityFactsDescriptor,
+				Description: "Can share basic identity facts.",
+				File:        themesDescriptorsFile,
+			},
 		},
 	}
 }

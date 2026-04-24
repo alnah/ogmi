@@ -17,7 +17,15 @@ func newRootCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.C
 	root := &cobra.Command{
 		Use:   "ogmi",
 		Short: "Ogmi language descriptor CLI",
-		Long:  "Ogmi queries bundled language descriptor specs.\n\nCommon Commands:\n  ogmi descriptors list\n  ogmi descriptors corpora\n  ogmi specs export\n  ogmi version",
+		Long: strings.Join([]string{
+			"Ogmi queries bundled language descriptor specs.",
+			"",
+			"Common Commands:",
+			"  ogmi descriptors list",
+			"  ogmi descriptors corpora",
+			"  ogmi specs export",
+			"  ogmi version",
+		}, "\n"),
 		Example: strings.Join([]string{
 			"ogmi descriptors corpora",
 			"ogmi descriptors list --corpus cefr --level a1 --limit 5",
@@ -25,7 +33,12 @@ func newRootCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.C
 		}, "\n"),
 	}
 	root.PersistentFlags().StringVar(&cfg.format, "format", "json", "output format: json or text")
-	root.PersistentFlags().StringVar(&cfg.specs, "specs", "", "descriptor specs root; overrides OGMI_SPECS and embedded specs")
+	root.PersistentFlags().StringVar(
+		&cfg.specs,
+		"specs",
+		"",
+		"descriptor specs root; overrides OGMI_SPECS and embedded specs",
+	)
 	root.SetFlagErrorFunc(func(cmd *cobra.Command, err error) error {
 		_ = cmd
 		return usageError{message: err.Error()}

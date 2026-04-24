@@ -17,7 +17,13 @@ func Coverage(ctx context.Context, dataset Dataset, input CoverageInput) (Covera
 	if !knownCorpus(corpus) {
 		return CoverageResult{}, unknownCorpusError(corpus)
 	}
-	filters := NormalizeFilters(Filters{Corpora: []string{corpus}, Domain: input.Domain, Subdomain: input.Subdomain, Scales: input.Scales, Levels: input.Levels})
+	filters := NormalizeFilters(Filters{
+		Corpora:   []string{corpus},
+		Domain:    input.Domain,
+		Subdomain: input.Subdomain,
+		Scales:    input.Scales,
+		Levels:    input.Levels,
+	})
 	items := filterDescriptors(dataset.Descriptors, filters)
 	sort.SliceStable(items, func(i, j int) bool { return compareDescriptor(items[i], items[j]) < 0 })
 	levels := filters.Levels
@@ -36,7 +42,12 @@ func Coverage(ctx context.Context, dataset Dataset, input CoverageInput) (Covera
 		columns = append(columns, CoverageColumn{Level: level})
 	}
 	for _, scale := range scales {
-		row := CoverageRow{Scale: scale, CoveredColumns: []string{}, MissingColumns: []string{}, Cells: []CoverageCell{}}
+		row := CoverageRow{
+			Scale:          scale,
+			CoveredColumns: []string{},
+			MissingColumns: []string{},
+			Cells:          []CoverageCell{},
+		}
 		for colIndex, level := range levels {
 			ids := idsForCell(items, scale, level)
 			cell := CoverageCell{Scale: scale, Level: level, Count: len(ids), DescriptorIDs: ids}
@@ -58,7 +69,16 @@ func Coverage(ctx context.Context, dataset Dataset, input CoverageInput) (Covera
 		row.Continuity = coverageContinuity(row.Cells)
 		rows = append(rows, row)
 	}
-	return CoverageResult{Kind: "descriptor_coverage_matrix", SchemaVersion: SchemaVersion, Levels: levels, Scales: scales, Columns: columns, Rows: rows, Cells: flatCells, GrandTotal: grand}, nil
+	return CoverageResult{
+		Kind:          "descriptor_coverage_matrix",
+		SchemaVersion: SchemaVersion,
+		Levels:        levels,
+		Scales:        scales,
+		Columns:       columns,
+		Rows:          rows,
+		Cells:         flatCells,
+		GrandTotal:    grand,
+	}, nil
 }
 
 func scalesFromItems(items []DescriptorRecord) []string {

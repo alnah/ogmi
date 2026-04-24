@@ -17,9 +17,22 @@ func TestResolveSourcePrecedence(t *testing.T) {
 		envPath    string
 		wantSource string
 	}{
-		{name: "flag wins", request: specs.SourceRequest{FlagPath: "/flag/specs", EnvPath: "/env/specs"}, wantSource: "/flag/specs"},
-		{name: "request env replaces embedded", request: specs.SourceRequest{EnvPath: "/env/specs"}, wantSource: "/env/specs"},
-		{name: "process env replaces embedded", request: specs.SourceRequest{}, envPath: "/process/env/specs", wantSource: "/process/env/specs"},
+		{
+			name:       "flag wins",
+			request:    specs.SourceRequest{FlagPath: "/flag/specs", EnvPath: "/env/specs"},
+			wantSource: "/flag/specs",
+		},
+		{
+			name:       "request env replaces embedded",
+			request:    specs.SourceRequest{EnvPath: "/env/specs"},
+			wantSource: "/env/specs",
+		},
+		{
+			name:       "process env replaces embedded",
+			request:    specs.SourceRequest{},
+			envPath:    "/process/env/specs",
+			wantSource: "/process/env/specs",
+		},
 		{name: "embedded default", request: specs.SourceRequest{}, wantSource: "embedded"},
 	}
 
@@ -77,7 +90,8 @@ func TestExportRefusesOverwriteWithoutForce(t *testing.T) {
 	if err := os.MkdirAll(filepath.Join(outputDir, "specs/themes"), 0o755); err != nil {
 		t.Fatal(err)
 	}
-	if err := os.WriteFile(filepath.Join(outputDir, "specs/themes/descriptors.yml"), []byte("existing\n"), 0o644); err != nil {
+	existingFile := filepath.Join(outputDir, "specs/themes/descriptors.yml")
+	if err := os.WriteFile(existingFile, []byte("existing\n"), 0o644); err != nil {
 		t.Fatal(err)
 	}
 

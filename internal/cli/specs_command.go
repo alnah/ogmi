@@ -17,7 +17,12 @@ type specsExportResult struct {
 }
 
 func specsCommand(cfg *config, stdout io.Writer) *cobra.Command {
-	cmd := &cobra.Command{Use: "specs", Short: "Manage bundled specs", Long: "Manage bundled descriptor specs.", Example: "ogmi specs export --output ./specs"}
+	cmd := &cobra.Command{
+		Use:     "specs",
+		Short:   "Manage bundled specs",
+		Long:    "Manage bundled descriptor specs.",
+		Example: "ogmi specs export --output ./specs",
+	}
 	var output string
 	var force bool
 	export := &cobra.Command{
@@ -34,8 +39,20 @@ func specsCommand(cfg *config, stdout io.Writer) *cobra.Command {
 			if err := specs.Export(specs.Bundle(), output, force); err != nil {
 				return err
 			}
-			result := specsExportResult{Kind: "specs_export", SchemaVersion: SchemaVersion, Output: output, Forced: force}
-			return writeOutput(stdout, cfg.format, func(w io.Writer) error { return json.NewEncoder(w).Encode(result) }, []string{"Exported specs to " + output})
+			result := specsExportResult{
+				Kind:          "specs_export",
+				SchemaVersion: SchemaVersion,
+				Output:        output,
+				Forced:        force,
+			}
+			return writeOutput(
+				stdout,
+				cfg.format,
+				func(w io.Writer) error {
+					return json.NewEncoder(w).Encode(result)
+				},
+				[]string{"Exported specs to " + output},
+			)
 		},
 	}
 	export.Flags().StringVar(&output, "output", "", "output directory")

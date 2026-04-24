@@ -10,7 +10,12 @@ import (
 )
 
 func TestCoverageMatrixReportsRichRowsColumnsCellsAndContinuity(t *testing.T) {
-	got, err := descriptors.Coverage(context.Background(), queryDataset(), descriptors.CoverageInput{Corpus: "cefr", Domain: "production", Scales: []string{"addressing_audiences", "turntaking"}, Levels: []string{"a1", "a2", "b1"}})
+	got, err := descriptors.Coverage(context.Background(), queryDataset(), descriptors.CoverageInput{
+		Corpus: "cefr",
+		Domain: "production",
+		Scales: []string{"addressing_audiences", "turntaking"},
+		Levels: []string{"a1", "a2", "b1"},
+	})
 	if err != nil {
 		t.Fatalf("descriptors.Coverage() error = %v", err)
 	}
@@ -24,7 +29,11 @@ func TestCoverageMatrixReportsRichRowsColumnsCellsAndContinuity(t *testing.T) {
 		t.Errorf("descriptors.Coverage() levels mismatch (-want +got):\n%s", diff)
 	}
 
-	wantColumns := []descriptors.CoverageColumn{{Level: "a1", Total: 2}, {Level: "a2", Total: 1}, {Level: "b1", Total: 1}}
+	wantColumns := []descriptors.CoverageColumn{
+		{Level: "a1", Total: 2},
+		{Level: "a2", Total: 1},
+		{Level: "b1", Total: 1},
+	}
 	if diff := cmp.Diff(wantColumns, got.Columns); diff != "" {
 		t.Errorf("descriptors.Coverage() columns mismatch (-want +got):\n%s", diff)
 	}
@@ -38,8 +47,18 @@ func TestCoverageMatrixReportsRichRowsColumnsCellsAndContinuity(t *testing.T) {
 			LastCoveredColumn:  "a2",
 			Continuity:         descriptors.CoverageContinuity{Continuous: true},
 			Cells: []descriptors.CoverageCell{
-				{Scale: "addressing_audiences", Level: "a1", Count: 1, DescriptorIDs: []string{"cefr.production.speaking.descriptors.addressing_audiences.deliver_toast.a1"}},
-				{Scale: "addressing_audiences", Level: "a2", Count: 1, DescriptorIDs: []string{"cefr.production.speaking.descriptors.addressing_audiences.present_simple_announcement.a2"}},
+				{
+					Scale:         "addressing_audiences",
+					Level:         "a1",
+					Count:         1,
+					DescriptorIDs: []string{deliverToastDescriptorID},
+				},
+				{
+					Scale:         "addressing_audiences",
+					Level:         "a2",
+					Count:         1,
+					DescriptorIDs: []string{presentSimpleAnnouncementDescriptorID},
+				},
 				{Scale: "addressing_audiences", Level: "b1", Count: 0, DescriptorIDs: nil},
 			},
 		},
@@ -52,9 +71,9 @@ func TestCoverageMatrixReportsRichRowsColumnsCellsAndContinuity(t *testing.T) {
 			LastCoveredColumn:  "b1",
 			Continuity:         descriptors.CoverageContinuity{Continuous: false, GapColumns: []string{"a2"}},
 			Cells: []descriptors.CoverageCell{
-				{Scale: "turntaking", Level: "a1", Count: 1, DescriptorIDs: []string{"cefr.production.speaking.descriptors.turntaking.open_simple_exchange.a1"}},
+				{Scale: "turntaking", Level: "a1", Count: 1, DescriptorIDs: []string{openSimpleExchangeDescriptorID}},
 				{Scale: "turntaking", Level: "a2", Count: 0, DescriptorIDs: nil},
-				{Scale: "turntaking", Level: "b1", Count: 1, DescriptorIDs: []string{"cefr.production.speaking.descriptors.turntaking.maintain_exchange.b1"}},
+				{Scale: "turntaking", Level: "b1", Count: 1, DescriptorIDs: []string{maintainExchangeDescriptorID}},
 			},
 		},
 	}
@@ -112,7 +131,11 @@ func TestCoverageMatrixUsesCanonicalLevelsWhenLevelsOmitted(t *testing.T) {
 }
 
 func TestCoverageMatrixDerivesSortedScaleRowsWhenScalesOmitted(t *testing.T) {
-	got, err := descriptors.Coverage(context.Background(), queryDataset(), descriptors.CoverageInput{Corpus: "cefr", Domain: "production", Levels: []string{"a1"}})
+	got, err := descriptors.Coverage(context.Background(), queryDataset(), descriptors.CoverageInput{
+		Corpus: "cefr",
+		Domain: "production",
+		Levels: []string{"a1"},
+	})
 	if err != nil {
 		t.Fatalf("descriptors.Coverage(scales omitted) error = %v", err)
 	}

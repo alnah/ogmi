@@ -80,7 +80,13 @@ func runOgmi(t *testing.T, args ...string) commandResult {
 func requireSuccess(t *testing.T, result commandResult) {
 	t.Helper()
 	if result.exitCode != cli.ExitSuccess {
-		t.Fatalf("cli.Run() exit code = %d, want %d; stdout %q stderr %q", result.exitCode, cli.ExitSuccess, result.stdout, result.stderr)
+		t.Fatalf(
+			"cli.Run() exit code = %d, want %d; stdout %q stderr %q",
+			result.exitCode,
+			cli.ExitSuccess,
+			result.stdout,
+			result.stderr,
+		)
 	}
 	if result.stderr != "" {
 		t.Errorf("cli.Run() stderr = %q, want empty", result.stderr)
@@ -106,10 +112,22 @@ func requireContainsAll(t *testing.T, text string, values ...string) {
 	}
 }
 
-func requireCLIError(t *testing.T, result commandResult, wantExitCode int, wantCode, wantMessageFragment string) errorEnvelope {
+func requireCLIError(
+	t *testing.T,
+	result commandResult,
+	wantExitCode int,
+	wantCode string,
+	wantMessageFragment string,
+) errorEnvelope {
 	t.Helper()
 	if result.exitCode != wantExitCode {
-		t.Errorf("cli.Run() exit code = %d, want %d; stdout %q stderr %q", result.exitCode, wantExitCode, result.stdout, result.stderr)
+		t.Errorf(
+			"cli.Run() exit code = %d, want %d; stdout %q stderr %q",
+			result.exitCode,
+			wantExitCode,
+			result.stdout,
+			result.stderr,
+		)
 	}
 	if result.stdout != "" {
 		t.Errorf("cli.Run() stdout = %q, want empty on error", result.stdout)

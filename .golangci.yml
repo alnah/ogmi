@@ -18,6 +18,7 @@ linters:
     - gocyclo
     - govet
     - ineffassign
+    - lll
     - misspell
     - nilerr
     - nilnil
@@ -35,6 +36,10 @@ linters:
   settings:
     gocyclo:
       min-complexity: 15
+
+    lll:
+      line-length: 120
+      tab-width: 1
 
     govet:
       enable:

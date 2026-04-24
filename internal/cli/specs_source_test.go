@@ -15,7 +15,15 @@ func TestSpecsFlagChangesDescriptorData(t *testing.T) {
 	if list.Total != 1 || len(list.Items) != 1 {
 		t.Fatalf("descriptor list total/items = %d/%d, want 1/1; stdout %s", list.Total, len(list.Items), result.stdout)
 	}
-	want := descriptorListRecord{Corpus: "themes", Scale: "agent_contract", Level: "a1", Code: "from_flag", ID: "themes.descriptors.agent_contract.from_flag.a1", Description: "Loaded from --specs.", File: "specs/themes/descriptors.yml"}
+	want := descriptorListRecord{
+		Corpus:      "themes",
+		Scale:       "agent_contract",
+		Level:       "a1",
+		Code:        "from_flag",
+		ID:          "themes.descriptors.agent_contract.from_flag.a1",
+		Description: "Loaded from --specs.",
+		File:        "specs/themes/descriptors.yml",
+	}
 	if diff := cmp.Diff(want, list.Items[0]); diff != "" {
 		t.Errorf("descriptor loaded through --specs mismatch (-want +got):\n%s", diff)
 	}
