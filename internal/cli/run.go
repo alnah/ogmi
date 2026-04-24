@@ -6,6 +6,7 @@ import (
 	"io"
 )
 
+// ExitSuccess and related constants define process exit codes and CLI defaults.
 const (
 	ExitSuccess    = 0
 	ExitDomain     = 1

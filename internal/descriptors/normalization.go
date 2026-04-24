@@ -2,6 +2,7 @@ package descriptors
 
 import "strings"
 
+// NormalizeFilters trims, lowercases, normalizes levels, and deduplicates filters.
 func NormalizeFilters(filters Filters) Filters {
 	filters.Corpora = normalizeTokens(filters.Corpora)
 	filters.Domain = normalizeToken(filters.Domain)

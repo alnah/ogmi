@@ -9,20 +9,24 @@ import (
 	ogmi "github.com/alnah/ogmi"
 )
 
+// SourceRequest declares explicit and environment spec source paths.
 type SourceRequest struct {
 	FlagPath string
 	EnvPath  string
 }
 
+// Source contains the resolved specs filesystem and user-facing description.
 type Source struct {
 	FS          fs.FS
 	Description string
 }
 
+// Bundle returns the embedded descriptor specs filesystem.
 func Bundle() fs.FS {
 	return ogmi.EmbeddedSpecs()
 }
 
+// Resolve selects specs from flag path, environment path, or embedded bundle.
 func Resolve(request SourceRequest) (Source, error) {
 	if request.FlagPath != "" {
 		return Source{FS: os.DirFS(request.FlagPath), Description: request.FlagPath}, nil
@@ -37,6 +41,7 @@ func Resolve(request SourceRequest) (Source, error) {
 	return Source{FS: Bundle(), Description: "embedded"}, nil
 }
 
+// Export copies specs from fsys into outputDir, refusing overwrites unless forced.
 func Export(fsys fs.FS, outputDir string, force bool) error {
 	if outputDir == "" {
 		return fmt.Errorf("output directory is required")

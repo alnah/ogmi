@@ -5,6 +5,7 @@ import (
 	"sort"
 )
 
+// CompareLevels summarizes descriptor coverage across levels for one scale.
 func CompareLevels(ctx context.Context, dataset Dataset, input CompareLevelsInput) (CompareLevelsResult, error) {
 	if err := ctx.Err(); err != nil {
 		return CompareLevelsResult{}, CodedError{Code: "internal", Message: err.Error()}

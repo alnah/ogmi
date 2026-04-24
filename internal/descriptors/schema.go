@@ -6,6 +6,7 @@ import (
 	"sort"
 )
 
+// Schema returns descriptor fields or distinct values for one field.
 func Schema(ctx context.Context, dataset Dataset, input SchemaInput) (SchemaResult, error) {
 	if err := ctx.Err(); err != nil {
 		return SchemaResult{}, CodedError{Code: "internal", Message: err.Error()}

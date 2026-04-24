@@ -7,6 +7,7 @@ import (
 	"strings"
 )
 
+// Query returns descriptors matching filters, sorted and paginated.
 func Query(ctx context.Context, dataset Dataset, filters Filters) (QueryResult, error) {
 	if err := ctx.Err(); err != nil {
 		return QueryResult{}, CodedError{Code: "internal", Message: err.Error()}
@@ -28,6 +29,7 @@ func Query(ctx context.Context, dataset Dataset, filters Filters) (QueryResult, 
 	return QueryResult{Kind: "descriptor_list", SchemaVersion: SchemaVersion, Filters: filters, Total: len(items), Returned: len(paged), Offset: normalizedOffset(filters.Offset), Items: paged, Groups: groups, Facets: facets}, nil
 }
 
+// QueryScales returns scale records matching filters, sorted and paginated.
 func QueryScales(ctx context.Context, dataset Dataset, filters Filters) (ScaleQueryResult, error) {
 	if err := ctx.Err(); err != nil {
 		return ScaleQueryResult{}, CodedError{Code: "internal", Message: err.Error()}
@@ -47,6 +49,7 @@ func QueryScales(ctx context.Context, dataset Dataset, filters Filters) (ScaleQu
 	return ScaleQueryResult{Kind: "descriptor_scales", SchemaVersion: SchemaVersion, Total: len(items), Returned: len(paged), Offset: normalizedOffset(filters.Offset), Items: paged}, nil
 }
 
+// Get returns one descriptor selected by id or code.
 func Get(ctx context.Context, dataset Dataset, input GetInput) (GetResult, error) {
 	if err := ctx.Err(); err != nil {
 		return GetResult{}, CodedError{Code: "internal", Message: err.Error()}

@@ -5,6 +5,7 @@ import (
 	"sort"
 )
 
+// Coverage builds a scale-by-level descriptor coverage matrix.
 func Coverage(ctx context.Context, dataset Dataset, input CoverageInput) (CoverageResult, error) {
 	if err := ctx.Err(); err != nil {
 		return CoverageResult{}, CodedError{Code: "internal", Message: err.Error()}

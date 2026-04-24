@@ -11,6 +11,7 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
+// Load reads descriptor specs from fsys and returns a normalized dataset.
 func Load(ctx context.Context, fsys fs.FS, options LoadOptions) (Dataset, error) {
 	if err := ctx.Err(); err != nil {
 		return Dataset{}, CodedError{Code: "internal", Message: err.Error()}

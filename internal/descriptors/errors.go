@@ -2,16 +2,19 @@ package descriptors
 
 import "fmt"
 
+// InvalidFilter identifies a rejected descriptor filter value.
 type InvalidFilter struct {
 	Field string `json:"field"`
 	Value string `json:"value"`
 }
 
+// ErrorDetails carries optional structured fields for coded errors.
 type ErrorDetails struct {
 	InvalidFilter   InvalidFilter `json:"invalidFilter,omitempty"`
 	AvailableFields []Field       `json:"availableFields,omitempty"`
 }
 
+// CodedError describes a stable error shape for JSON output.
 type CodedError struct {
 	Code        string       `json:"code"`
 	Message     string       `json:"message"`

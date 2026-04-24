@@ -9,12 +9,14 @@ var registry = []Corpus{
 	{Name: "themes", Files: []string{"specs/themes/descriptors.yml"}, PathFields: []Field{}, DefaultCoverageAxes: []Field{FieldCorpus, FieldLevel}},
 }
 
+// Registry returns a copy of registered descriptor corpora.
 func Registry() []Corpus {
 	out := make([]Corpus, len(registry))
 	copy(out, registry)
 	return out
 }
 
+// CanonicalLevels returns CEFR levels in canonical order.
 func CanonicalLevels() []string {
 	out := make([]string, len(canonicalLevels))
 	copy(out, canonicalLevels)
