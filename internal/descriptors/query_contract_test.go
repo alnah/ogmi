@@ -220,7 +220,7 @@ func TestDescriptorSadPathsReturnStableCodedErrors(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			requireCodedError(t, tt.run(), tt.wantCode)
+			_ = requireCodedError(t, tt.run(), tt.wantCode)
 		})
 	}
 }
@@ -242,7 +242,7 @@ func TestGetPrefersIDAndReportsAmbiguousCode(t *testing.T) {
 	ambiguousDataset := queryDataset()
 	ambiguousDataset.Descriptors = append(ambiguousDataset.Descriptors, descriptors.DescriptorRecord{Corpus: "cefr", Domain: "interaction", Subdomain: "speaking", Scale: "turntaking", Level: "a2", Code: "open_simple_exchange", ID: "cefr.interaction.speaking.descriptors.turntaking.open_simple_exchange.a2", Description: "Can open another exchange.", File: "specs/cefr/interaction/speaking/descriptors.yml"})
 	_, err = descriptors.Get(context.Background(), ambiguousDataset, descriptors.GetInput{Corpus: "cefr", Code: "open_simple_exchange"})
-	requireCodedError(t, err, "ambiguous_lookup")
+	_ = requireCodedError(t, err, "ambiguous_lookup")
 }
 
 func TestCompareLevelsReturnsCompleteSummariesBeforeLimit(t *testing.T) {

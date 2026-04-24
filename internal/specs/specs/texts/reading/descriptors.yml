@@ -1,0 +1,1988 @@
+id: "texts.reading.descriptors"
+version: "1"
+
+catalog:
+  - code: "identity_documents"
+    id: "texts.reading.descriptors.identity_documents"
+    description:
+      - "Reading. Personal information. Identity cards, passports, and driving licences."
+
+  - code: "registration_forms"
+    id: "texts.reading.descriptors.registration_forms"
+    description:
+      - "Reading. Personal information. Information and registration forms."
+
+  - code: "business_cards"
+    id: "texts.reading.descriptors.business_cards"
+    description:
+      - "Reading. Personal information. Business cards."
+
+  - code: "curricula_vitae"
+    id: "texts.reading.descriptors.curricula_vitae"
+    description:
+      - "Reading. Personal information. Curricula vitae."
+
+  - code: "diplomas_transcripts_and_results"
+    id: "texts.reading.descriptors.diplomas_transcripts_and_results"
+    description:
+      - "Reading. Personal information. Diplomas, transcripts, and results."
+
+  - code: "product_labels"
+    id: "texts.reading.descriptors.product_labels"
+    description:
+      - "Reading. Public texts. Food, clothing, and medicine labels."
+
+  - code: "signs_and_information_boards"
+    id: "texts.reading.descriptors.signs_and_information_boards"
+    description:
+      - "Reading. Public texts. Signs and information boards in places such as stations, streets, shops, the post office, banks, and schools."
+
+  - code: "street_station_shop_and_building_names"
+    id: "texts.reading.descriptors.street_station_shop_and_building_names"
+    description:
+      - "Reading. Public texts. Names of streets, stations, shops, store departments, and public buildings."
+
+  - code: "timetables"
+    id: "texts.reading.descriptors.timetables"
+    description:
+      - "Reading. Public texts. Timetables."
+
+  - code: "tickets_and_travel_passes"
+    id: "texts.reading.descriptors.tickets_and_travel_passes"
+    description:
+      - "Reading. Public texts. Tickets and travel passes."
+
+  - code: "bills_and_receipts"
+    id: "texts.reading.descriptors.bills_and_receipts"
+    description:
+      - "Reading. Public texts. Bills and receipts."
+
+  - code: "maps_and_routes"
+    id: "texts.reading.descriptors.maps_and_routes"
+    description:
+      - "Reading. Public texts. Maps and routes."
+
+  - code: "advertisements_and_promotional_offers"
+    id: "texts.reading.descriptors.advertisements_and_promotional_offers"
+    description:
+      - "Reading. Public texts. Advertisements and promotional offers."
+
+  - code: "classified_ads"
+    id: "texts.reading.descriptors.classified_ads"
+    description:
+      - "Reading. Public texts. Classified ads."
+
+  - code: "posters"
+    id: "texts.reading.descriptors.posters"
+    description:
+      - "Reading. Public texts. Posters."
+
+  - code: "manifestos_leaflets_and_petitions"
+    id: "texts.reading.descriptors.manifestos_leaflets_and_petitions"
+    description:
+      - "Reading. Public texts. Manifestos, leaflets, and petitions."
+
+  - code: "official_documents_and_legal_texts"
+    id: "texts.reading.descriptors.official_documents_and_legal_texts"
+    description:
+      - "Reading. Public texts. Official documents, legal texts, treaties, and official bulletins."
+
+  - code: "menus"
+    id: "texts.reading.descriptors.menus"
+    description:
+      - "Reading. Tourist texts. Menus."
+
+  - code: "cultural_or_sporting_programmes"
+    id: "texts.reading.descriptors.cultural_or_sporting_programmes"
+    description:
+      - "Reading. Tourist texts. Programmes for cultural or sporting events."
+
+  - code: "tourist_leaflets"
+    id: "texts.reading.descriptors.tourist_leaflets"
+    description:
+      - "Reading. Tourist texts. Tourist leaflets."
+
+  - code: "brochures_prospectuses_and_catalogues"
+    id: "texts.reading.descriptors.brochures_prospectuses_and_catalogues"
+    description:
+      - "Reading. Tourist texts. Brochures, prospectuses, and catalogues."
+
+  - code: "tourism_websites"
+    id: "texts.reading.descriptors.tourism_websites"
+    description:
+      - "Reading. Tourist texts. Tourism websites."
+
+  - code: "guides"
+    id: "texts.reading.descriptors.guides"
+    description:
+      - "Reading. Tourist texts. Guides, including tourist guides."
+
+  - code: "recipes"
+    id: "texts.reading.descriptors.recipes"
+    description:
+      - "Reading. Instructions. Recipes."
+
+  - code: "instruction_manuals"
+    id: "texts.reading.descriptors.instruction_manuals"
+    description:
+      - "Reading. Instructions. Instruction manuals."
+
+  - code: "instructions"
+    id: "texts.reading.descriptors.instructions"
+    description:
+      - "Reading. Instructions. Instructions and notices."
+
+  - code: "regulations"
+    id: "texts.reading.descriptors.regulations"
+    description:
+      - "Reading. Instructions. Regulations."
+
+  - code: "prescriptions"
+    id: "texts.reading.descriptors.prescriptions"
+    description:
+      - "Reading. Instructions. Medical prescriptions."
+
+  - code: "contracts_agreements_and_quotes"
+    id: "texts.reading.descriptors.contracts_agreements_and_quotes"
+    description:
+      - "Reading. Instructions. Contracts, agreements, and quotations."
+
+  - code: "narratives_and_testimonials"
+    id: "texts.reading.descriptors.narratives_and_testimonials"
+    description:
+      - "Reading. Informative texts. Narratives, anecdotes, memories, stories, experiences, and testimonials."
+
+  - code: "formal_letters_and_emails"
+    id: "texts.reading.descriptors.formal_letters_and_emails"
+    description:
+      - "Reading. Informative texts. Formal or administrative letters and emails."
+
+  - code: "reports_and_memos"
+    id: "texts.reading.descriptors.reports_and_memos"
+    description:
+      - "Reading. Informative texts. Reports and memos."
+
+  - code: "studies_and_research"
+    id: "texts.reading.descriptors.studies_and_research"
+    description:
+      - "Reading. Informative texts. Studies and research work."
+
+  - code: "minutes_and_records"
+    id: "texts.reading.descriptors.minutes_and_records"
+    description:
+      - "Reading. Informative texts. Minutes and records of meetings, conferences, or medical consultations."
+
+  - code: "dictionaries_and_encyclopedias"
+    id: "texts.reading.descriptors.dictionaries_and_encyclopedias"
+    description:
+      - "Reading. Informative texts. Dictionaries and encyclopedias."
+
+  - code: "newspaper_and_magazine_sections"
+    id: "texts.reading.descriptors.newspaper_and_magazine_sections"
+    description:
+      - "Reading. Press. Newspaper and magazine sections, such as front pages, covers, tables of contents, headlines, subheadings, and captions."
+
+  - code: "horoscopes"
+    id: "texts.reading.descriptors.horoscopes"
+    description:
+      - "Reading. Press. Daily horoscopes."
+
+  - code: "news_items_and_current_affairs"
+    id: "texts.reading.descriptors.news_items_and_current_affairs"
+    description:
+      - "Reading. Press. News items and current-affairs texts from newspapers, websites, magazines, or TV listings."
+
+  - code: "miscellaneous_incident_reports"
+    id: "texts.reading.descriptors.miscellaneous_incident_reports"
+    description:
+      - "Reading. Press. Miscellaneous incident reports."
+
+  - code: "press_articles"
+    id: "texts.reading.descriptors.press_articles"
+    description:
+      - "Reading. Press. Press articles."
+
+  - code: "reportages"
+    id: "texts.reading.descriptors.reportages"
+    description:
+      - "Reading. Press. Reportages."
+
+  - code: "interviews"
+    id: "texts.reading.descriptors.interviews"
+    description:
+      - "Reading. Press. Interviews."
+
+  - code: "specialized_scientific_or_academic_articles"
+    id: "texts.reading.descriptors.specialized_scientific_or_academic_articles"
+    description:
+      - "Reading. Press. Specialized scientific or academic journal articles."
+
+  - code: "reviews_and_criticism"
+    id: "texts.reading.descriptors.reviews_and_criticism"
+    description:
+      - "Reading. Argumentative texts. Reviews and criticism."
+
+  - code: "editorials_and_analyses"
+    id: "texts.reading.descriptors.editorials_and_analyses"
+    description:
+      - "Reading. Argumentative texts. Editorials and analyses."
+
+  - code: "contemporary_novels"
+    id: "texts.reading.descriptors.contemporary_novels"
+    description:
+      - "Reading. Culture. Contemporary novels."
+
+  - code: "film_summaries"
+    id: "texts.reading.descriptors.film_summaries"
+    description:
+      - "Reading. Culture. Film summaries."
+
+  - code: "biographies"
+    id: "texts.reading.descriptors.biographies"
+    description:
+      - "Reading. Culture. Biographies."
+
+  - code: "comics_and_childrens_literature"
+    id: "texts.reading.descriptors.comics_and_childrens_literature"
+    description:
+      - "Reading. Culture. Comics and children's literature."
+
+  - code: "poems"
+    id: "texts.reading.descriptors.poems"
+    description:
+      - "Reading. Culture. Poems."
+
+  - code: "cartoons"
+    id: "texts.reading.descriptors.cartoons"
+    description:
+      - "Reading. Culture. Cartoons."
+
+  - code: "other_literary_texts"
+    id: "texts.reading.descriptors.other_literary_texts"
+    description:
+      - "Reading. Culture. Other literary texts."
+
+  - code: "postcards"
+    id: "texts.reading.descriptors.postcards"
+    description:
+      - "Reading. Private domain. Postcards."
+
+  - code: "invitations_and_announcements"
+    id: "texts.reading.descriptors.invitations_and_announcements"
+    description:
+      - "Reading. Private domain. Invitations and personal announcements."
+
+  - code: "messages"
+    id: "texts.reading.descriptors.messages"
+    description:
+      - "Reading. Private domain. Messages."
+
+  - code: "texts_and_tweets"
+    id: "texts.reading.descriptors.texts_and_tweets"
+    description:
+      - "Reading. Private domain. Text messages and tweets."
+
+  - code: "personal_letters_and_emails"
+    id: "texts.reading.descriptors.personal_letters_and_emails"
+    description:
+      - "Reading. Private domain. Personal letters and emails."
+
+  - code: "personal_descriptions"
+    id: "texts.reading.descriptors.personal_descriptions"
+    description:
+      - "Reading. Private domain. Personal descriptions."
+
+entries:
+  - scale: "identity_documents"
+    level: "pre_a1"
+    code: "recognise_basic_personal_details_on_identity_documents"
+    id: "texts.reading.descriptors.identity_documents.recognise_basic_personal_details_on_identity_documents.pre_a1"
+    description:
+      - "Can recognise basic personal details such as name, date of birth, nationality, or document number on identity documents."
+
+  - scale: "registration_forms"
+    level: "pre_a1"
+    code: "recognise_basic_fields_on_simple_forms"
+    id: "texts.reading.descriptors.registration_forms.recognise_basic_fields_on_simple_forms.pre_a1"
+    description:
+      - "Can recognise basic fields such as name, address, nationality, and date on simple information or registration forms."
+
+  - scale: "business_cards"
+    level: "pre_a1"
+    code: "recognise_names_and_basic_contact_information_on_business_cards"
+    id: "texts.reading.descriptors.business_cards.recognise_names_and_basic_contact_information_on_business_cards.pre_a1"
+    description:
+      - "Can recognise names and basic contact information on business cards."
+
+  - scale: "diplomas_transcripts_and_results"
+    level: "pre_a1"
+    code: "recognise_names_dates_and_results_on_simple_academic_documents"
+    id: "texts.reading.descriptors.diplomas_transcripts_and_results.recognise_names_dates_and_results_on_simple_academic_documents.pre_a1"
+    description:
+      - "Can recognise names, dates, grades, and results on simple academic documents."
+
+  - scale: "product_labels"
+    level: "pre_a1"
+    code: "recognise_familiar_words_numbers_and_symbols_on_common_labels"
+    id: "texts.reading.descriptors.product_labels.recognise_familiar_words_numbers_and_symbols_on_common_labels.pre_a1"
+    description:
+      - "Can recognise familiar words, numbers, and symbols on common food, clothing, or medicine labels, especially when supported by pictures."
+
+  - scale: "signs_and_information_boards"
+    level: "pre_a1"
+    code: "understand_very_simple_everyday_signs_and_notices"
+    id: "texts.reading.descriptors.signs_and_information_boards.understand_very_simple_everyday_signs_and_notices.pre_a1"
+    description:
+      - "Can understand very simple everyday signs and notices."
+
+  - scale: "street_station_shop_and_building_names"
+    level: "pre_a1"
+    code: "recognise_place_names_and_public_labels"
+    id: "texts.reading.descriptors.street_station_shop_and_building_names.recognise_place_names_and_public_labels.pre_a1"
+    description:
+      - "Can recognise the names of places, stations, shops, and public buildings."
+
+  - scale: "timetables"
+    level: "pre_a1"
+    code: "find_basic_times_on_simple_timetables"
+    id: "texts.reading.descriptors.timetables.find_basic_times_on_simple_timetables.pre_a1"
+    description:
+      - "Can find basic times on simple timetables."
+
+  - scale: "tickets_and_travel_passes"
+    level: "pre_a1"
+    code: "recognise_destination_time_and_price_on_simple_tickets"
+    id: "texts.reading.descriptors.tickets_and_travel_passes.recognise_destination_time_and_price_on_simple_tickets.pre_a1"
+    description:
+      - "Can recognise destination, time, and price on simple tickets and travel passes."
+
+  - scale: "bills_and_receipts"
+    level: "pre_a1"
+    code: "recognise_prices_and_totals_on_simple_receipts"
+    id: "texts.reading.descriptors.bills_and_receipts.recognise_prices_and_totals_on_simple_receipts.pre_a1"
+    description:
+      - "Can recognise prices and totals on simple bills and receipts."
+
+  - scale: "maps_and_routes"
+    level: "pre_a1"
+    code: "find_place_names_and_basic_route_information_on_simple_maps"
+    id: "texts.reading.descriptors.maps_and_routes.find_place_names_and_basic_route_information_on_simple_maps.pre_a1"
+    description:
+      - "Can find place names and basic route information on simple maps and route diagrams."
+
+  - scale: "advertisements_and_promotional_offers"
+    level: "pre_a1"
+    code: "find_prices_places_and_basic_offer_information_in_simple_advertisements"
+    id: "texts.reading.descriptors.advertisements_and_promotional_offers.find_prices_places_and_basic_offer_information_in_simple_advertisements.pre_a1"
+    description:
+      - "Can find prices, places, and basic offer information in simple advertisements and promotional notices."
+
+  - scale: "classified_ads"
+    level: "pre_a1"
+    code: "recognise_prices_places_and_basic_features_in_very_simple_classified_ads"
+    id: "texts.reading.descriptors.classified_ads.recognise_prices_places_and_basic_features_in_very_simple_classified_ads.pre_a1"
+    description:
+      - "Can recognise prices, places, and basic features in very simple classified ads."
+
+  - scale: "posters"
+    level: "pre_a1"
+    code: "find_basic_information_about_places_times_and_prices_on_simple_posters"
+    id: "texts.reading.descriptors.posters.find_basic_information_about_places_times_and_prices_on_simple_posters.pre_a1"
+    description:
+      - "Can find basic information about places, times, and prices on simple posters and notices."
+
+  - scale: "menus"
+    level: "pre_a1"
+    code: "recognise_names_of_familiar_foods_and_prices_on_simple_menus"
+    id: "texts.reading.descriptors.menus.recognise_names_of_familiar_foods_and_prices_on_simple_menus.pre_a1"
+    description:
+      - "Can recognise the names of familiar foods and prices on simple menus."
+
+  - scale: "cultural_or_sporting_programmes"
+    level: "pre_a1"
+    code: "recognise_event_names_dates_times_and_places_on_simple_programmes"
+    id: "texts.reading.descriptors.cultural_or_sporting_programmes.recognise_event_names_dates_times_and_places_on_simple_programmes.pre_a1"
+    description:
+      - "Can recognise event names, dates, times, and places on simple cultural or sporting programmes."
+
+  - scale: "tourist_leaflets"
+    level: "pre_a1"
+    code: "understand_simplest_illustrated_tourist_leaflets"
+    id: "texts.reading.descriptors.tourist_leaflets.understand_simplest_illustrated_tourist_leaflets.pre_a1"
+    description:
+      - "Can understand the simplest illustrated tourist leaflets with photos and very simple words."
+
+  - scale: "brochures_prospectuses_and_catalogues"
+    level: "pre_a1"
+    code: "understand_simplest_illustrated_brochures_and_catalogues"
+    id: "texts.reading.descriptors.brochures_prospectuses_and_catalogues.understand_simplest_illustrated_brochures_and_catalogues.pre_a1"
+    description:
+      - "Can understand the simplest illustrated brochures, prospectuses, and catalogues with photos and very simple words."
+
+  - scale: "recipes"
+    level: "pre_a1"
+    code: "understand_very_short_and_simple_recipe_steps_with_visual_support"
+    id: "texts.reading.descriptors.recipes.understand_very_short_and_simple_recipe_steps_with_visual_support.pre_a1"
+    description:
+      - "Can understand very short and simple recipe steps with visual support."
+
+  - scale: "instruction_manuals"
+    level: "pre_a1"
+    code: "understand_very_short_simple_instructions_in_familiar_everyday_contexts"
+    id: "texts.reading.descriptors.instruction_manuals.understand_very_short_simple_instructions_in_familiar_everyday_contexts.pre_a1"
+    description:
+      - "Can understand very short, simple instructions in familiar everyday contexts."
+
+  - scale: "instructions"
+    level: "pre_a1"
+    code: "understand_very_short_simple_notices_and_instructions_in_familiar_contexts"
+    id: "texts.reading.descriptors.instructions.understand_very_short_simple_notices_and_instructions_in_familiar_contexts.pre_a1"
+    description:
+      - "Can understand very short, simple notices and instructions in familiar everyday contexts."
+
+  - scale: "prescriptions"
+    level: "pre_a1"
+    code: "recognise_basic_dosage_numbers_and_times_on_simple_prescriptions"
+    id: "texts.reading.descriptors.prescriptions.recognise_basic_dosage_numbers_and_times_on_simple_prescriptions.pre_a1"
+    description:
+      - "Can recognise basic dosage numbers and times on simple prescriptions."
+
+  - scale: "reports_and_memos"
+    level: "pre_a1"
+    code: "recognise_names_dates_and_simple_factual_information_in_very_short_memos"
+    id: "texts.reading.descriptors.reports_and_memos.recognise_names_dates_and_simple_factual_information_in_very_short_memos.pre_a1"
+    description:
+      - "Can recognise names, dates, and simple factual information in very short memos or notes."
+
+  - scale: "newspaper_and_magazine_sections"
+    level: "pre_a1"
+    code: "recognise_familiar_words_in_headlines_captions_and_section_titles"
+    id: "texts.reading.descriptors.newspaper_and_magazine_sections.recognise_familiar_words_in_headlines_captions_and_section_titles.pre_a1"
+    description:
+      - "Can recognise familiar words in headlines, captions, and section titles, especially when supported by pictures."
+
+  - scale: "horoscopes"
+    level: "pre_a1"
+    code: "recognise_sign_names_days_and_familiar_words_in_very_short_horoscopes"
+    id: "texts.reading.descriptors.horoscopes.recognise_sign_names_days_and_familiar_words_in_very_short_horoscopes.pre_a1"
+    description:
+      - "Can recognise sign names, days, and familiar words in very short daily horoscopes."
+
+  - scale: "news_items_and_current_affairs"
+    level: "pre_a1"
+    code: "understand_simplest_illustrated_news_items_and_recognise_names_places_and_numbers"
+    id: "texts.reading.descriptors.news_items_and_current_affairs.understand_simplest_illustrated_news_items_and_recognise_names_places_and_numbers.pre_a1"
+    description:
+      - "Can understand the simplest illustrated news items and recognise names, places, and numbers in very brief current-affairs texts."
+
+  - scale: "postcards"
+    level: "pre_a1"
+    code: "recognise_greetings_names_and_places_on_simple_postcards"
+    id: "texts.reading.descriptors.postcards.recognise_greetings_names_and_places_on_simple_postcards.pre_a1"
+    description:
+      - "Can recognise greetings, names, and places on simple postcards."
+
+  - scale: "invitations_and_announcements"
+    level: "pre_a1"
+    code: "understand_invitation_event_and_basic_time_place_information_in_simple_messages"
+    id: "texts.reading.descriptors.invitations_and_announcements.understand_invitation_event_and_basic_time_place_information_in_simple_messages.pre_a1"
+    description:
+      - "Can understand the invitation or event and basic time and place information in very simple invitations or announcements."
+
+  - scale: "messages"
+    level: "pre_a1"
+    code: "recognise_times_and_places_in_very_simple_notes_and_text_messages"
+    id: "texts.reading.descriptors.messages.recognise_times_and_places_in_very_simple_notes_and_text_messages.pre_a1"
+    description:
+      - "Can recognise times and places in very simple notes and text messages."
+
+  - scale: "personal_letters_and_emails"
+    level: "pre_a1"
+    code: "recognise_greetings_names_and_basic_time_place_information_in_very_simple_personal_messages"
+    id: "texts.reading.descriptors.personal_letters_and_emails.recognise_greetings_names_and_basic_time_place_information_in_very_simple_personal_messages.pre_a1"
+    description:
+      - "Can recognise greetings, names, and basic time and place information in very simple personal letters or emails."
+
+  - scale: "identity_documents"
+    level: "a1"
+    code: "read_identity_cards_passports_and_driving_licences"
+    id: "texts.reading.descriptors.identity_documents.read_identity_cards_passports_and_driving_licences.a1"
+    description:
+      - "Can read identity cards, passports, and driving licences."
+
+  - scale: "identity_documents"
+    level: "a2"
+    code: "read_standard_identity_documents"
+    id: "texts.reading.descriptors.identity_documents.read_standard_identity_documents.a2"
+    description:
+      - "Can read standard identity cards, passports, and driving licences."
+
+  - scale: "registration_forms"
+    level: "a1"
+    code: "read_basic_information_and_registration_forms"
+    id: "texts.reading.descriptors.registration_forms.read_basic_information_and_registration_forms.a1"
+    description:
+      - "Can read basic information and registration forms."
+
+  - scale: "registration_forms"
+    level: "a2"
+    code: "read_simple_information_and_registration_forms"
+    id: "texts.reading.descriptors.registration_forms.read_simple_information_and_registration_forms.a2"
+    description:
+      - "Can read simple information and registration forms."
+
+  - scale: "registration_forms"
+    level: "b1"
+    code: "read_standard_information_and_registration_forms"
+    id: "texts.reading.descriptors.registration_forms.read_standard_information_and_registration_forms.b1"
+    description:
+      - "Can read standard information and registration forms."
+
+  - scale: "registration_forms"
+    level: "b2"
+    code: "read_administrative_forms"
+    id: "texts.reading.descriptors.registration_forms.read_administrative_forms.b2"
+    description:
+      - "Can read administrative forms."
+
+  - scale: "business_cards"
+    level: "a1"
+    code: "read_business_cards"
+    id: "texts.reading.descriptors.business_cards.read_business_cards.a1"
+    description:
+      - "Can read business cards."
+
+  - scale: "curricula_vitae"
+    level: "a2"
+    code: "read_simple_curricula_vitae"
+    id: "texts.reading.descriptors.curricula_vitae.read_simple_curricula_vitae.a2"
+    description:
+      - "Can read simple curricula vitae."
+
+  - scale: "curricula_vitae"
+    level: "b1"
+    code: "read_standard_curricula_vitae"
+    id: "texts.reading.descriptors.curricula_vitae.read_standard_curricula_vitae.b1"
+    description:
+      - "Can read standard curricula vitae."
+
+  - scale: "curricula_vitae"
+    level: "b2"
+    code: "read_detailed_curricula_vitae"
+    id: "texts.reading.descriptors.curricula_vitae.read_detailed_curricula_vitae.b2"
+    description:
+      - "Can read detailed curricula vitae."
+
+  - scale: "diplomas_transcripts_and_results"
+    level: "a1"
+    code: "read_diplomas_transcripts_and_results"
+    id: "texts.reading.descriptors.diplomas_transcripts_and_results.read_diplomas_transcripts_and_results.a1"
+    description:
+      - "Can read diplomas, transcripts, and results."
+
+  - scale: "diplomas_transcripts_and_results"
+    level: "a2"
+    code: "read_standard_diplomas_transcripts_and_results"
+    id: "texts.reading.descriptors.diplomas_transcripts_and_results.read_standard_diplomas_transcripts_and_results.a2"
+    description:
+      - "Can read standard diplomas, transcripts, and results."
+
+  - scale: "product_labels"
+    level: "a1"
+    code: "read_food_clothing_and_medicine_labels"
+    id: "texts.reading.descriptors.product_labels.read_food_clothing_and_medicine_labels.a1"
+    description:
+      - "Can read food, clothing, and medicine labels."
+
+  - scale: "signs_and_information_boards"
+    level: "a1"
+    code: "read_simple_signs_and_information_boards"
+    id: "texts.reading.descriptors.signs_and_information_boards.read_simple_signs_and_information_boards.a1"
+    description:
+      - "Can read simple signs and information boards."
+
+  - scale: "signs_and_information_boards"
+    level: "a2"
+    code: "read_road_and_tourist_signs_and_information_boards"
+    id: "texts.reading.descriptors.signs_and_information_boards.read_road_and_tourist_signs_and_information_boards.a2"
+    description:
+      - "Can read road and tourist signs and information boards."
+
+  - scale: "street_station_shop_and_building_names"
+    level: "a1"
+    code: "read_names_of_streets_stations_shops_departments_and_public_buildings"
+    id: "texts.reading.descriptors.street_station_shop_and_building_names.read_names_of_streets_stations_shops_departments_and_public_buildings.a1"
+    description:
+      - "Can read the names of streets, stations, shops, store departments, and public buildings."
+
+  - scale: "street_station_shop_and_building_names"
+    level: "a2"
+    code: "read_standard_public_place_and_shop_names"
+    id: "texts.reading.descriptors.street_station_shop_and_building_names.read_standard_public_place_and_shop_names.a2"
+    description:
+      - "Can read standard names of streets, stations, shops, store departments, and public buildings."
+
+  - scale: "street_station_shop_and_building_names"
+    level: "b2"
+    code: "read_commemorative_plaques"
+    id: "texts.reading.descriptors.street_station_shop_and_building_names.read_commemorative_plaques.b2"
+    description:
+      - "Can read commemorative plaques."
+
+  - scale: "timetables"
+    level: "a1"
+    code: "read_timetables"
+    id: "texts.reading.descriptors.timetables.read_timetables.a1"
+    description:
+      - "Can read timetables."
+
+  - scale: "timetables"
+    level: "a2"
+    code: "read_standard_timetables"
+    id: "texts.reading.descriptors.timetables.read_standard_timetables.a2"
+    description:
+      - "Can read standard timetables."
+
+  - scale: "tickets_and_travel_passes"
+    level: "a1"
+    code: "read_tickets_and_travel_passes"
+    id: "texts.reading.descriptors.tickets_and_travel_passes.read_tickets_and_travel_passes.a1"
+    description:
+      - "Can read tickets and travel passes."
+
+  - scale: "tickets_and_travel_passes"
+    level: "a2"
+    code: "read_standard_tickets_and_travel_passes"
+    id: "texts.reading.descriptors.tickets_and_travel_passes.read_standard_tickets_and_travel_passes.a2"
+    description:
+      - "Can read standard tickets and travel passes."
+
+  - scale: "bills_and_receipts"
+    level: "a1"
+    code: "read_cash_register_receipts"
+    id: "texts.reading.descriptors.bills_and_receipts.read_cash_register_receipts.a1"
+    description:
+      - "Can read cash register receipts."
+
+  - scale: "bills_and_receipts"
+    level: "a2"
+    code: "read_acknowledgements_of_receipt"
+    id: "texts.reading.descriptors.bills_and_receipts.read_acknowledgements_of_receipt.a2"
+    description:
+      - "Can read acknowledgements of receipt."
+
+  - scale: "bills_and_receipts"
+    level: "b1"
+    code: "read_standard_bills_and_receipts"
+    id: "texts.reading.descriptors.bills_and_receipts.read_standard_bills_and_receipts.b1"
+    description:
+      - "Can read standard bills and receipts."
+
+  - scale: "maps_and_routes"
+    level: "a1"
+    code: "read_simple_maps_and_routes_for_public_transport"
+    id: "texts.reading.descriptors.maps_and_routes.read_simple_maps_and_routes_for_public_transport.a1"
+    description:
+      - "Can read simple maps and routes, especially for public transport."
+
+  - scale: "maps_and_routes"
+    level: "a2"
+    code: "read_standard_maps_and_routes"
+    id: "texts.reading.descriptors.maps_and_routes.read_standard_maps_and_routes.a2"
+    description:
+      - "Can read standard maps and routes."
+
+  - scale: "maps_and_routes"
+    level: "b1"
+    code: "read_detailed_maps_and_routes"
+    id: "texts.reading.descriptors.maps_and_routes.read_detailed_maps_and_routes.b1"
+    description:
+      - "Can read detailed maps and routes."
+
+  - scale: "advertisements_and_promotional_offers"
+    level: "a1"
+    code: "read_simple_advertisements_and_promotional_offers"
+    id: "texts.reading.descriptors.advertisements_and_promotional_offers.read_simple_advertisements_and_promotional_offers.a1"
+    description:
+      - "Can read simple advertisements and promotional offers."
+
+  - scale: "advertisements_and_promotional_offers"
+    level: "a2"
+    code: "read_standard_advertisements_and_promotional_offers"
+    id: "texts.reading.descriptors.advertisements_and_promotional_offers.read_standard_advertisements_and_promotional_offers.a2"
+    description:
+      - "Can read standard advertisements and promotional offers."
+
+  - scale: "advertisements_and_promotional_offers"
+    level: "b1"
+    code: "read_varied_advertisements_and_promotional_offers"
+    id: "texts.reading.descriptors.advertisements_and_promotional_offers.read_varied_advertisements_and_promotional_offers.b1"
+    description:
+      - "Can read varied advertisements and promotional offers."
+
+  - scale: "advertisements_and_promotional_offers"
+    level: "b2"
+    code: "read_advertisements_and_promotional_offers_with_cultural_implied_meaning"
+    id: "texts.reading.descriptors.advertisements_and_promotional_offers.read_advertisements_and_promotional_offers_with_cultural_implied_meaning.b2"
+    description:
+      - "Can read advertisements and promotional offers with cultural implied meaning."
+
+  - scale: "advertisements_and_promotional_offers"
+    level: "c1"
+    code: "read_complex_advertisements_and_promotional_offers"
+    id: "texts.reading.descriptors.advertisements_and_promotional_offers.read_complex_advertisements_and_promotional_offers.c1"
+    description:
+      - "Can read complex advertisements and promotional offers."
+
+  - scale: "classified_ads"
+    level: "a1"
+    code: "read_property_classified_ads"
+    id: "texts.reading.descriptors.classified_ads.read_property_classified_ads.a1"
+    description:
+      - "Can read property classified ads."
+
+  - scale: "classified_ads"
+    level: "a2"
+    code: "read_standard_property_classified_ads"
+    id: "texts.reading.descriptors.classified_ads.read_standard_property_classified_ads.a2"
+    description:
+      - "Can read standard property classified ads."
+
+  - scale: "classified_ads"
+    level: "b1"
+    code: "read_varied_classified_ads"
+    id: "texts.reading.descriptors.classified_ads.read_varied_classified_ads.b1"
+    description:
+      - "Can read varied classified ads."
+
+  - scale: "classified_ads"
+    level: "b2"
+    code: "read_detailed_classified_ads"
+    id: "texts.reading.descriptors.classified_ads.read_detailed_classified_ads.b2"
+    description:
+      - "Can read detailed classified ads."
+
+  - scale: "posters"
+    level: "a1"
+    code: "read_everyday_posters"
+    id: "texts.reading.descriptors.posters.read_everyday_posters.a1"
+    description:
+      - "Can read everyday posters."
+
+  - scale: "posters"
+    level: "a2"
+    code: "read_instructional_or_safety_posters"
+    id: "texts.reading.descriptors.posters.read_instructional_or_safety_posters.a2"
+    description:
+      - "Can read posters about instructions, safety, or risks."
+
+  - scale: "posters"
+    level: "b1"
+    code: "read_standard_posters"
+    id: "texts.reading.descriptors.posters.read_standard_posters.b1"
+    description:
+      - "Can read standard posters."
+
+  - scale: "posters"
+    level: "b2"
+    code: "read_official_notices_and_all_types_of_posters"
+    id: "texts.reading.descriptors.posters.read_official_notices_and_all_types_of_posters.b2"
+    description:
+      - "Can read official notices and all types of posters."
+
+  - scale: "manifestos_leaflets_and_petitions"
+    level: "b1"
+    code: "read_manifestos_leaflets_and_petitions"
+    id: "texts.reading.descriptors.manifestos_leaflets_and_petitions.read_manifestos_leaflets_and_petitions.b1"
+    description:
+      - "Can read manifestos, leaflets, and petitions."
+
+  - scale: "manifestos_leaflets_and_petitions"
+    level: "b2"
+    code: "read_extended_manifestos_leaflets_and_petitions"
+    id: "texts.reading.descriptors.manifestos_leaflets_and_petitions.read_extended_manifestos_leaflets_and_petitions.b2"
+    description:
+      - "Can read extended manifestos, leaflets, and petitions."
+
+  - scale: "manifestos_leaflets_and_petitions"
+    level: "c1"
+    code: "read_complex_manifestos_leaflets_and_petitions"
+    id: "texts.reading.descriptors.manifestos_leaflets_and_petitions.read_complex_manifestos_leaflets_and_petitions.c1"
+    description:
+      - "Can read complex manifestos, leaflets, and petitions."
+
+  - scale: "official_documents_and_legal_texts"
+    level: "b1"
+    code: "read_simple_official_or_legal_documents_according_to_needs"
+    id: "texts.reading.descriptors.official_documents_and_legal_texts.read_simple_official_or_legal_documents_according_to_needs.b1"
+    description:
+      - "Can read simple official or legal documents according to needs."
+
+  - scale: "official_documents_and_legal_texts"
+    level: "b2"
+    code: "read_standard_official_documents_and_legal_texts"
+    id: "texts.reading.descriptors.official_documents_and_legal_texts.read_standard_official_documents_and_legal_texts.b2"
+    description:
+      - "Can read standard official documents and legal texts."
+
+  - scale: "official_documents_and_legal_texts"
+    level: "c1"
+    code: "read_all_types_of_official_documents"
+    id: "texts.reading.descriptors.official_documents_and_legal_texts.read_all_types_of_official_documents.c1"
+    description:
+      - "Can read all types of official documents."
+
+  - scale: "menus"
+    level: "a1"
+    code: "read_simple_menus"
+    id: "texts.reading.descriptors.menus.read_simple_menus.a1"
+    description:
+      - "Can read simple menus."
+
+  - scale: "menus"
+    level: "b1"
+    code: "read_regional_menus"
+    id: "texts.reading.descriptors.menus.read_regional_menus.b1"
+    description:
+      - "Can read regional menus."
+
+  - scale: "menus"
+    level: "b2"
+    code: "read_elaborate_menus"
+    id: "texts.reading.descriptors.menus.read_elaborate_menus.b2"
+    description:
+      - "Can read elaborate menus."
+
+  - scale: "cultural_or_sporting_programmes"
+    level: "a1"
+    code: "read_simple_cultural_or_sporting_programmes"
+    id: "texts.reading.descriptors.cultural_or_sporting_programmes.read_simple_cultural_or_sporting_programmes.a1"
+    description:
+      - "Can read simple programmes for cultural or sporting events."
+
+  - scale: "cultural_or_sporting_programmes"
+    level: "a2"
+    code: "read_standard_cultural_or_sporting_programmes"
+    id: "texts.reading.descriptors.cultural_or_sporting_programmes.read_standard_cultural_or_sporting_programmes.a2"
+    description:
+      - "Can read standard programmes for cultural or sporting events."
+
+  - scale: "tourist_leaflets"
+    level: "a1"
+    code: "read_simple_tourist_leaflets"
+    id: "texts.reading.descriptors.tourist_leaflets.read_simple_tourist_leaflets.a1"
+    description:
+      - "Can read simple tourist leaflets."
+
+  - scale: "tourist_leaflets"
+    level: "b1"
+    code: "read_informative_or_historical_tourist_leaflets"
+    id: "texts.reading.descriptors.tourist_leaflets.read_informative_or_historical_tourist_leaflets.b1"
+    description:
+      - "Can read informative or historical tourist leaflets."
+
+  - scale: "brochures_prospectuses_and_catalogues"
+    level: "a1"
+    code: "read_simple_brochures_prospectuses_and_catalogues"
+    id: "texts.reading.descriptors.brochures_prospectuses_and_catalogues.read_simple_brochures_prospectuses_and_catalogues.a1"
+    description:
+      - "Can read simple brochures, prospectuses, and catalogues."
+
+  - scale: "brochures_prospectuses_and_catalogues"
+    level: "a2"
+    code: "read_standard_brochures_prospectuses_and_catalogues"
+    id: "texts.reading.descriptors.brochures_prospectuses_and_catalogues.read_standard_brochures_prospectuses_and_catalogues.a2"
+    description:
+      - "Can read standard brochures, prospectuses, and catalogues."
+
+  - scale: "brochures_prospectuses_and_catalogues"
+    level: "b1"
+    code: "read_detailed_brochures_prospectuses_and_catalogues"
+    id: "texts.reading.descriptors.brochures_prospectuses_and_catalogues.read_detailed_brochures_prospectuses_and_catalogues.b1"
+    description:
+      - "Can read detailed brochures, prospectuses, and catalogues."
+
+  - scale: "tourism_websites"
+    level: "a2"
+    code: "read_tourism_websites"
+    id: "texts.reading.descriptors.tourism_websites.read_tourism_websites.a2"
+    description:
+      - "Can read tourism websites."
+
+  - scale: "tourism_websites"
+    level: "b1"
+    code: "read_standard_tourism_websites"
+    id: "texts.reading.descriptors.tourism_websites.read_standard_tourism_websites.b1"
+    description:
+      - "Can read standard tourism websites."
+
+  - scale: "tourism_websites"
+    level: "b2"
+    code: "read_detailed_tourism_websites"
+    id: "texts.reading.descriptors.tourism_websites.read_detailed_tourism_websites.b2"
+    description:
+      - "Can read detailed tourism websites."
+
+  - scale: "guides"
+    level: "b1"
+    code: "read_short_guides"
+    id: "texts.reading.descriptors.guides.read_short_guides.b1"
+    description:
+      - "Can read short guides."
+
+  - scale: "guides"
+    level: "b2"
+    code: "read_standard_guides"
+    id: "texts.reading.descriptors.guides.read_standard_guides.b2"
+    description:
+      - "Can read standard guides."
+
+  - scale: "guides"
+    level: "c1"
+    code: "read_all_types_of_guides"
+    id: "texts.reading.descriptors.guides.read_all_types_of_guides.c1"
+    description:
+      - "Can read all types of guides."
+
+  - scale: "recipes"
+    level: "a1"
+    code: "read_simple_recipes"
+    id: "texts.reading.descriptors.recipes.read_simple_recipes.a1"
+    description:
+      - "Can read simple recipes."
+
+  - scale: "recipes"
+    level: "a2"
+    code: "read_standard_recipes"
+    id: "texts.reading.descriptors.recipes.read_standard_recipes.a2"
+    description:
+      - "Can read standard recipes."
+
+  - scale: "recipes"
+    level: "b1"
+    code: "read_detailed_recipes"
+    id: "texts.reading.descriptors.recipes.read_detailed_recipes.b1"
+    description:
+      - "Can read detailed recipes."
+
+  - scale: "recipes"
+    level: "b2"
+    code: "read_complex_recipes"
+    id: "texts.reading.descriptors.recipes.read_complex_recipes.b2"
+    description:
+      - "Can read complex recipes."
+
+  - scale: "instruction_manuals"
+    level: "a1"
+    code: "read_basic_instruction_manuals"
+    id: "texts.reading.descriptors.instruction_manuals.read_basic_instruction_manuals.a1"
+    description:
+      - "Can read basic instruction manuals."
+
+  - scale: "instruction_manuals"
+    level: "a2"
+    code: "read_short_and_simple_instruction_manuals"
+    id: "texts.reading.descriptors.instruction_manuals.read_short_and_simple_instruction_manuals.a2"
+    description:
+      - "Can read short and simple instruction manuals."
+
+  - scale: "instruction_manuals"
+    level: "b1"
+    code: "read_standard_instruction_manuals"
+    id: "texts.reading.descriptors.instruction_manuals.read_standard_instruction_manuals.b1"
+    description:
+      - "Can read standard instruction manuals."
+
+  - scale: "instruction_manuals"
+    level: "b2"
+    code: "read_user_manuals"
+    id: "texts.reading.descriptors.instruction_manuals.read_user_manuals.b2"
+    description:
+      - "Can read user manuals."
+
+  - scale: "instruction_manuals"
+    level: "c1"
+    code: "read_complex_user_manuals"
+    id: "texts.reading.descriptors.instruction_manuals.read_complex_user_manuals.c1"
+    description:
+      - "Can read complex user manuals."
+
+  - scale: "instructions"
+    level: "a1"
+    code: "read_simple_instructions_for_automatic_devices"
+    id: "texts.reading.descriptors.instructions.read_simple_instructions_for_automatic_devices.a1"
+    description:
+      - "Can read simple instructions for automatic devices."
+
+  - scale: "instructions"
+    level: "a2"
+    code: "read_simple_notices_for_automatic_devices"
+    id: "texts.reading.descriptors.instructions.read_simple_notices_for_automatic_devices.a2"
+    description:
+      - "Can read simple notices for automatic devices."
+
+  - scale: "instructions"
+    level: "b1"
+    code: "read_conditions_and_warnings"
+    id: "texts.reading.descriptors.instructions.read_conditions_and_warnings.b1"
+    description:
+      - "Can read conditions and warnings."
+
+  - scale: "instructions"
+    level: "b2"
+    code: "read_all_types_of_instructions"
+    id: "texts.reading.descriptors.instructions.read_all_types_of_instructions.b2"
+    description:
+      - "Can read all types of instructions."
+
+  - scale: "instructions"
+    level: "c1"
+    code: "read_all_types_of_complex_instructions"
+    id: "texts.reading.descriptors.instructions.read_all_types_of_complex_instructions.c1"
+    description:
+      - "Can read all types of complex instructions."
+
+  - scale: "regulations"
+    level: "a2"
+    code: "read_safety_regulations"
+    id: "texts.reading.descriptors.regulations.read_safety_regulations.a2"
+    description:
+      - "Can read safety regulations."
+
+  - scale: "regulations"
+    level: "b1"
+    code: "read_standard_regulations"
+    id: "texts.reading.descriptors.regulations.read_standard_regulations.b1"
+    description:
+      - "Can read standard regulations."
+
+  - scale: "regulations"
+    level: "b2"
+    code: "read_detailed_regulations"
+    id: "texts.reading.descriptors.regulations.read_detailed_regulations.b2"
+    description:
+      - "Can read detailed regulations."
+
+  - scale: "regulations"
+    level: "c1"
+    code: "read_complex_regulations"
+    id: "texts.reading.descriptors.regulations.read_complex_regulations.c1"
+    description:
+      - "Can read complex regulations."
+
+  - scale: "prescriptions"
+    level: "a1"
+    code: "read_basic_prescriptions"
+    id: "texts.reading.descriptors.prescriptions.read_basic_prescriptions.a1"
+    description:
+      - "Can read basic medical prescriptions."
+
+  - scale: "prescriptions"
+    level: "a2"
+    code: "read_standard_prescriptions"
+    id: "texts.reading.descriptors.prescriptions.read_standard_prescriptions.a2"
+    description:
+      - "Can read standard medical prescriptions."
+
+  - scale: "prescriptions"
+    level: "b1"
+    code: "read_detailed_prescriptions"
+    id: "texts.reading.descriptors.prescriptions.read_detailed_prescriptions.b1"
+    description:
+      - "Can read detailed medical prescriptions."
+
+  - scale: "prescriptions"
+    level: "b2"
+    code: "read_complex_prescriptions"
+    id: "texts.reading.descriptors.prescriptions.read_complex_prescriptions.b2"
+    description:
+      - "Can read complex medical prescriptions."
+
+  - scale: "contracts_agreements_and_quotes"
+    level: "b2"
+    code: "read_contracts_agreements_and_quotes"
+    id: "texts.reading.descriptors.contracts_agreements_and_quotes.read_contracts_agreements_and_quotes.b2"
+    description:
+      - "Can read contracts, agreements, and quotations."
+
+  - scale: "contracts_agreements_and_quotes"
+    level: "c1"
+    code: "read_long_and_complex_contracts_agreements_and_quotes"
+    id: "texts.reading.descriptors.contracts_agreements_and_quotes.read_long_and_complex_contracts_agreements_and_quotes.c1"
+    description:
+      - "Can read long and complex contracts, agreements, and quotations."
+
+  - scale: "narratives_and_testimonials"
+    level: "a2"
+    code: "read_short_and_simple_narratives_and_testimonials"
+    id: "texts.reading.descriptors.narratives_and_testimonials.read_short_and_simple_narratives_and_testimonials.a2"
+    description:
+      - "Can read short and simple narratives and testimonials."
+
+  - scale: "narratives_and_testimonials"
+    level: "b1"
+    code: "read_short_and_simple_experiential_texts_and_testimonials"
+    id: "texts.reading.descriptors.narratives_and_testimonials.read_short_and_simple_experiential_texts_and_testimonials.b1"
+    description:
+      - "Can read short and simple experiential texts and testimonials."
+
+  - scale: "formal_letters_and_emails"
+    level: "a2"
+    code: "read_simple_formal_letters_and_emails"
+    id: "texts.reading.descriptors.formal_letters_and_emails.read_simple_formal_letters_and_emails.a2"
+    description:
+      - "Can read simple formal or administrative letters and emails."
+
+  - scale: "formal_letters_and_emails"
+    level: "b1"
+    code: "read_standard_formal_letters_and_emails"
+    id: "texts.reading.descriptors.formal_letters_and_emails.read_standard_formal_letters_and_emails.b1"
+    description:
+      - "Can read standard formal or administrative letters and emails."
+
+  - scale: "formal_letters_and_emails"
+    level: "b2"
+    code: "read_detailed_formal_letters_and_emails"
+    id: "texts.reading.descriptors.formal_letters_and_emails.read_detailed_formal_letters_and_emails.b2"
+    description:
+      - "Can read detailed formal or administrative letters and emails."
+
+  - scale: "formal_letters_and_emails"
+    level: "c1"
+    code: "read_all_types_of_formal_letters_and_emails"
+    id: "texts.reading.descriptors.formal_letters_and_emails.read_all_types_of_formal_letters_and_emails.c1"
+    description:
+      - "Can read all types of formal or administrative letters and emails."
+
+  - scale: "reports_and_memos"
+    level: "a1"
+    code: "read_memos"
+    id: "texts.reading.descriptors.reports_and_memos.read_memos.a1"
+    description:
+      - "Can read memos."
+
+  - scale: "reports_and_memos"
+    level: "a2"
+    code: "read_standard_memos"
+    id: "texts.reading.descriptors.reports_and_memos.read_standard_memos.a2"
+    description:
+      - "Can read standard memos."
+
+  - scale: "reports_and_memos"
+    level: "b1"
+    code: "read_factual_reports_on_familiar_topics"
+    id: "texts.reading.descriptors.reports_and_memos.read_factual_reports_on_familiar_topics.b1"
+    description:
+      - "Can read factual reports on familiar topics."
+
+  - scale: "reports_and_memos"
+    level: "b2"
+    code: "read_all_types_of_reports_and_memos"
+    id: "texts.reading.descriptors.reports_and_memos.read_all_types_of_reports_and_memos.b2"
+    description:
+      - "Can read all types of reports and memos."
+
+  - scale: "reports_and_memos"
+    level: "c1"
+    code: "read_all_types_of_complex_reports_and_memos"
+    id: "texts.reading.descriptors.reports_and_memos.read_all_types_of_complex_reports_and_memos.c1"
+    description:
+      - "Can read all types of complex reports and memos."
+
+  - scale: "studies_and_research"
+    level: "b2"
+    code: "read_studies_and_research"
+    id: "texts.reading.descriptors.studies_and_research.read_studies_and_research.b2"
+    description:
+      - "Can read studies and research work."
+
+  - scale: "studies_and_research"
+    level: "c1"
+    code: "read_long_and_complex_studies_and_research"
+    id: "texts.reading.descriptors.studies_and_research.read_long_and_complex_studies_and_research.c1"
+    description:
+      - "Can read long and complex studies and research work."
+
+  - scale: "minutes_and_records"
+    level: "b2"
+    code: "read_minutes_and_records"
+    id: "texts.reading.descriptors.minutes_and_records.read_minutes_and_records.b2"
+    description:
+      - "Can read minutes and records of meetings, conferences, or medical consultations."
+
+  - scale: "minutes_and_records"
+    level: "c1"
+    code: "read_complex_minutes_and_records"
+    id: "texts.reading.descriptors.minutes_and_records.read_complex_minutes_and_records.c1"
+    description:
+      - "Can read complex minutes and records of meetings, conferences, or medical consultations."
+
+  - scale: "dictionaries_and_encyclopedias"
+    level: "b1"
+    code: "use_dictionaries_and_encyclopedias"
+    id: "texts.reading.descriptors.dictionaries_and_encyclopedias.use_dictionaries_and_encyclopedias.b1"
+    description:
+      - "Can read dictionaries and encyclopedias."
+
+  - scale: "dictionaries_and_encyclopedias"
+    level: "b2"
+    code: "read_extended_dictionary_and_encyclopedia_entries"
+    id: "texts.reading.descriptors.dictionaries_and_encyclopedias.read_extended_dictionary_and_encyclopedia_entries.b2"
+    description:
+      - "Can read extended dictionary and encyclopedia entries."
+
+  - scale: "dictionaries_and_encyclopedias"
+    level: "c1"
+    code: "read_thematic_dictionaries_and_encyclopedias"
+    id: "texts.reading.descriptors.dictionaries_and_encyclopedias.read_thematic_dictionaries_and_encyclopedias.c1"
+    description:
+      - "Can read thematic dictionaries and encyclopedias."
+
+  - scale: "newspaper_and_magazine_sections"
+    level: "a1"
+    code: "read_basic_newspaper_and_magazine_sections"
+    id: "texts.reading.descriptors.newspaper_and_magazine_sections.read_basic_newspaper_and_magazine_sections.a1"
+    description:
+      - "Can read basic newspaper and magazine sections such as front pages, covers, tables of contents, headlines, subheadings, and captions."
+
+  - scale: "newspaper_and_magazine_sections"
+    level: "a2"
+    code: "read_standard_newspaper_and_magazine_sections"
+    id: "texts.reading.descriptors.newspaper_and_magazine_sections.read_standard_newspaper_and_magazine_sections.a2"
+    description:
+      - "Can read standard newspaper and magazine sections."
+
+  - scale: "newspaper_and_magazine_sections"
+    level: "b1"
+    code: "read_varied_newspaper_and_magazine_sections"
+    id: "texts.reading.descriptors.newspaper_and_magazine_sections.read_varied_newspaper_and_magazine_sections.b1"
+    description:
+      - "Can read varied newspaper and magazine sections."
+
+  - scale: "newspaper_and_magazine_sections"
+    level: "b2"
+    code: "read_newspaper_and_magazine_sections_with_wordplay_or_cultural_implied_meaning"
+    id: "texts.reading.descriptors.newspaper_and_magazine_sections.read_newspaper_and_magazine_sections_with_wordplay_or_cultural_implied_meaning.b2"
+    description:
+      - "Can read newspaper and magazine sections that include wordplay or cultural implied meaning."
+
+  - scale: "horoscopes"
+    level: "a1"
+    code: "read_daily_horoscopes"
+    id: "texts.reading.descriptors.horoscopes.read_daily_horoscopes.a1"
+    description:
+      - "Can read daily horoscopes."
+
+  - scale: "horoscopes"
+    level: "a2"
+    code: "read_standard_daily_horoscopes"
+    id: "texts.reading.descriptors.horoscopes.read_standard_daily_horoscopes.a2"
+    description:
+      - "Can read standard daily horoscopes."
+
+  - scale: "horoscopes"
+    level: "b1"
+    code: "read_extended_daily_horoscopes"
+    id: "texts.reading.descriptors.horoscopes.read_extended_daily_horoscopes.b1"
+    description:
+      - "Can read extended daily horoscopes."
+
+  - scale: "horoscopes"
+    level: "b2"
+    code: "read_complex_daily_horoscopes"
+    id: "texts.reading.descriptors.horoscopes.read_complex_daily_horoscopes.b2"
+    description:
+      - "Can read complex daily horoscopes."
+
+  - scale: "news_items_and_current_affairs"
+    level: "a1"
+    code: "read_very_brief_news_items"
+    id: "texts.reading.descriptors.news_items_and_current_affairs.read_very_brief_news_items.a1"
+    description:
+      - "Can read very brief news items and current-affairs texts."
+
+  - scale: "news_items_and_current_affairs"
+    level: "a2"
+    code: "read_brief_news_items"
+    id: "texts.reading.descriptors.news_items_and_current_affairs.read_brief_news_items.a2"
+    description:
+      - "Can read brief news items and current-affairs texts."
+
+  - scale: "news_items_and_current_affairs"
+    level: "b1"
+    code: "read_standard_news_items_and_current_affairs_texts"
+    id: "texts.reading.descriptors.news_items_and_current_affairs.read_standard_news_items_and_current_affairs_texts.b1"
+    description:
+      - "Can read standard news items and current-affairs texts."
+
+  - scale: "news_items_and_current_affairs"
+    level: "b2"
+    code: "read_detailed_news_items_and_current_affairs_texts"
+    id: "texts.reading.descriptors.news_items_and_current_affairs.read_detailed_news_items_and_current_affairs_texts.b2"
+    description:
+      - "Can read detailed news items and current-affairs texts."
+
+  - scale: "news_items_and_current_affairs"
+    level: "c1"
+    code: "read_complex_news_items_and_current_affairs_texts"
+    id: "texts.reading.descriptors.news_items_and_current_affairs.read_complex_news_items_and_current_affairs_texts.c1"
+    description:
+      - "Can read complex news items and current-affairs texts."
+
+  - scale: "miscellaneous_incident_reports"
+    level: "a2"
+    code: "read_simple_miscellaneous_incident_reports"
+    id: "texts.reading.descriptors.miscellaneous_incident_reports.read_simple_miscellaneous_incident_reports.a2"
+    description:
+      - "Can read simple miscellaneous incident reports."
+
+  - scale: "miscellaneous_incident_reports"
+    level: "b1"
+    code: "read_standard_miscellaneous_incident_reports"
+    id: "texts.reading.descriptors.miscellaneous_incident_reports.read_standard_miscellaneous_incident_reports.b1"
+    description:
+      - "Can read standard miscellaneous incident reports."
+
+  - scale: "miscellaneous_incident_reports"
+    level: "b2"
+    code: "read_detailed_miscellaneous_incident_reports"
+    id: "texts.reading.descriptors.miscellaneous_incident_reports.read_detailed_miscellaneous_incident_reports.b2"
+    description:
+      - "Can read detailed miscellaneous incident reports."
+
+  - scale: "press_articles"
+    level: "a2"
+    code: "read_short_press_articles_on_familiar_everyday_topics"
+    id: "texts.reading.descriptors.press_articles.read_short_press_articles_on_familiar_everyday_topics.a2"
+    description:
+      - "Can read short press articles on familiar everyday topics."
+
+  - scale: "press_articles"
+    level: "b1"
+    code: "read_simple_factual_press_articles_and_identify_main_point"
+    id: "texts.reading.descriptors.press_articles.read_simple_factual_press_articles_and_identify_main_point.b1"
+    description:
+      - "Can read simple factual press articles and identify the main point."
+
+  - scale: "press_articles"
+    level: "b2"
+    code: "read_complex_press_articles_including_statistics"
+    id: "texts.reading.descriptors.press_articles.read_complex_press_articles_including_statistics.b2"
+    description:
+      - "Can read complex press articles, including those with statistics."
+
+  - scale: "press_articles"
+    level: "c1"
+    code: "read_long_and_complex_press_articles"
+    id: "texts.reading.descriptors.press_articles.read_long_and_complex_press_articles.c1"
+    description:
+      - "Can read long and complex press articles."
+
+  - scale: "reportages"
+    level: "b1"
+    code: "read_brief_reportages"
+    id: "texts.reading.descriptors.reportages.read_brief_reportages.b1"
+    description:
+      - "Can read brief reportages."
+
+  - scale: "reportages"
+    level: "b2"
+    code: "read_standard_reportages"
+    id: "texts.reading.descriptors.reportages.read_standard_reportages.b2"
+    description:
+      - "Can read standard reportages."
+
+  - scale: "reportages"
+    level: "c1"
+    code: "read_complex_reportages"
+    id: "texts.reading.descriptors.reportages.read_complex_reportages.c1"
+    description:
+      - "Can read complex reportages."
+
+  - scale: "interviews"
+    level: "a2"
+    code: "read_simple_interviews"
+    id: "texts.reading.descriptors.interviews.read_simple_interviews.a2"
+    description:
+      - "Can read simple interviews."
+
+  - scale: "interviews"
+    level: "b1"
+    code: "read_standard_interviews"
+    id: "texts.reading.descriptors.interviews.read_standard_interviews.b1"
+    description:
+      - "Can read standard interviews."
+
+  - scale: "interviews"
+    level: "b2"
+    code: "read_detailed_interviews"
+    id: "texts.reading.descriptors.interviews.read_detailed_interviews.b2"
+    description:
+      - "Can read detailed interviews."
+
+  - scale: "interviews"
+    level: "c1"
+    code: "read_complex_interviews"
+    id: "texts.reading.descriptors.interviews.read_complex_interviews.c1"
+    description:
+      - "Can read complex interviews."
+
+  - scale: "specialized_scientific_or_academic_articles"
+    level: "b2"
+    code: "read_specialized_scientific_or_academic_articles"
+    id: "texts.reading.descriptors.specialized_scientific_or_academic_articles.read_specialized_scientific_or_academic_articles.b2"
+    description:
+      - "Can read specialized scientific or academic journal articles."
+
+  - scale: "specialized_scientific_or_academic_articles"
+    level: "c1"
+    code: "read_long_and_complex_specialized_scientific_or_academic_articles"
+    id: "texts.reading.descriptors.specialized_scientific_or_academic_articles.read_long_and_complex_specialized_scientific_or_academic_articles.c1"
+    description:
+      - "Can read long and complex specialized scientific or academic journal articles."
+
+  - scale: "reviews_and_criticism"
+    level: "b1"
+    code: "read_simple_reviews_and_criticism"
+    id: "texts.reading.descriptors.reviews_and_criticism.read_simple_reviews_and_criticism.b1"
+    description:
+      - "Can read simple reviews and criticism."
+
+  - scale: "reviews_and_criticism"
+    level: "b2"
+    code: "read_standard_reviews_and_criticism"
+    id: "texts.reading.descriptors.reviews_and_criticism.read_standard_reviews_and_criticism.b2"
+    description:
+      - "Can read standard reviews and criticism."
+
+  - scale: "reviews_and_criticism"
+    level: "c1"
+    code: "read_all_types_of_long_and_complex_reviews_and_criticism"
+    id: "texts.reading.descriptors.reviews_and_criticism.read_all_types_of_long_and_complex_reviews_and_criticism.c1"
+    description:
+      - "Can read all types of long and complex reviews and criticism."
+
+  - scale: "editorials_and_analyses"
+    level: "b2"
+    code: "read_all_types_of_editorials_and_analyses"
+    id: "texts.reading.descriptors.editorials_and_analyses.read_all_types_of_editorials_and_analyses.b2"
+    description:
+      - "Can read all types of editorials and analyses."
+
+  - scale: "editorials_and_analyses"
+    level: "c1"
+    code: "read_long_and_complex_editorials_and_analyses"
+    id: "texts.reading.descriptors.editorials_and_analyses.read_long_and_complex_editorials_and_analyses.c1"
+    description:
+      - "Can read long and complex editorials and analyses."
+
+  - scale: "contemporary_novels"
+    level: "a2"
+    code: "read_simple_extracts_from_contemporary_novels"
+    id: "texts.reading.descriptors.contemporary_novels.read_simple_extracts_from_contemporary_novels.a2"
+    description:
+      - "Can read simple extracts from contemporary novels."
+
+  - scale: "contemporary_novels"
+    level: "b1"
+    code: "read_standard_contemporary_novels"
+    id: "texts.reading.descriptors.contemporary_novels.read_standard_contemporary_novels.b1"
+    description:
+      - "Can read standard contemporary novels."
+
+  - scale: "contemporary_novels"
+    level: "b2"
+    code: "read_detailed_contemporary_novels"
+    id: "texts.reading.descriptors.contemporary_novels.read_detailed_contemporary_novels.b2"
+    description:
+      - "Can read detailed contemporary novels."
+
+  - scale: "contemporary_novels"
+    level: "c1"
+    code: "read_complex_contemporary_novels"
+    id: "texts.reading.descriptors.contemporary_novels.read_complex_contemporary_novels.c1"
+    description:
+      - "Can read complex contemporary novels."
+
+  - scale: "film_summaries"
+    level: "a2"
+    code: "read_film_summaries"
+    id: "texts.reading.descriptors.film_summaries.read_film_summaries.a2"
+    description:
+      - "Can read film summaries."
+
+  - scale: "film_summaries"
+    level: "b1"
+    code: "read_standard_film_summaries"
+    id: "texts.reading.descriptors.film_summaries.read_standard_film_summaries.b1"
+    description:
+      - "Can read standard film summaries."
+
+  - scale: "film_summaries"
+    level: "b2"
+    code: "read_detailed_film_summaries"
+    id: "texts.reading.descriptors.film_summaries.read_detailed_film_summaries.b2"
+    description:
+      - "Can read detailed film summaries."
+
+  - scale: "biographies"
+    level: "a2"
+    code: "read_biographies"
+    id: "texts.reading.descriptors.biographies.read_biographies.a2"
+    description:
+      - "Can read biographies."
+
+  - scale: "biographies"
+    level: "b1"
+    code: "read_standard_biographies"
+    id: "texts.reading.descriptors.biographies.read_standard_biographies.b1"
+    description:
+      - "Can read standard biographies."
+
+  - scale: "biographies"
+    level: "b2"
+    code: "read_detailed_biographies"
+    id: "texts.reading.descriptors.biographies.read_detailed_biographies.b2"
+    description:
+      - "Can read detailed biographies."
+
+  - scale: "biographies"
+    level: "c1"
+    code: "read_complex_biographies"
+    id: "texts.reading.descriptors.biographies.read_complex_biographies.c1"
+    description:
+      - "Can read complex biographies."
+
+  - scale: "comics_and_childrens_literature"
+    level: "b1"
+    code: "read_comics_and_childrens_literature"
+    id: "texts.reading.descriptors.comics_and_childrens_literature.read_comics_and_childrens_literature.b1"
+    description:
+      - "Can read comics and children's literature."
+
+  - scale: "comics_and_childrens_literature"
+    level: "b2"
+    code: "read_extended_comics_and_childrens_literature"
+    id: "texts.reading.descriptors.comics_and_childrens_literature.read_extended_comics_and_childrens_literature.b2"
+    description:
+      - "Can read extended comics and children's literature."
+
+  - scale: "comics_and_childrens_literature"
+    level: "c1"
+    code: "read_complex_comics_and_childrens_literature"
+    id: "texts.reading.descriptors.comics_and_childrens_literature.read_complex_comics_and_childrens_literature.c1"
+    description:
+      - "Can read complex comics and children's literature."
+
+  - scale: "poems"
+    level: "b1"
+    code: "read_poems"
+    id: "texts.reading.descriptors.poems.read_poems.b1"
+    description:
+      - "Can read poems."
+
+  - scale: "poems"
+    level: "b2"
+    code: "read_detailed_poems"
+    id: "texts.reading.descriptors.poems.read_detailed_poems.b2"
+    description:
+      - "Can read detailed poems."
+
+  - scale: "poems"
+    level: "c1"
+    code: "read_complex_poems"
+    id: "texts.reading.descriptors.poems.read_complex_poems.c1"
+    description:
+      - "Can read complex poems."
+
+  - scale: "cartoons"
+    level: "b1"
+    code: "read_cartoons"
+    id: "texts.reading.descriptors.cartoons.read_cartoons.b1"
+    description:
+      - "Can read cartoons."
+
+  - scale: "cartoons"
+    level: "b2"
+    code: "read_detailed_cartoons"
+    id: "texts.reading.descriptors.cartoons.read_detailed_cartoons.b2"
+    description:
+      - "Can read detailed cartoons."
+
+  - scale: "cartoons"
+    level: "c1"
+    code: "read_complex_cartoons"
+    id: "texts.reading.descriptors.cartoons.read_complex_cartoons.c1"
+    description:
+      - "Can read complex cartoons."
+
+  - scale: "other_literary_texts"
+    level: "b1"
+    code: "read_simple_short_stories_and_tales"
+    id: "texts.reading.descriptors.other_literary_texts.read_simple_short_stories_and_tales.b1"
+    description:
+      - "Can read simple short stories and tales."
+
+  - scale: "other_literary_texts"
+    level: "b2"
+    code: "read_historical_narratives"
+    id: "texts.reading.descriptors.other_literary_texts.read_historical_narratives.b2"
+    description:
+      - "Can read a historical narrative."
+
+  - scale: "other_literary_texts"
+    level: "c1"
+    code: "read_reflective_essayistic_prefatory_and_theatrical_texts"
+    id: "texts.reading.descriptors.other_literary_texts.read_reflective_essayistic_prefatory_and_theatrical_texts.c1"
+    description:
+      - "Can read reflective texts, essays, prefaces, and plays."
+
+  - scale: "postcards"
+    level: "a1"
+    code: "read_postcards"
+    id: "texts.reading.descriptors.postcards.read_postcards.a1"
+    description:
+      - "Can read postcards."
+
+  - scale: "postcards"
+    level: "a2"
+    code: "read_standard_postcards"
+    id: "texts.reading.descriptors.postcards.read_standard_postcards.a2"
+    description:
+      - "Can read standard postcards."
+
+  - scale: "invitations_and_announcements"
+    level: "a1"
+    code: "read_invitations_and_personal_announcements"
+    id: "texts.reading.descriptors.invitations_and_announcements.read_invitations_and_personal_announcements.a1"
+    description:
+      - "Can read invitations and personal announcements."
+
+  - scale: "invitations_and_announcements"
+    level: "a2"
+    code: "read_standard_invitations_and_personal_announcements"
+    id: "texts.reading.descriptors.invitations_and_announcements.read_standard_invitations_and_personal_announcements.a2"
+    description:
+      - "Can read standard invitations and personal announcements."
+
+  - scale: "messages"
+    level: "a1"
+    code: "read_simple_messages"
+    id: "texts.reading.descriptors.messages.read_simple_messages.a1"
+    description:
+      - "Can read simple messages."
+
+  - scale: "messages"
+    level: "a2"
+    code: "read_standard_messages"
+    id: "texts.reading.descriptors.messages.read_standard_messages.a2"
+    description:
+      - "Can read standard messages."
+
+  - scale: "messages"
+    level: "b1"
+    code: "read_detailed_messages"
+    id: "texts.reading.descriptors.messages.read_detailed_messages.b1"
+    description:
+      - "Can read detailed messages."
+
+  - scale: "messages"
+    level: "b2"
+    code: "read_extended_messages"
+    id: "texts.reading.descriptors.messages.read_extended_messages.b2"
+    description:
+      - "Can read extended messages."
+
+  - scale: "messages"
+    level: "c1"
+    code: "read_long_and_complex_messages"
+    id: "texts.reading.descriptors.messages.read_long_and_complex_messages.c1"
+    description:
+      - "Can read long and complex messages."
+
+  - scale: "texts_and_tweets"
+    level: "b1"
+    code: "read_text_messages_and_tweets"
+    id: "texts.reading.descriptors.texts_and_tweets.read_text_messages_and_tweets.b1"
+    description:
+      - "Can read text messages and tweets."
+
+  - scale: "texts_and_tweets"
+    level: "b2"
+    code: "read_detailed_text_messages_and_tweets"
+    id: "texts.reading.descriptors.texts_and_tweets.read_detailed_text_messages_and_tweets.b2"
+    description:
+      - "Can read detailed text messages and tweets."
+
+  - scale: "texts_and_tweets"
+    level: "c1"
+    code: "read_complex_text_messages_and_tweets"
+    id: "texts.reading.descriptors.texts_and_tweets.read_complex_text_messages_and_tweets.c1"
+    description:
+      - "Can read complex text messages and tweets."
+
+  - scale: "personal_letters_and_emails"
+    level: "a1"
+    code: "read_simple_and_short_personal_letters_and_emails"
+    id: "texts.reading.descriptors.personal_letters_and_emails.read_simple_and_short_personal_letters_and_emails.a1"
+    description:
+      - "Can read simple and short personal letters and emails."
+
+  - scale: "personal_letters_and_emails"
+    level: "a2"
+    code: "read_standard_simple_and_short_personal_letters_and_emails"
+    id: "texts.reading.descriptors.personal_letters_and_emails.read_standard_simple_and_short_personal_letters_and_emails.a2"
+    description:
+      - "Can read standard simple and short personal letters and emails."
+
+  - scale: "personal_letters_and_emails"
+    level: "b1"
+    code: "read_detailed_personal_letters_and_emails"
+    id: "texts.reading.descriptors.personal_letters_and_emails.read_detailed_personal_letters_and_emails.b1"
+    description:
+      - "Can read detailed personal letters and emails."
+
+  - scale: "personal_letters_and_emails"
+    level: "b2"
+    code: "read_extended_personal_letters_and_emails"
+    id: "texts.reading.descriptors.personal_letters_and_emails.read_extended_personal_letters_and_emails.b2"
+    description:
+      - "Can read extended personal letters and emails."
+
+  - scale: "personal_letters_and_emails"
+    level: "c1"
+    code: "read_long_personal_letters_and_emails_of_all_types"
+    id: "texts.reading.descriptors.personal_letters_and_emails.read_long_personal_letters_and_emails_of_all_types.c1"
+    description:
+      - "Can read long personal letters and emails of all types."
+
+  - scale: "personal_descriptions"
+    level: "b1"
+    code: "read_personal_descriptions_of_feelings"
+    id: "texts.reading.descriptors.personal_descriptions.read_personal_descriptions_of_feelings.b1"
+    description:
+      - "Can read personal descriptions of feelings."
+
+  - scale: "personal_descriptions"
+    level: "b2"
+    code: "read_detailed_personal_descriptions_of_feelings"
+    id: "texts.reading.descriptors.personal_descriptions.read_detailed_personal_descriptions_of_feelings.b2"
+    description:
+      - "Can read detailed personal descriptions of feelings."
+
+  - scale: "personal_descriptions"
+    level: "c1"
+    code: "read_elaborate_personal_descriptions"
+    id: "texts.reading.descriptors.personal_descriptions.read_elaborate_personal_descriptions.c1"
+    description:
+      - "Can read elaborate personal descriptions."
+
+  - scale: "advertisements_and_promotional_offers"
+    level: "c2"
+    code: "read_virtually_all_advertisements_and_promotional_offers_with_subtle_stylistic_and_cultural_distinctions"
+    id: "texts.reading.descriptors.advertisements_and_promotional_offers.read_virtually_all_advertisements_and_promotional_offers_with_subtle_stylistic_and_cultural_distinctions.c2"
+    description:
+      - "Can read virtually all advertisements and promotional offers, including subtle stylistic and cultural distinctions, wordplay, and implied meanings."
+
+  - scale: "manifestos_leaflets_and_petitions"
+    level: "c2"
+    code: "read_virtually_all_manifestos_leaflets_and_petitions_including_subtle_implications"
+    id: "texts.reading.descriptors.manifestos_leaflets_and_petitions.read_virtually_all_manifestos_leaflets_and_petitions_including_subtle_implications.c2"
+    description:
+      - "Can read virtually all manifestos, leaflets, and petitions, including subtle implications and positioning."
+
+  - scale: "official_documents_and_legal_texts"
+    level: "c2"
+    code: "read_virtually_all_official_and_legal_documents_including_highly_specialised_ones"
+    id: "texts.reading.descriptors.official_documents_and_legal_texts.read_virtually_all_official_and_legal_documents_including_highly_specialised_ones.c2"
+    description:
+      - "Can read virtually all official and legal documents, including highly specialised ones, and identify subtle distinctions and implications."
+
+  - scale: "guides"
+    level: "c2"
+    code: "read_virtually_all_guides_including_dense_and_specialised_ones"
+    id: "texts.reading.descriptors.guides.read_virtually_all_guides_including_dense_and_specialised_ones.c2"
+    description:
+      - "Can read virtually all guides, including dense and specialised ones, and extract relevant details quickly."
+
+  - scale: "instruction_manuals"
+    level: "c2"
+    code: "read_lengthy_and_highly_complex_instruction_manuals_in_detail"
+    id: "texts.reading.descriptors.instruction_manuals.read_lengthy_and_highly_complex_instruction_manuals_in_detail.c2"
+    description:
+      - "Can read lengthy and highly complex instruction manuals in detail, including for unfamiliar machines or procedures."
+
+  - scale: "instructions"
+    level: "c2"
+    code: "read_lengthy_and_highly_complex_instructions_in_detail"
+    id: "texts.reading.descriptors.instructions.read_lengthy_and_highly_complex_instructions_in_detail.c2"
+    description:
+      - "Can read lengthy and highly complex instructions in detail, including subtle conditions and exceptions."
+
+  - scale: "regulations"
+    level: "c2"
+    code: "read_highly_complex_regulations_with_subtle_distinctions_and_implications"
+    id: "texts.reading.descriptors.regulations.read_highly_complex_regulations_with_subtle_distinctions_and_implications.c2"
+    description:
+      - "Can read highly complex regulations and identify subtle distinctions, constraints, and implications."
+
+  - scale: "contracts_agreements_and_quotes"
+    level: "c2"
+    code: "read_very_long_and_highly_complex_contracts_agreements_and_quotes_with_subtle_distinctions"
+    id: "texts.reading.descriptors.contracts_agreements_and_quotes.read_very_long_and_highly_complex_contracts_agreements_and_quotes_with_subtle_distinctions.c2"
+    description:
+      - "Can read very long and highly complex contracts, agreements, and quotations, including subtle distinctions and implications."
+
+  - scale: "formal_letters_and_emails"
+    level: "c2"
+    code: "read_specialised_formal_letters_and_emails_on_complex_topics"
+    id: "texts.reading.descriptors.formal_letters_and_emails.read_specialised_formal_letters_and_emails_on_complex_topics.c2"
+    description:
+      - "Can read specialised formal letters and emails on complex topics and identify subtle positions and implications."
+
+  - scale: "reports_and_memos"
+    level: "c2"
+    code: "read_wide_range_of_long_and_complex_reports_and_memos_with_finer_points_and_implications"
+    id: "texts.reading.descriptors.reports_and_memos.read_wide_range_of_long_and_complex_reports_and_memos_with_finer_points_and_implications.c2"
+    description:
+      - "Can read a wide range of long and complex reports and memos, including finer points and implications, even outside their specialisation."
+
+  - scale: "studies_and_research"
+    level: "c2"
+    code: "read_wide_range_of_long_and_complex_studies_and_research_with_subtle_distinctions"
+    id: "texts.reading.descriptors.studies_and_research.read_wide_range_of_long_and_complex_studies_and_research_with_subtle_distinctions.c2"
+    description:
+      - "Can read a wide range of long and complex studies and research texts, including subtle distinctions and implications."
+
+  - scale: "minutes_and_records"
+    level: "c2"
+    code: "read_long_and_complex_minutes_and_records_with_implicit_positions"
+    id: "texts.reading.descriptors.minutes_and_records.read_long_and_complex_minutes_and_records_with_implicit_positions.c2"
+    description:
+      - "Can read long and complex minutes and records, including implicit positions, fine distinctions, and nuanced details."
+
+  - scale: "dictionaries_and_encyclopedias"
+    level: "c2"
+    code: "read_highly_specialised_dictionary_and_encyclopedia_entries"
+    id: "texts.reading.descriptors.dictionaries_and_encyclopedias.read_highly_specialised_dictionary_and_encyclopedia_entries.c2"
+    description:
+      - "Can read highly specialised dictionary and encyclopedia entries and use them efficiently for fine distinctions in meaning."
+
+  - scale: "news_items_and_current_affairs"
+    level: "c2"
+    code: "read_virtually_all_news_items_and_current_affairs_texts_and_scan_sources_in_parallel"
+    id: "texts.reading.descriptors.news_items_and_current_affairs.read_virtually_all_news_items_and_current_affairs_texts_and_scan_sources_in_parallel.c2"
+    description:
+      - "Can read virtually all news items and current-affairs texts and scan several long, complex sources in parallel to identify relevance and detail."
+
+  - scale: "press_articles"
+    level: "c2"
+    code: "read_complex_press_articles_with_finer_points_and_implications_even_outside_specialisation"
+    id: "texts.reading.descriptors.press_articles.read_complex_press_articles_with_finer_points_and_implications_even_outside_specialisation.c2"
+    description:
+      - "Can read complex press articles, including finer points and implications, even outside their specialisation."
+
+  - scale: "reportages"
+    level: "c2"
+    code: "read_virtually_all_reportages_including_subtle_positioning_and_implications"
+    id: "texts.reading.descriptors.reportages.read_virtually_all_reportages_including_subtle_positioning_and_implications.c2"
+    description:
+      - "Can read virtually all reportages, including subtle positioning, implicit meaning, and nuanced detail."
+
+  - scale: "interviews"
+    level: "c2"
+    code: "read_virtually_all_interviews_including_implicit_attitudes_emotions_and_opinions"
+    id: "texts.reading.descriptors.interviews.read_virtually_all_interviews_including_implicit_attitudes_emotions_and_opinions.c2"
+    description:
+      - "Can read virtually all interviews, including implicit attitudes, emotions, opinions, and allusions."
+
+  - scale: "specialized_scientific_or_academic_articles"
+    level: "c2"
+    code: "read_highly_specialised_scientific_or_academic_articles_with_finer_points_and_implications"
+    id: "texts.reading.descriptors.specialized_scientific_or_academic_articles.read_highly_specialised_scientific_or_academic_articles_with_finer_points_and_implications.c2"
+    description:
+      - "Can read highly specialised scientific or academic articles and identify finer points and implications, including outside their main field."
+
+  - scale: "reviews_and_criticism"
+    level: "c2"
+    code: "read_virtually_all_reviews_and_criticism_with_subtle_stylistic_and_evaluative_distinctions"
+    id: "texts.reading.descriptors.reviews_and_criticism.read_virtually_all_reviews_and_criticism_with_subtle_stylistic_and_evaluative_distinctions.c2"
+    description:
+      - "Can read virtually all reviews and criticism, including subtle stylistic, evaluative, and implicit distinctions."
+
+  - scale: "editorials_and_analyses"
+    level: "c2"
+    code: "read_virtually_all_editorials_and_analyses_with_subtle_argumentative_and_ideological_positioning"
+    id: "texts.reading.descriptors.editorials_and_analyses.read_virtually_all_editorials_and_analyses_with_subtle_argumentative_and_ideological_positioning.c2"
+    description:
+      - "Can read virtually all editorials and analyses, including subtle argumentative and ideological positioning."
+
+  - scale: "contemporary_novels"
+    level: "c2"
+    code: "read_virtually_all_contemporary_novels_with_subtle_distinctions_of_style_and_implicit_meaning"
+    id: "texts.reading.descriptors.contemporary_novels.read_virtually_all_contemporary_novels_with_subtle_distinctions_of_style_and_implicit_meaning.c2"
+    description:
+      - "Can read virtually all contemporary novels, including subtle distinctions of style and implicit meaning."
+
+  - scale: "biographies"
+    level: "c2"
+    code: "read_virtually_all_biographies_with_subtle_stylistic_and_interpretive_distinctions"
+    id: "texts.reading.descriptors.biographies.read_virtually_all_biographies_with_subtle_stylistic_and_interpretive_distinctions.c2"
+    description:
+      - "Can read virtually all biographies, including subtle stylistic and interpretive distinctions."
+
+  - scale: "comics_and_childrens_literature"
+    level: "c2"
+    code: "read_virtually_all_comics_and_childrens_literature_including_subtle_humour_and_allusions"
+    id: "texts.reading.descriptors.comics_and_childrens_literature.read_virtually_all_comics_and_childrens_literature_including_subtle_humour_and_allusions.c2"
+    description:
+      - "Can read virtually all comics and children's literature, including subtle humour, allusions, and stylistic effects."
+
+  - scale: "poems"
+    level: "c2"
+    code: "read_virtually_all_poems_with_subtle_stylistic_and_interpretive_distinctions"
+    id: "texts.reading.descriptors.poems.read_virtually_all_poems_with_subtle_stylistic_and_interpretive_distinctions.c2"
+    description:
+      - "Can read virtually all poems, including subtle stylistic and interpretive distinctions."
+
+  - scale: "cartoons"
+    level: "c2"
+    code: "read_virtually_all_cartoons_including_wordplay_allusions_and_sociocultural_implications"
+    id: "texts.reading.descriptors.cartoons.read_virtually_all_cartoons_including_wordplay_allusions_and_sociocultural_implications.c2"
+    description:
+      - "Can read virtually all cartoons, including wordplay, allusions, and sociocultural implications."
+
+  - scale: "other_literary_texts"
+    level: "c2"
+    code: "read_virtually_all_literary_texts_with_subtle_distinctions_of_style_and_implicit_meaning"
+    id: "texts.reading.descriptors.other_literary_texts.read_virtually_all_literary_texts_with_subtle_distinctions_of_style_and_implicit_meaning.c2"
+    description:
+      - "Can read virtually all literary texts, including subtle distinctions of style and implicit meaning."
+
+  - scale: "messages"
+    level: "c2"
+    code: "read_highly_nuanced_messages_including_implicit_attitudes_and_emotions"
+    id: "texts.reading.descriptors.messages.read_highly_nuanced_messages_including_implicit_attitudes_and_emotions.c2"
+    description:
+      - "Can read highly nuanced messages, including implicit attitudes, emotions, and social positioning."
+
+  - scale: "texts_and_tweets"
+    level: "c2"
+    code: "read_highly_condensed_digital_messages_with_slang_idioms_jokes_and_implicit_meanings"
+    id: "texts.reading.descriptors.texts_and_tweets.read_highly_condensed_digital_messages_with_slang_idioms_jokes_and_implicit_meanings.c2"
+    description:
+      - "Can read highly condensed digital messages, including slang, idiomatic expressions, jokes, and implicit meanings."
+
+  - scale: "personal_letters_and_emails"
+    level: "c2"
+    code: "read_virtually_any_personal_letter_or_email_including_colloquial_idiomatic_and_highly_nuanced_ones"
+    id: "texts.reading.descriptors.personal_letters_and_emails.read_virtually_any_personal_letter_or_email_including_colloquial_idiomatic_and_highly_nuanced_ones.c2"
+    description:
+      - "Can read virtually any personal letter or email, including colloquial, idiomatic, humorous, and highly nuanced ones."
+
+  - scale: "personal_descriptions"
+    level: "c2"
+    code: "read_highly_elaborate_personal_descriptions_with_subtle_emotional_and_attitudinal_distinctions"
+    id: "texts.reading.descriptors.personal_descriptions.read_highly_elaborate_personal_descriptions_with_subtle_emotional_and_attitudinal_distinctions.c2"
+    description:
+      - "Can read highly elaborate personal descriptions with subtle emotional and attitudinal distinctions."
