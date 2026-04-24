@@ -1,0 +1,37 @@
+coverage:
+  precision: 2
+  round: down
+  range: "70...100"
+
+  status:
+    project:
+      default:
+        target: auto
+        threshold: 2%
+        informational: true
+
+      internal:
+        target: 90%
+        threshold: 3%
+        informational: true
+        paths:
+          - internal/**
+
+      cmd:
+        target: 60%
+        threshold: 10%
+        informational: true
+        paths:
+          - cmd/**
+
+    patch:
+      default:
+        target: 0%
+        informational: true
+
+comment: false
+
+ignore:
+  - docs/**
+  - specs/**
+  - .pi/**
