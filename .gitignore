@@ -45,6 +45,7 @@ Thumbs.db
 bin/
 cover.out
 coverage.out
+dist/
 
 # Local specs
 /docs/SPEC_*.md

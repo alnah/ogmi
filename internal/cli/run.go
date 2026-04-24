@@ -16,6 +16,8 @@ const (
 	DefaultVersion = "dev"
 )
 
+var version = DefaultVersion
+
 // Run executes ogmi and returns the process exit code.
 func Run(ctx context.Context, args []string, stdout, stderr io.Writer) int {
 	cfg := &config{format: "json"}

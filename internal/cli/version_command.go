@@ -16,7 +16,7 @@ func versionCommand(stdout io.Writer) *cobra.Command {
 		RunE: func(cmd *cobra.Command, args []string) error {
 			_ = cmd
 			_ = args
-			_, err := fmt.Fprintf(stdout, "ogmi version %s\n", DefaultVersion)
+			_, err := fmt.Fprintf(stdout, "ogmi version %s\n", version)
 			return err
 		},
 	}
