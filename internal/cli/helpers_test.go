@@ -168,7 +168,7 @@ func writeThemeSpecsFixture(t *testing.T, idStem, description string) string {
 	t.Helper()
 	root := t.TempDir()
 	specDir := filepath.Join(root, "specs", "themes")
-	if err := os.MkdirAll(specDir, 0o755); err != nil {
+	if err := os.MkdirAll(specDir, 0o700); err != nil {
 		t.Fatalf("os.MkdirAll(theme spec dir) error = %v", err)
 	}
 	yaml := strings.Join([]string{
@@ -189,7 +189,7 @@ func writeThemeSpecsFixture(t *testing.T, idStem, description string) string {
 		`    description: "` + description + `"`,
 		``,
 	}, "\n")
-	if err := os.WriteFile(filepath.Join(specDir, "descriptors.yml"), []byte(yaml), 0o644); err != nil {
+	if err := os.WriteFile(filepath.Join(specDir, "descriptors.yml"), []byte(yaml), 0o600); err != nil {
 		t.Fatalf("os.WriteFile(theme descriptors.yml) error = %v", err)
 	}
 	return root

@@ -84,14 +84,38 @@ func TestExportCopiesEmbeddedSpecsAndPreservesGitkeep(t *testing.T) {
 	}
 }
 
+func TestExportUsesUserReadablePermissions(t *testing.T) {
+	outputDir := t.TempDir()
+	bundle := fstest.MapFS{"specs/themes/descriptors.yml": {Data: []byte("entries: []\n")}}
+
+	if err := specs.Export(bundle, outputDir, false); err != nil {
+		t.Fatalf("specs.Export() error = %v", err)
+	}
+
+	directoryInfo, err := os.Stat(filepath.Join(outputDir, "specs/themes"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got := directoryInfo.Mode().Perm(); got != 0o755 {
+		t.Errorf("exported spec directory mode = %#o, want 0755", got)
+	}
+	fileInfo, err := os.Stat(filepath.Join(outputDir, "specs/themes/descriptors.yml"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got := fileInfo.Mode().Perm(); got != 0o644 {
+		t.Errorf("exported spec file mode = %#o, want 0644", got)
+	}
+}
+
 func TestExportRefusesOverwriteWithoutForce(t *testing.T) {
 	outputDir := t.TempDir()
 	bundle := fstest.MapFS{"specs/themes/descriptors.yml": {Data: []byte("entries: []\n")}}
-	if err := os.MkdirAll(filepath.Join(outputDir, "specs/themes"), 0o755); err != nil {
+	if err := os.MkdirAll(filepath.Join(outputDir, "specs/themes"), 0o700); err != nil {
 		t.Fatal(err)
 	}
 	existingFile := filepath.Join(outputDir, "specs/themes/descriptors.yml")
-	if err := os.WriteFile(existingFile, []byte("existing\n"), 0o644); err != nil {
+	if err := os.WriteFile(existingFile, []byte("existing\n"), 0o600); err != nil {
 		t.Fatal(err)
 	}
 
@@ -101,6 +125,7 @@ func TestExportRefusesOverwriteWithoutForce(t *testing.T) {
 	if err := specs.Export(bundle, outputDir, true); err != nil {
 		t.Fatalf("specs.Export(force=true) error = %v", err)
 	}
+	//nolint:gosec // The path stays under t.TempDir with a fixed relative filename.
 	got, err := os.ReadFile(filepath.Join(outputDir, "specs/themes/descriptors.yml"))
 	if err != nil {
 		t.Fatal(err)

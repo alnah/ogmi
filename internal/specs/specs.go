@@ -55,7 +55,7 @@ func Export(fsys fs.FS, outputDir string, force bool) error {
 		}
 		target := filepath.Join(outputDir, filepath.FromSlash(name))
 		if entry.IsDir() {
-			return os.MkdirAll(target, 0o755)
+			return os.MkdirAll(target, 0o755) //nolint:gosec // Exported specs are user-traversable.
 		}
 		data, err := fs.ReadFile(fsys, name)
 		if err != nil {
@@ -68,10 +68,11 @@ func Export(fsys fs.FS, outputDir string, force bool) error {
 				return fmt.Errorf("stat export target %s: %w", target, err)
 			}
 		}
-		if err := os.MkdirAll(filepath.Dir(target), 0o755); err != nil {
-			return fmt.Errorf("create export directory %s: %w", filepath.Dir(target), err)
+		targetDir := filepath.Dir(target)
+		if err := os.MkdirAll(targetDir, 0o755); err != nil { //nolint:gosec // Exported specs are user-traversable.
+			return fmt.Errorf("create export directory %s: %w", targetDir, err)
 		}
-		if err := os.WriteFile(target, data, 0o644); err != nil {
+		if err := os.WriteFile(target, data, 0o644); err != nil { //nolint:gosec // Exported specs are user-readable.
 			return fmt.Errorf("write exported spec %s: %w", target, err)
 		}
 		return nil

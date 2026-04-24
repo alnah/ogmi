@@ -23,6 +23,7 @@ func TestDescriptorPackagesAvoidGenericAnyDetails(t *testing.T) {
 			if entry.IsDir() || strings.HasSuffix(path, "_test.go") || !strings.HasSuffix(path, ".go") {
 				return nil
 			}
+			//nolint:gosec // The path comes from WalkDir over fixed package roots, not user input.
 			data, err := os.ReadFile(path)
 			if err != nil {
 				return err

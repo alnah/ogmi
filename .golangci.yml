@@ -16,6 +16,7 @@ linters:
     - errorlint
     - gocritic
     - gocyclo
+    - gosec
     - govet
     - ineffassign
     - lll
@@ -45,6 +46,12 @@ linters:
       enable:
         - nilness
         - shadow
+
+    # Security gate: keep gosec enabled; suppress only with targeted //nolint:gosec explanations.
+    gosec:
+      config:
+        global:
+          nosec: false
 
     revive:
       severity: warning
