@@ -3,6 +3,7 @@ package descriptors
 import (
 	"context"
 	"fmt"
+	"slices"
 	"sort"
 	"strings"
 )
@@ -271,7 +272,7 @@ func paginateDescriptors(items []DescriptorRecord, offset, limit int) []Descript
 	if limit > 0 && offset+limit < end {
 		end = offset + limit
 	}
-	return append([]DescriptorRecord(nil), items[offset:end]...)
+	return slices.Clone(items[offset:end])
 }
 
 func paginateScales(items []DescriptorScaleRecord, offset, limit int) []DescriptorScaleRecord {
@@ -283,7 +284,7 @@ func paginateScales(items []DescriptorScaleRecord, offset, limit int) []Descript
 	if limit > 0 && offset+limit < end {
 		end = offset + limit
 	}
-	return append([]DescriptorScaleRecord(nil), items[offset:end]...)
+	return slices.Clone(items[offset:end])
 }
 
 func normalizedOffset(offset int) int {

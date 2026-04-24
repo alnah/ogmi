@@ -10,7 +10,7 @@ type InvalidFilter struct {
 
 // ErrorDetails carries optional structured fields for coded errors.
 type ErrorDetails struct {
-	InvalidFilter   InvalidFilter `json:"invalidFilter,omitempty"`
+	InvalidFilter   InvalidFilter `json:"invalidFilter"`
 	AvailableFields []Field       `json:"availableFields,omitempty"`
 }
 
@@ -19,7 +19,7 @@ type CodedError struct {
 	Code        string       `json:"code"`
 	Message     string       `json:"message"`
 	Suggestions []string     `json:"suggestions,omitempty"`
-	Details     ErrorDetails `json:"details,omitempty"`
+	Details     ErrorDetails `json:"details"`
 }
 
 func (e CodedError) Error() string { return e.Message }
