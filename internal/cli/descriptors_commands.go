@@ -73,6 +73,7 @@ func corporaCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.C
 		Short:   "List descriptor corpora",
 		Long:    "List registered descriptor corpora and their source metadata.",
 		Example: "ogmi descriptors corpora",
+		Args:    rejectUnexpectedArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			_ = cmd
 			_ = args
@@ -92,6 +93,7 @@ func fieldsCommand(cfg *config, stdout io.Writer) *cobra.Command {
 		Short:   "List descriptor fields",
 		Long:    "List known descriptor fields and their query roles.",
 		Example: "ogmi descriptors fields --corpus cefr",
+		Args:    rejectUnexpectedArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			_ = cmd
 			_ = args
@@ -130,6 +132,7 @@ func schemaCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.Co
 		Short:   "Describe descriptor schema",
 		Long:    "Describe descriptor schema or list values for one field.",
 		Example: "ogmi descriptors schema --field level --corpus cefr",
+		Args:    rejectUnexpectedArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			_ = cmd
 			_ = args
@@ -157,6 +160,7 @@ func listCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.Comm
 		Short:   "List descriptors",
 		Long:    "List descriptors with filters, sorting, pagination, groups, and facets.",
 		Example: "ogmi descriptors list --corpus cefr --domain production --subdomain speaking --level a1",
+		Args:    rejectUnexpectedArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			_ = cmd
 			_ = args
@@ -188,6 +192,7 @@ func scalesCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.Co
 		Short:   "List descriptor scales",
 		Long:    "List descriptor scale records for one or more corpora.",
 		Example: "ogmi descriptors scales --corpus cefr --query audience",
+		Args:    rejectUnexpectedArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			_ = cmd
 			_ = args
@@ -219,6 +224,7 @@ func getCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.Comma
 		Short:   "Get one descriptor",
 		Long:    "Get one descriptor by id or by a unique code within a corpus.",
 		Example: "ogmi descriptors get --corpus cefr --id cefr.production.speaking.descriptors.addressing_audiences.use_very_short_prepared_text_to_deliver_rehearsed_statement.a1",
+		Args:    rejectUnexpectedArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			_ = cmd
 			_ = args
@@ -253,6 +259,7 @@ func compareCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.C
 		Short:   "Compare descriptor levels",
 		Long:    "Compare descriptors for one scale across CEFR levels.",
 		Example: "ogmi descriptors compare-levels --corpus cefr --scale turntaking --level a1 --level b1",
+		Args:    rejectUnexpectedArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			_ = cmd
 			_ = args
@@ -284,6 +291,7 @@ func coverageCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.
 		Short:   "Build a coverage matrix",
 		Long:    "Build a descriptor coverage matrix by scale and level.",
 		Example: "ogmi descriptors coverage --corpus cefr --domain production",
+		Args:    rejectUnexpectedArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			_ = cmd
 			_ = args
@@ -312,6 +320,7 @@ func examplesCommand(cfg *config, stdout io.Writer) *cobra.Command {
 		Short:   "Show descriptor workflow examples",
 		Long:    "Show practical descriptor command examples for agents and humans.",
 		Example: "ogmi descriptors examples",
+		Args:    rejectUnexpectedArgs,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			_ = cmd
 			_ = args
@@ -326,6 +335,13 @@ func rejectUnknownDescriptorCommand(cmd *cobra.Command, args []string) error {
 		return nil
 	}
 	return usageError{message: fmt.Sprintf("unknown command %q for %q", args[0], cmd.CommandPath())}
+}
+
+func rejectUnexpectedArgs(cmd *cobra.Command, args []string) error {
+	if err := cobra.NoArgs(cmd, args); err != nil {
+		return usageError{message: err.Error()}
+	}
+	return nil
 }
 
 func validateSortOrder(value string) error {
