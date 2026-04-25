@@ -8,7 +8,7 @@
 > Ogmi is a command-line interface (CLI) that queries structured language-learning descriptor specs and returns JSON by default.
 
 Teachers, schools, publishers, or any curriculum designers can use it to inspect descriptor data.
-Coding agents can use its stable JSON output in lesson-planning and curriculum workflows.
+Coding agents can use its JSON output in lesson-planning and curriculum workflows.
 
 ## Status
 
