@@ -121,6 +121,93 @@ Ogmi resolves specs in this order:
 External specs replace embedded specs.
 They are useful for private, licensed, experimental, or institution-specific descriptor data.
 
+## Custom specs
+
+External specs must use the same `specs/` layout as the bundled specs.
+Start from the bundled files, or create that layout yourself:
+
+```sh
+ogmi specs export --output ./my-specs
+ogmi --specs ./my-specs descriptors list --corpus themes
+```
+
+Or set `OGMI_SPECS` for the current shell:
+
+```sh
+export OGMI_SPECS=./my-specs
+ogmi descriptors list --corpus themes
+```
+
+Ogmi only loads these known corpus locations under the specs root:
+
+| Corpus | Loaded locations |
+| --- | --- |
+| `cefr` | any `descriptors.yml` under `specs/cefr/<domain>/<subdomain>/` |
+| `french` | any `descriptors.yml` under `specs/french/<domain>/` |
+| `texts` | any `descriptors.yml` under `specs/texts/<domain>/` |
+| `themes` | `specs/themes/descriptors.yml` |
+
+Only files named `descriptors.yml` are loaded.
+For `cefr`, the first two path segments below `specs/cefr/` become `domain` and `subdomain`.
+For `french` and `texts`, the first path segment below the corpus root becomes `domain`.
+
+A descriptor file contains `catalog` scale rows, `entries` descriptor rows, or both:
+
+```yaml
+catalog:
+  - code: "food"
+    id: "themes.descriptors.food"
+    description: "Food-related descriptors."
+
+entries:
+  - scale: "food"
+    level: "a1"
+    code: "name_basic_foods"
+    id: "themes.descriptors.food.name_basic_foods.a1"
+    description: "Can name basic foods."
+```
+
+Top-level `id` and `version` fields are allowed in spec files, but the loader does not read them.
+`catalog` rows require `code`, `id`, and `description`.
+`entries` rows require `scale`, `level`, `code`, `id`, and `description`.
+Codes, scales, levels, and corpus path values are normalized to lowercase tokens.
+IDs keep their spelling apart from surrounding whitespace.
+
+`description` must be a YAML string or a list of strings.
+These forms are valid in both `catalog` and `entries` rows:
+
+```yaml
+# Single string.
+description: "Can name basic foods."
+
+# List of strings.
+description:
+  - "Can name basic foods."
+  - "Can state simple preferences."
+
+# Block scalar string.
+description: |
+  Can name basic foods.
+  Can state simple preferences.
+```
+
+Ogmi trims surrounding whitespace from each description string.
+Empty list items are ignored.
+For descriptor `entries`, list items are joined with newlines in JSON output.
+For `catalog` scales, list items remain a JSON string array.
+Block scalar strings keep internal line breaks.
+
+YAML sequence markers are not part of the text.
+If you want visible bullet markers in output, include them inside a block scalar:
+
+```yaml
+description: |
+  - Can name basic foods.
+  - Can state simple preferences.
+```
+
+Maps and nested objects are invalid for `description`.
+
 ## Commands
 
 | Command | Purpose |
