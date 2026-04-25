@@ -76,15 +76,29 @@ Codecov review: always inspect uncovered changed lines, especially in `internal/
 Codecov rule: never chase percent only; prefer meaningful coverage on behavior, boundaries, and failure modes.
 Codecov architecture rule: never move logic into `cmd/` to avoid tests; if logic grows, extract it into `internal/` and test it there.
 
+## Makefile
+
+Makefile: prefer stable targets for local developer and agent workflows.
+Help: `make help` lists targets.
+Fast loop: use `make quick` during development.
+Full check: use `make check` before handoff/commit when feasible.
+Format: use `make fmt` for Go formatting/imports.
+Clean: use `make clean` for generated local artifacts.
+Alignment: when CI changes, update Makefile in the same change.
+Release: do not add publish/tag/push targets; release stays in GitHub Actions and explicit git workflow.
+
 ## Before a commit
 
+Preferred: `make check` should pass when feasible.
+Minimum: if time-constrained, run `make quick` and state which full checks were skipped.
 Build: `go build ./...` always pass.
 Testing: all tests always pass, include race detector when applicable.
 Lint: always lint with `go vet ./...` and `golangci-lint run`; then fix.
 Format: always format with `gofmt`; then fix imports with `goimports`.
 Scripts:
-- `gofmt -w .`
-- `goimports -w .`
+- `make fmt`
+- `make quick`
+- `make check`
 - `go test ./...`
 - `go test -race ./...`
 - `go test -cover ./...`
