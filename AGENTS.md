@@ -13,15 +13,15 @@ Codebase: codebase's root.
 Documentation: `README.md`, `docs/`.
 Stack: `~/workspace/stack/`, always explore repos from stack, third-parties here.
 Go repo: `~/workspace/stack/golang.go/`; read `doc/go_spec.html`, `doc/go_mem.html`, `doc/godebug.md`, latest `api/go1.*.txt`, then stdlib docs, source, examples, tests under `src/`.
-Go wiki: always read `CodeReviewComments` and `TestComments`; use them as live review and test checklist.
+Go wiki repo: `~/workspace/stack/golang.go.wiki/`; read `CodeReviewComments.md` and `TestComments.md`; use them as live review and test checklist.
 Go official prose: follow `GO.md` reading map for current docs and blog posts; prefer source, tests, examples, release notes, API diffs over generic web search.
 Go caution: never treat `Effective Go` as sufficient or current on its own.
 Go practices: consumer-side interfaces unless strong reason; wrap errors with context and `%w`; `panic` only for truly exceptional cases; `context.Context` first parameter, never stored casually; goroutine lifetime and shutdown always explicit; reuse `http.Client` and `http.Transport`; pass context to logging when available.
-Go session Architect: read `GO.md`; Go wiki `CodeReviewComments`; docs `/doc/code`, `/doc/modules/layout`, `/doc/modules/managing-dependencies`, `/doc/modules/developing`, `/doc/modules/release-workflow`; latest release notes from `/doc/devel/release`, `/doc/go1.xx`, latest `api/go1.*.txt`, `doc/godebug.md`; then touched stdlib package docs and examples before Specs.
-Go session QA: read `go doc -all testing`; Go wiki `TestComments`; `net/http/httptest`, `testing/fstest`, `testing/slogtest` when relevant; docs `/doc/tutorial/add-a-test`, `/doc/tutorial/fuzz`, `/doc/security/fuzz`, `/doc/build-cover`, `/doc/articles/race_detector` before Red.
+Go session Architect: read `GO.md`; Go wiki page `CodeReviewComments.md`; docs `/doc/code`, `/doc/modules/layout`, `/doc/modules/managing-dependencies`, `/doc/modules/developing`, `/doc/modules/release-workflow`; latest release notes from `/doc/devel/release`, `/doc/go1.xx`, latest `api/go1.*.txt`, `doc/godebug.md`; then touched stdlib package docs and examples before Specs.
+Go session QA: read `go doc -all testing`; Go wiki page `TestComments.md`; `net/http/httptest`, `testing/fstest`, `testing/slogtest` when relevant; docs `/doc/tutorial/add-a-test`, `/doc/tutorial/fuzz`, `/doc/security/fuzz`, `/doc/build-cover`, `/doc/articles/race_detector` before Red.
 Go session Dev: read touched stdlib package docs, source, tests, examples; `go doc -all context`, `go doc -all errors`; `doc/go_mem.html` when concurrency exists; docs `/blog/go1.13-errors`, `/blog/errors-are-values`, `/blog/context-and-structs`, `/blog/slog` when relevant; latest `api/go1.*.txt` and `doc/godebug.md` when version or runtime behavior may matter; then Green.
-Go session Expert Dev: read Go wiki `CodeReviewComments`; `go doc -all go/doc/comment`; stdlib `doc.go`; docs `/blog/package-names`, `/blog/defer-panic-and-recover`, `/blog/errors-are-values`, `/blog/context-and-structs`, `/blog/slog` when relevant; latest release notes and API diffs before Refactor-code.
-Go session Expert QA: read Go wiki `TestComments`; `go doc -all testing`; `testing/fstest`, `net/http/httptest`, `testing/slogtest` when relevant; docs `/doc/tutorial/fuzz`, `/doc/security/fuzz`, `/doc/build-cover`, `/doc/articles/race_detector`; latest release notes and `api/go1.*.txt` before Refactor-tests.
+Go session Expert Dev: read Go wiki page `CodeReviewComments.md`; `go doc -all go/doc/comment`; stdlib `doc.go`; docs `/blog/package-names`, `/blog/defer-panic-and-recover`, `/blog/errors-are-values`, `/blog/context-and-structs`, `/blog/slog` when relevant; latest release notes and API diffs before Refactor-code.
+Go session Expert QA: read Go wiki page `TestComments.md`; `go doc -all testing`; `testing/fstest`, `net/http/httptest`, `testing/slogtest` when relevant; docs `/doc/tutorial/fuzz`, `/doc/security/fuzz`, `/doc/build-cover`, `/doc/articles/race_detector`; latest release notes and `api/go1.*.txt` before Refactor-tests.
 
 ## Files
 
