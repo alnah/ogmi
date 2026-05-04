@@ -1,12 +1,8 @@
 SHELL := /bin/sh
 
 GO ?= go
-GOLANGCI_LINT ?= golangci-lint
+GOLANGCI_LINT ?= $(GO) tool golangci-lint
 GORELEASER ?= goreleaser
-
-ACTIONLINT_VERSION ?= v1.7.12
-GOIMPORTS_VERSION ?= v0.44.0
-GOVULNCHECK_VERSION ?= v1.1.4
 
 .PHONY: help
 help: ## Show available targets.
@@ -21,12 +17,12 @@ check: actionlint mod-check fmt-check lint vet build goreleaser-check test test-
 .PHONY: fmt
 fmt: ## Format Go files.
 	$(GO)fmt -w .
-	$(GO) run golang.org/x/tools/cmd/goimports@$(GOIMPORTS_VERSION) -w .
+	$(GO) tool goimports -w .
 
 .PHONY: fmt-check
 fmt-check: ## Check Go formatting and imports.
 	@test -z "$$($(GO)fmt -l .)"
-	@output="$$($(GO) run golang.org/x/tools/cmd/goimports@$(GOIMPORTS_VERSION) -l .)"; \
+	@output="$$($(GO) tool goimports -l .)"; \
 	if [ -n "$$output" ]; then printf '%s\n' "$$output"; exit 1; fi
 
 .PHONY: mod-check
@@ -61,11 +57,11 @@ build: ## Build all packages.
 
 .PHONY: actionlint
 actionlint: ## Lint GitHub Actions workflows.
-	$(GO) run github.com/rhysd/actionlint/cmd/actionlint@$(ACTIONLINT_VERSION) .github/workflows/ci.yml .github/workflows/release.yml
+	$(GO) tool actionlint .github/workflows/ci.yml .github/workflows/release.yml
 
 .PHONY: govulncheck
 govulncheck: ## Check reachable Go vulnerabilities.
-	$(GO) run golang.org/x/vuln/cmd/govulncheck@$(GOVULNCHECK_VERSION) ./...
+	$(GO) tool govulncheck ./...
 
 .PHONY: goreleaser-check
 goreleaser-check: ## Check GoReleaser config.

@@ -27,7 +27,7 @@ jobs:
           go-version-file: go.mod
 
       - name: Lint workflows
-        run: go run github.com/rhysd/actionlint/cmd/actionlint@v1.7.12
+        run: go tool actionlint
 
   govulncheck:
     runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
           go-version-file: go.mod
 
       - name: Check Go vulnerabilities
-        run: go run golang.org/x/vuln/cmd/govulncheck@v1.1.4 ./...
+        run: go tool govulncheck ./...
 
   quality:
     runs-on: ubuntu-latest
@@ -68,20 +68,17 @@ jobs:
 
       - name: Check goimports
         run: |
-          output="$(go run golang.org/x/tools/cmd/goimports@v0.44.0 -l .)"
+          output="$(go tool goimports -l .)"
           if [ -n "$output" ]; then
             printf '%s\n' "$output"
             exit 1
           fi
 
       - name: Verify golangci-lint config
-        run: go run github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.10.1 config verify
+        run: go tool golangci-lint config verify
 
       - name: Run golangci-lint
-        uses: golangci/golangci-lint-action@1e7e51e771db61008b38414a730f564565cf7c20 # v9.2.0
-        with:
-          version: v2.10.1
-          args: --timeout=5m
+        run: go tool golangci-lint run --timeout=5m
 
       - name: Run go vet
         run: go vet ./...
