@@ -5,7 +5,7 @@
 [![Codecov](https://codecov.io/gh/alnah/ogmi/graph/badge.svg)](https://codecov.io/gh/alnah/ogmi)
 [![Go Reference](https://pkg.go.dev/badge/github.com/alnah/ogmi.svg)](https://pkg.go.dev/github.com/alnah/ogmi)
 
-> Ogmi is a command-line interface (CLI) that queries structured language-learning descriptors and returns JSON data.
+> Ogmi is a command-line interface (CLI) that queries structured language-learning descriptors and returns JSON data for educational purpose.
 
 Teachers, schools, publishers, or learners can use it to inspect descriptor data.
 Coding agents can use its JSON output in lesson-planning and curriculum workflows. Pair it with
