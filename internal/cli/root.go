@@ -10,6 +10,7 @@ import (
 
 type config struct {
 	format string
+	pretty bool
 	specs  string
 }
 
@@ -33,6 +34,7 @@ func newRootCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.C
 		}, "\n"),
 	}
 	root.PersistentFlags().StringVar(&cfg.format, "format", "json", "output format: json or text")
+	root.PersistentFlags().BoolVar(&cfg.pretty, "pretty", false, "pretty-print JSON output")
 	root.PersistentFlags().StringVar(
 		&cfg.specs,
 		"specs",

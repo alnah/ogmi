@@ -2,7 +2,6 @@ package cli
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"io"
 	"strings"
@@ -94,8 +93,9 @@ func corporaCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.C
 			return writeOutput(
 				stdout,
 				cfg.format,
-				func(w io.Writer) error {
-					return json.NewEncoder(w).Encode(result)
+				cfg.pretty,
+				func(w io.Writer, pretty bool) error {
+					return newJSONEncoder(w, pretty).Encode(result)
 				},
 				corporaText(result),
 			)
@@ -128,8 +128,9 @@ func fieldsCommand(cfg *config, stdout io.Writer) *cobra.Command {
 			return writeOutput(
 				stdout,
 				cfg.format,
-				func(w io.Writer) error {
-					return json.NewEncoder(w).Encode(result)
+				cfg.pretty,
+				func(w io.Writer, pretty bool) error {
+					return newJSONEncoder(w, pretty).Encode(result)
 				},
 				[]string{"Descriptor fields: corpus, domain, subdomain, scale, level, code, id"},
 			)
@@ -172,8 +173,9 @@ func schemaCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.Co
 			return writeOutput(
 				stdout,
 				cfg.format,
-				func(w io.Writer) error {
-					return json.NewEncoder(w).Encode(result)
+				cfg.pretty,
+				func(w io.Writer, pretty bool) error {
+					return newJSONEncoder(w, pretty).Encode(result)
 				},
 				[]string{"Descriptor schema"},
 			)
@@ -212,8 +214,9 @@ func listCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.Comm
 			return writeOutput(
 				stdout,
 				cfg.format,
-				func(w io.Writer) error {
-					return json.NewEncoder(w).Encode(result)
+				cfg.pretty,
+				func(w io.Writer, pretty bool) error {
+					return newJSONEncoder(w, pretty).Encode(result)
 				},
 				[]string{fmt.Sprintf("Descriptors: %d", result.Total)},
 			)
@@ -251,8 +254,9 @@ func scalesCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.Co
 			return writeOutput(
 				stdout,
 				cfg.format,
-				func(w io.Writer) error {
-					return json.NewEncoder(w).Encode(result)
+				cfg.pretty,
+				func(w io.Writer, pretty bool) error {
+					return newJSONEncoder(w, pretty).Encode(result)
 				},
 				[]string{fmt.Sprintf("Descriptor scales: %d", result.Total)},
 			)
@@ -287,8 +291,9 @@ func getCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.Comma
 			return writeOutput(
 				stdout,
 				cfg.format,
-				func(w io.Writer) error {
-					return json.NewEncoder(w).Encode(result)
+				cfg.pretty,
+				func(w io.Writer, pretty bool) error {
+					return newJSONEncoder(w, pretty).Encode(result)
 				},
 				[]string{"Descriptor: " + result.Descriptor.ID},
 			)
@@ -326,8 +331,9 @@ func compareCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.C
 			return writeOutput(
 				stdout,
 				cfg.format,
-				func(w io.Writer) error {
-					return json.NewEncoder(w).Encode(result)
+				cfg.pretty,
+				func(w io.Writer, pretty bool) error {
+					return newJSONEncoder(w, pretty).Encode(result)
 				},
 				[]string{fmt.Sprintf("Compared levels: %d", len(result.Levels))},
 			)
@@ -365,8 +371,9 @@ func coverageCommand(ctx context.Context, cfg *config, stdout io.Writer) *cobra.
 			return writeOutput(
 				stdout,
 				cfg.format,
-				func(w io.Writer) error {
-					return json.NewEncoder(w).Encode(result)
+				cfg.pretty,
+				func(w io.Writer, pretty bool) error {
+					return newJSONEncoder(w, pretty).Encode(result)
 				},
 				[]string{fmt.Sprintf("Coverage total: %d", result.GrandTotal)},
 			)
@@ -398,8 +405,9 @@ func examplesCommand(cfg *config, stdout io.Writer) *cobra.Command {
 			return writeOutput(
 				stdout,
 				cfg.format,
-				func(w io.Writer) error {
-					return json.NewEncoder(w).Encode(result)
+				cfg.pretty,
+				func(w io.Writer, pretty bool) error {
+					return newJSONEncoder(w, pretty).Encode(result)
 				},
 				result.Examples,
 			)

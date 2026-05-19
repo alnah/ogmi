@@ -2,7 +2,6 @@ package cli
 
 import (
 	"context"
-	"encoding/json"
 	"io"
 )
 
@@ -30,7 +29,11 @@ func Run(ctx context.Context, args []string, stdout, stderr io.Writer) int {
 
 	if err := root.ExecuteContext(ctx); err != nil {
 		coded, exitCode := classifyError(err)
-		_ = json.NewEncoder(stderr).Encode(errorEnvelope{Kind: "error", SchemaVersion: SchemaVersion, Error: coded})
+		_ = newJSONEncoder(stderr, cfg.pretty).Encode(errorEnvelope{
+			Kind:          "error",
+			SchemaVersion: SchemaVersion,
+			Error:         coded,
+		})
 		return exitCode
 	}
 	return ExitSuccess

@@ -2,6 +2,7 @@ package cli_test
 
 import (
 	"encoding/json"
+	"strings"
 	"testing"
 )
 
@@ -77,6 +78,35 @@ func TestDescriptorCommandsDefaultToTypedJSON(t *testing.T) {
 
 func TestTextFormatIsOptInForDataCommands(t *testing.T) {
 	result := runOgmi(t, "--format", "text", "descriptors", "corpora")
+	requireSuccess(t, result)
+	if json.Valid([]byte(result.stdout)) {
+		t.Fatalf("text output is valid JSON, want human-readable text: %q", result.stdout)
+	}
+	requireContainsAll(t, result.stdout, "cefr", "french", "texts", "themes")
+}
+
+func TestDescriptorCorporaOutputIsCompactJSONByDefault(t *testing.T) {
+	result := runOgmi(t, "descriptors", "corpora")
+	requireSuccess(t, result)
+	if !json.Valid([]byte(result.stdout)) {
+		t.Fatalf("stdout is not valid JSON: %q", result.stdout)
+	}
+	if strings.Contains(result.stdout, "\n  \"kind\"") {
+		t.Fatalf("stdout is indented JSON, want compact JSON by default: %q", result.stdout)
+	}
+}
+
+func TestPrettyFlagIndentsJSONDataOutput(t *testing.T) {
+	result := runOgmi(t, "--pretty", "descriptors", "corpora")
+	requireSuccess(t, result)
+	if !json.Valid([]byte(result.stdout)) {
+		t.Fatalf("stdout is not valid JSON: %q", result.stdout)
+	}
+	requireContainsAll(t, result.stdout, "\n  \"kind\"", "\n  \"corpora\"")
+}
+
+func TestPrettyFlagKeepsTextFormatOutput(t *testing.T) {
+	result := runOgmi(t, "--pretty", "--format", "text", "descriptors", "corpora")
 	requireSuccess(t, result)
 	if json.Valid([]byte(result.stdout)) {
 		t.Fatalf("text output is valid JSON, want human-readable text: %q", result.stdout)

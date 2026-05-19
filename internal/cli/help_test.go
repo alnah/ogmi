@@ -15,6 +15,7 @@ func TestRootHelpDiscoversCommonCommands(t *testing.T) {
 		"specs",
 		"version",
 		"--format",
+		"--pretty",
 	)
 }
 

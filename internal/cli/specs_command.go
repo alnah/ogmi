@@ -1,7 +1,6 @@
 package cli
 
 import (
-	"encoding/json"
 	"io"
 
 	"github.com/spf13/cobra"
@@ -48,8 +47,9 @@ func specsCommand(cfg *config, stdout io.Writer) *cobra.Command {
 			return writeOutput(
 				stdout,
 				cfg.format,
-				func(w io.Writer) error {
-					return json.NewEncoder(w).Encode(result)
+				cfg.pretty,
+				func(w io.Writer, pretty bool) error {
+					return newJSONEncoder(w, pretty).Encode(result)
 				},
 				[]string{"Exported specs to " + output},
 			)
