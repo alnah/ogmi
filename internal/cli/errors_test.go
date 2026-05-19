@@ -1,7 +1,6 @@
 package cli_test
 
 import (
-	"encoding/json"
 	"path/filepath"
 	"testing"
 
@@ -80,10 +79,7 @@ func TestErrorsUseStderrAndStableExitCodes(t *testing.T) {
 func TestPrettyFlagIndentsJSONErrorOutput(t *testing.T) {
 	result := runOgmi(t, "--pretty", "descriptors", "nope")
 	envelope := requireCLIError(t, result, cli.ExitUsage, "usage", "nope")
-	if !json.Valid([]byte(result.stderr)) {
-		t.Fatalf("stderr is not valid JSON: %q", result.stderr)
-	}
-	requireContainsAll(t, result.stderr, "\n  \"kind\"", "\n  \"error\"")
+	requireIndentedJSONStderr(t, result, "\n  \"kind\"", "\n  \"error\"")
 	requireContainsAll(t, envelope.Error.Message, "unknown command", "nope")
 }
 

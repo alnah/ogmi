@@ -112,6 +112,48 @@ func requireContainsAll(t *testing.T, text string, values ...string) {
 	}
 }
 
+func requireValidJSONStdout(t *testing.T, result commandResult) {
+	t.Helper()
+	if !json.Valid([]byte(result.stdout)) {
+		t.Fatalf("cli.Run() stdout is not valid JSON: %q", result.stdout)
+	}
+}
+
+func requireValidJSONStderr(t *testing.T, result commandResult) {
+	t.Helper()
+	if !json.Valid([]byte(result.stderr)) {
+		t.Fatalf("cli.Run() stderr is not valid JSON: %q", result.stderr)
+	}
+}
+
+func requireCompactJSONStdout(t *testing.T, result commandResult) {
+	t.Helper()
+	requireValidJSONStdout(t, result)
+	if strings.Contains(result.stdout, "\n  \"kind\"") {
+		t.Fatalf("cli.Run() stdout is indented JSON, want compact JSON by default: %q", result.stdout)
+	}
+}
+
+func requireIndentedJSONStdout(t *testing.T, result commandResult, fragments ...string) {
+	t.Helper()
+	requireValidJSONStdout(t, result)
+	requireContainsAll(t, result.stdout, fragments...)
+}
+
+func requireIndentedJSONStderr(t *testing.T, result commandResult, fragments ...string) {
+	t.Helper()
+	requireValidJSONStderr(t, result)
+	requireContainsAll(t, result.stderr, fragments...)
+}
+
+func requireTextStdout(t *testing.T, result commandResult, fragments ...string) {
+	t.Helper()
+	if json.Valid([]byte(result.stdout)) {
+		t.Fatalf("cli.Run() stdout is valid JSON, want human-readable text: %q", result.stdout)
+	}
+	requireContainsAll(t, result.stdout, fragments...)
+}
+
 func requireCLIError(
 	t *testing.T,
 	result commandResult,
